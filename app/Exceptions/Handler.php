@@ -6,6 +6,7 @@ use Exception;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use App\Mail\ExceptionOccured;
+use Illuminate\Session\TokenMismatchException;
 use Mail;
 use Symfony\Component\Debug\ExceptionHandler as SymfonyExceptionHandler;
 use Symfony\Component\Debug\Exception\FlattenException;

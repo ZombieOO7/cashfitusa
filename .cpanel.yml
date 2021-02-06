@@ -2,4 +2,4 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/o1uywr5xdylp/public_html/
-    - /bin/cp -R git pull origin M1
+    - /bin/cp -R * $DEPLOYPATH
