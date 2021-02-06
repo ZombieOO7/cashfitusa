@@ -1,6 +1,8 @@
+@section('front_script')
 <link rel="stylesheet" href="{{asset('frontend/css/custom.css')}}">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+@endsection
     <!-- apply_for_loan_start -->
     <div class="">
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -9,6 +11,7 @@
                 <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
                 <li data-target="#myCarousel" data-slide-to="1"></li>
             </ol>
+
             <div class="carousel-inner">
                 <div class="slider_area item active">
                     <div class="single_slider d-flex align-items-center slider_bg_1">
@@ -27,6 +30,7 @@
                                         </div>
                                         @include('admin.includes.flashMessages')
                                         {{ Form::open(['route' => 'apply-loan','method'=>'post','class'=>'','id'=>'m_form_1']) }}
+                                        @csrf
                                         <div class="form">
                                             <div class="row">
                                                 <div class="col-lg-12 mb-3">
@@ -85,6 +89,7 @@
                                         </div>
                                         @include('admin.includes.flashMessages')
                                         {{ Form::open(['route' => 'apply-loan','method'=>'post','class'=>'','id'=>'m_form_1']) }}
+                                        @csrf
                                         <div class="form">
                                             <div class="row">
                                                 <div class="col-lg-12 mb-3">
@@ -127,6 +132,7 @@
                     </div>
                 </div>
             </div>
+            
         </div>
     </div>
     <!-- apply_for_loan_end -->

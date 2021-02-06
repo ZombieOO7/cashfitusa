@@ -15,65 +15,65 @@
     type="text/css" /> --}}
 {{-- <link href="{{ asset('backend/dist/default/assets/demo/default/base/style.bundle.css') }}" rel="stylesheet"
     type="text/css" /> --}}
+<script src="https://rawgit.com/kimmobrunfeldt/progressbar.js/1.0.0/dist/progressbar.js"></script>
+<style>
+    .list-group-item:hover{
+        background-color: #eef5ff !important; 
+        border-right: 3px solid blue !important;
+    }
+    .list-group-item.active{
+        background-color: #eef5ff !important; 
+        border-right: 3px solid blue !important;
+        color: blue !important; 
+    }
+    .nav-pills .nav-link.active, .nav-pills .show > .nav-link{
+        background: #2171d3 !important;
+    }
+    .progressbar-text{
+        bottom:20px !important;
+        color: #007bff !important;
+    }
+    .datacontainer {
+        display: grid;
+        grid-template-columns: repeat(1, 160px);
+        grid-gap: 80px;
+        margin: auto 0;
+    }
+
+    .datacontainer .box .chart {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        font-size: 36px;
+        line-height: 160px;
+        height: 160px;
+        color: #000;
+    }
+
+    .datacontainer .box canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        width: 100%;
+    }
+</style>
 @endsection
 @section('content')
 @section('title', 'Dashboard')
-    <script src="https://rawgit.com/kimmobrunfeldt/progressbar.js/1.0.0/dist/progressbar.js"></script>
-    <style>
-        .list-group-item:hover{
-            background-color: #eef5ff !important; 
-            border-right: 3px solid blue !important;
-        }
-        .list-group-item.active{
-            background-color: #eef5ff !important; 
-            border-right: 3px solid blue !important;
-            color: blue !important; 
-        }
-        .nav-pills .nav-link.active, .nav-pills .show > .nav-link{
-            background: #2171d3 !important;
-        }
-        .progressbar-text{
-            bottom:20px !important;
-            color: #007bff !important;
-        }
-        .datacontainer {
-            display: grid;
-            grid-template-columns: repeat(1, 160px);
-            grid-gap: 80px;
-            margin: auto 0;
-        }
-
-        .datacontainer .box .chart {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            text-align: center;
-            font-size: 36px;
-            line-height: 160px;
-            height: 160px;
-            color: #000;
-        }
-
-        .datacontainer .box canvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            width: 100%;
-        }
-    </style>
 <section class="loan-process-section section-padding pt-50">
     <div class="col-md-12">
         <div class="mb-2">
             <div class="row">
-                <div class="col-sm-12 col-md-6 col-lg-3">
+                <div class="col-sm-12 col-md-6 tabdash col-lg-3">
                     <div class="mb-35">
                         <ul class="nav nav-pills nav-fill" role="tablist">
                             <li class="nav-item">
-                                <a style="border-top-right-radius: 0 !important;border-bottom-right-radius: 0 !important;" class="nav-link active" data-toggle="tab" href="#m_tabs_1_1">Loan</a>
+                                <a class="nav-link active" data-toggle="tab" href="#m_tabs_1_1">Loan</a>
                             </li>
                             <li class="nav-item">
-                                <a style="border-top-left-radius: 0 !important;border-bottom-left-radius: 0 !important;" class="nav-link" data-toggle="tab" href="#m_tabs_1_2">Earning</a>
+                                <a class="nav-link" data-toggle="tab" href="#m_tabs_1_2">Earning</a>
                             </li>
                         </ul>
                     </div>
@@ -123,7 +123,7 @@
                                                             {{config('constant.currency_symbol').@$totalLoanAmount}}
                                                             </div>
                                                         </div>
-                                                        <div class="col-3 col-md-3 mt-3 p-0">
+                                                        <div class="col-3 col-md-3 mt-2 p-0">
                                                             <img src="{{asset('images/d-1.svg')}}" alt="" class="h-75">
                                                         </div>
                                                     </div>
@@ -138,7 +138,7 @@
                                                                 {{config('constant.currency_symbol').@$paidAmount}}
                                                             </div>
                                                         </div>
-                                                        <div class="col-3 col-md-3 mt-3 p-0">
+                                                        <div class="col-3 col-md-3 mt-2 p-0">
                                                             <img src="{{asset('images/d-2.svg')}}" alt="" class="h-75">
                                                         </div>
                                                     </div>
@@ -153,7 +153,7 @@
                                                                 {{config('constant.currency_symbol').@$leftToPay}}
                                                             </div>
                                                         </div>
-                                                        <div class="col-3 col-md-3 mt-3 p-0">
+                                                        <div class="col-3 col-md-3 mt-2 p-0">
                                                             <img src="{{asset('images/d3.svg')}}" alt="" class="h-75">
                                                         </div>
                                                     </div>
@@ -169,27 +169,32 @@
                                                 <div class="card card-body h-100 grphbox">
                                                     <div class="col-md-12">
                                                         {{-- <div id="containercircle" class="col-md-12 p-3"></div> --}}
+                                                        <label for="" class="form-lable text-bold text-black">Reimbursement Percentage.</label>
                                                         <div class="datacontainer justify-content-md-center col-md-12 p-3">
                                                             <div class="box">
                                                                 <div class="chart" data-percent="{{@$loanRatio}}" data-scale-color="#ffb400">{{@$loanRatio ?? 0}}%</div>
                                                             </div>
                                                         </div>
-                                                        <div class="row mb-2">
-                                                            <label for="" class="col-6 form-label h6  p-0 text-black">Loan Type</label>
-                                                            <label for="" class="col-6 form-label h6  p-0 text-black">{{@config('constant.loan_type')[$lastLoan->loan_type]}}</label>
+
+                                                        <div class="loanstmain">
+                                                        <div class="row mb-0 loanst">
+                                                            <label for="" class="col-6 form-label h6  text-black">Loan Type</label>
+                                                            <label for="" class="col-6 form-label h6  text-black">{{@config('constant.loan_type')[$lastLoan->loan_type]}}</label>
                                                         </div>
-                                                        <div class="row mb-2">
-                                                            <label for="" class="col-6 form-label h6 p-0 text-black">Status</label>
-                                                            <label for="" class="col-6 form-label h6 text-black p-0">Active</label>
+                                                        <div class="row mb-0 loanst">
+                                                            <label for="" class="col-6 form-label h6  text-black">Status</label>
+                                                            <label for="" class="col-6 form-label h6 text-black">Active</label>
                                                         </div>
-                                                        <div class="row mb-2">
-                                                            <label for="" class="col-6 form-label h6 p-0 text-black">No of Emis</label>
-                                                            <label for="" class="col-6 form-label h6 text-black p-0 count2">{{@$totalLoan}}</label>
+                                                        <div class="row mb-0 loanst">
+                                                            <label for="" class="col-6 form-label h6 text-black">No of Emis</label>
+                                                            <label for="" class="col-6 form-label h6 text-black count2">{{@$totalLoan}}</label>
                                                         </div>
-                                                        <div class="row mb-2">
-                                                            <label for="" class="col-6 form-label h6 p-0 text-black">Monthly Instalments Due</label>
-                                                            <label for="" class="col-6 form-label h6 text-black p-0">{{$user->dueInstallments->count()}}</label>
+                                                        <div class="row mb-0 loanst">
+                                                            <label for="" class="col-6 form-label h6  text-black">Monthly Instalments Due</label>
+                                                            <label for="" class="col-6 form-label h6 text-black">{{$user->dueInstallments->count()}}</label>
                                                         </div>
+
+                                                    </div>
                                                         {{-- <div class="row">
                                                             <label for="" class="col-6 form-label h6 text-primary p-0">Last Date</label>
                                                             <label for="" class="col-6 form-label h6 text-dark p-0">{{$lastDate}}</label>
@@ -200,9 +205,9 @@
                                             <div class="col-lg-3 col-md-6 histcol">
                                                 <div class="card card-body  h-100 histbox">
                                                     <label for="" class="form-lable text-bold text-black">Transaction History</label>
-                                                    <table class="w-100">
+                                                    <table class="w-100 tranhismain">
                                                         <thead class="border-0">
-                                                            <tr>
+                                                            <tr class="headdastitle">
                                                                 <th class="text-black">Date</th>
                                                                 <th class="text-right text-black">Amount</th>
                                                             </tr>
@@ -508,6 +513,7 @@
 
                                             <div class="col-lg-4 col-md-6 grphcol">
                                                 <div class="card card-body h-100 grphbox grphbox">
+                                                    <label for="" class="form-lable text-bold text-black">Reimbursement Percentage.</label>
                                                     <div class="col-md-12">
                                                         {{-- <div id="containercircle" class="col-md-12 p-3"></div> --}}
                                                         <div class="datacontainer justify-content-md-center col-md-12 p-3">
@@ -515,7 +521,28 @@
                                                                 <div class="chart" data-percent="{{@$earningRatio}}" data-scale-color="#ffb400">{{@$earningRatio ?? 0}}%</div>
                                                             </div>
                                                         </div>
-                                                        <div class="row mb-2">
+
+                                                        <div class="loanstmain">
+                                                        <div class="row mb-0 loanst">
+                                                            <label for="" class="col-6 form-label h6  text-black">Loan Type</label>
+                                                            <label for="" class="col-6 form-label h6  text-black"></label>
+                                                        </div>
+                                                        <div class="row mb-0 loanst">
+                                                            <label for="" class="col-6 form-label h6  text-black">Status</label>
+                                                            <label for="" class="col-6 form-label h6 text-black">Active</label>
+                                                        </div>
+                                                        <div class="row mb-0 loanst">
+                                                            <label for="" class="col-6 form-label h6 text-black">No of Emis</label>
+                                                            <label for="" class="col-6 form-label h6 text-black count2">0</label>
+                                                        </div>
+                                                        <div class="row mb-0 loanst">
+                                                            <label for="" class="col-6 form-label h6  text-black">Monthly Instalments Due</label>
+                                                            <label for="" class="col-6 form-label h6 text-black">0</label>
+                                                        </div>
+
+                                                    </div>
+
+                                                        <!-- <div class="row mb-2">
                                                             <label for="" class="col-6 form-label h6 text-black p-0">Transaction</label>
                                                             <label for="" class="col-6 form-label h6 text-black p-0">{{@$totalEarnings}}</label>
                                                         </div>
@@ -526,16 +553,17 @@
                                                         <div class="row mb-2">
                                                             <label for="" class="col-6 form-label h6 text-black p-0">Earning Method</label>
                                                             <label for="" class="col-6 form-label h6 text-black p-0">{{@$lastEarning}}</label>
-                                                        </div>
+                                                        </div> -->
+
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-lg-3 col-md-6 histcol">
                                                 <div class="card card-body  h-100 histbox">
                                                     <label for="" class="form-lable text-bold text-black">Transaction History</label>
-                                                    <table class="w-100">
+                                                    <table class="w-100 tranhismain">
                                                         <thead class="border-0">
-                                                            <tr>
+                                                            <tr class="headdastitle">
                                                                 <th class="text-black">Date</th>
                                                                 <th class="text-right text-black">Amount</th>
                                                             </tr>

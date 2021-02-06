@@ -344,6 +344,7 @@ h3 {
   left: 150px;
   color: #fff;
 }
+.container{max-width: 1920px;}
 
 /* line 249, ../../Arafath/CL/December/234. Finance/HTML/scss/theme-default.scss */
 .owl-carousel .owl-nav div.owl-next {
@@ -495,11 +496,11 @@ color: #1a6eff !important;}
 .filter-content .list-group-item:hover{background-color: #eef5ff !important;
 border-right: 3px solid #1a6eff !important;
 color: #1a6eff !important;}
-.loan-process-section .card{border-radius: 10px;min-height: 122px;overflow:hidden;}
-.card.card-body .h5{color: #343c6a;font-weight: 600;font-size: 22px;}
+.loan-process-section .card{border-radius: 10px;min-height: 0px;overflow:hidden;padding: 10px 10px;}
+.card.card-body .h5{color: #343c6a;font-weight: 600;font-size: 28px;}
 .card-body .text-primary{color: #718fbf !important;}
 .card-body .text-dark{color: #343c6a !important;}
-.card-body tr th{color: #718fbf;}
+.card-body tr th{color: #718fbf;padding: 0 30px;}
 .card-body tr td.form-label{line-height: 30px;}
 .card-body label{color: #000;}
 .imgdashcol{display: block;}
@@ -514,6 +515,10 @@ color: #1a6eff !important;}
 .form-control.loan-input{height: 50px !important;}
 
 .condetcol{padding-left: 50px !important;}
+.loan-process-section .card .form-lable{color: #2171d3 !important;padding-bottom: 5px;position: relative;}
+.loan-process-section .card .form-lable:before{position: absolute;content: "";width: 70px;height: 2px;
+background: #2171d3;left: 0;bottom: 0;}
+
 /*---dashbord---*/
 
 /*---yes no---*/
@@ -610,6 +615,7 @@ position: absolute;right: 0;top: 0;bottom: 0;text-align: center;}
 .boxed-btn:focus {
   outline: none;
 }
+.submit_btn{text-align: center;}
 
 /* line 24, ../../Arafath/CL/December/234. Finance/HTML/scss/_btn.scss */
 .boxed-btn3 {
@@ -617,10 +623,10 @@ position: absolute;right: 0;top: 0;bottom: 0;text-align: center;}
   background: #3589f1;
   color: #fff;
   display: inline-block;
-  padding: 11px 29px 13px 29px;
+  padding: 8px 25px 8px 25px;
   font-family: "Roboto", sans-serif;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 600;
   border: 0;
   border: 1px solid transparent;
   -webkit-border-radius: 5px;
@@ -634,6 +640,7 @@ position: absolute;right: 0;top: 0;bottom: 0;text-align: center;}
   -o-transition: 0.3s;
   transition: 0.3s;
   cursor: pointer;
+  letter-spacing: 1px;
 }
 
 /* line 43, ../../Arafath/CL/December/234. Finance/HTML/scss/_btn.scss */
@@ -811,10 +818,11 @@ position: absolute;right: 0;top: 0;bottom: 0;text-align: center;}
 
 /* line 2, ../../Arafath/CL/December/234. Finance/HTML/scss/_section_title.scss */
 .section_title span {
-  display: inline-block;
+  display: block;
   background: #33D4D6;
   width: 60px;
   height: 3px;
+  margin: auto;
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   border-radius: 2px;
@@ -826,9 +834,13 @@ position: absolute;right: 0;top: 0;bottom: 0;text-align: center;}
 .section_title h3 {
   font-size: 28px;
   font-weight: 500;
-  color: #001D38;
+  color: #fff;
+  background: #001D38;
+  display: inline-block;
   position: relative;
   z-index: 0;
+  padding: 5px 10px;
+  border-radius: 5px;
   margin-bottom: 15px;
 }
 
@@ -858,11 +870,14 @@ position: absolute;right: 0;top: 0;bottom: 0;text-align: center;}
 /* line 32, ../../Arafath/CL/December/234. Finance/HTML/scss/_section_title.scss */
 .section_title p {
   font-size: 18px;
-  color: #000;
+  color: #012f51;
+  border-bottom: 1px solid #001d38;
   margin-bottom: 0;
-  font-weight: 400;
+  display: inline-block;
+  font-weight: 600;
   font-family: "Roboto", sans-serif;
 }
+.section_title p.border-none{border-bottom: 0;}
 
 @media (max-width: 767px) {
   /* line 38, ../../Arafath/CL/December/234. Finance/HTML/scss/_section_title.scss */
@@ -1535,13 +1550,15 @@ position: absolute;right: 0;top: 0;bottom: 0;text-align: center;}
 
 /* line 1, ../../Arafath/CL/December/234. Finance/HTML/scss/_slider.scss */
 .slider_bg_1 {
-  background-image: url(../img/banner/banner.png);
+  background-image: url(../img/banner/banner.jpg);
 }
 
 /* line 4, ../../Arafath/CL/December/234. Finance/HTML/scss/_slider.scss */
 .slider_bg_2 {
-  background-image: url(../img/banner/banner_2.png);
+  background-image: url(../img/banner/banner_2.jpg);
 }
+.rem_slider_bg_1{background-image: url(../img/banner/banner_3.jpg);}
+.rem_slider_bg_2{background-image: url(../img/banner/banner_4.jpg);}
 
 /* line 7, ../../Arafath/CL/December/234. Finance/HTML/scss/_slider.scss */
 .slider_area {
@@ -1757,8 +1774,9 @@ position: absolute;right: 0;top: 0;bottom: 0;text-align: center;}
 /* line 133, ../../Arafath/CL/December/234. Finance/HTML/scss/_slider.scss */
 .slider_area .payment_form .single_input input {
   height: 50px;
-  border: 1px solid #F0F0F0;
+  border: 1px solid #000;
   padding: 15px;
+  border-radius: 0;
   font-size: 16px;
   color: #000;
 }
@@ -1772,14 +1790,14 @@ position: absolute;right: 0;top: 0;bottom: 0;text-align: center;}
 .slider_area .payment_form .single_input input::placeholder {
   font-size: 16px;
   font-weight: 400;
-  color: #7A838B;
+  color: #ccc;
   font-family: "Roboto", sans-serif;
 }
 
 /* line 149, ../../Arafath/CL/December/234. Finance/HTML/scss/_slider.scss */
 .slider_area .payment_form h4 {
   font-size: 26px;
-  font-weight: 400;
+  font-weight: bold;
   color: #040E27;
   margin-bottom: 19px;
 }
@@ -7117,34 +7135,54 @@ h6 {
   line-height: 80px;
   text-align: center;
   display: inline-block;
-  border-radius: 50px;
-  background-color: #fff;
+  border-radius: 10px;
+  background-color: #add1f8;
   margin-bottom: 20px;
   transition:all 0.4s ease-in-out;
 }
+
+
 .here-help .help-process .proces-icon{width: auto;height: auto;}
 .here-help .help-process .proces-icon img{max-width: 45px;}
 
-.process-list .proces-icon img{width: 80px;transition:all 0.4s ease-in-out;}
-.process-list .single-process:hover .proces-icon img{box-shadow: 2px 2px 16px rgba(0,0,0,0.1);border-radius: 10px;
-}
+.process-list .proces-icon img{width: 36px;transition:all 0.4s ease-in-out;}
+/*.process-list .single-process:hover .proces-icon img{box-shadow: 2px 2px 16px rgba(0,0,0,0.1);border-radius: 10px;
+}*/
 .process-list .single-process .content p{transition:all 0.4s ease-in-out;}
 .process-list .single-process:hover .content p{color: #2171d3;}
 
 .process-list2 .single-process .proces-icon{transition:all 0.4s ease-in-out;}
 .process-list2 .single-process:hover .proces-icon{box-shadow: 2px 2px 16px rgba(0,0,0,0.1);}
 
-
+.loan-pro-sec .left-col{float: left;width: 50%;}
+.loan-pro-sec .right-col{float: right;width: 50%;}
+.loan-pro-sec .right-col .process{float: right;}
+.loan-pro-sec .center-col .process{margin: auto;}
+.loan-pro-sec .center-col{text-align: center;margin: auto;}
 
 .single-process .content h4 {
-  color: #000;
+  color: #0a8cff;
+  border-bottom: 1px solid #0a8cff;
   font-weight: 600;
-  font-size: 14px;
+  display: inline-block;
+  line-height: 1.5;
+  font-size: 18px;
+
 }
+.single-process .content h4.pro-title{color: #fff;border:0;background: #001d38;padding: 4px;border-radius: 5px;}
 
 .single-process {
   color: #666666;
   font-size: 17px;
+  padding: 15px 4px;
+  background: #cde5f9;border:4px solid #046f99;border-radius: 10px;
+  height: 100%;
+}
+.single-process.sin-pro{background: transparent;border:0;border-radius: 0;}
+.sin-pro .proces-icon{border-radius: 50%;background: #001d38;}
+
+
+.process{margin-bottom: 20px;
 }
 
 .process-list {
@@ -7217,7 +7255,7 @@ h6 {
   text-align: center;
   line-height: 40px;
   bottom: -60px;
-  background-color: #444444;
+  background-color: #0a8cff;
   color: #fff;
   border-radius: 50px;
   font-family: 'Muli', sans-serif;
@@ -7226,12 +7264,13 @@ h6 {
   margin-left: -20px;
   transition: .4s
 }
+.section_title h3.loanheadtitle{background: transparent;border-radius: 0;color: #001D38;}
 
 .process-list2 .process:after {
   width: 100%;
   content: "";
   height: 1px;
-  border-bottom: 1px dashed #444;
+  border-bottom: 1px dashed #0a8cff;
   right: 0;
   bottom: -40px;
   position: absolute;
@@ -7417,7 +7456,7 @@ overflow-x: auto;
     padding-top: 0;
   }
   .section-padding{padding: 20px 0 !important;}
-  .section_title h3{font-size: 22px;line-height: 32px;margin-bottom: 0px;}
+  .section_title h3{font-size: 22px;line-height: 32px;margin-bottom: 5px;}
  .section_title span{width: 50px;height: 2px;}
   .single-process .content h4{margin-bottom: 15px;}
   .card-img-top{width: 100%;}
@@ -7459,4 +7498,17 @@ overflow-x: auto;
 
 .m-wizard.m-wizard--4 .m-wizard__form .m-wizard__form-step{padding-bottom: 1rem;}
 #creditScore h5{font-size: 16px;}
+
+
+.loan-pro-sec .left-col{width: 100%;float: none;}
+.loan-pro-sec .right-col{width: 100%;float: none;}
+.loan-pro-sec .right-col .process{float: none;}
+}
+
+@media only screen and (min-width: 568px) and (max-width: 767px) {
+  
+.loan-pro-sec .left-col{width: 50%;float: left;}
+.loan-pro-sec .right-col{width: 50%;float: right;}
+.loan-pro-sec .right-col .process{float: right;}
+
 }

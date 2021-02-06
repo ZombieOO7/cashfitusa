@@ -5,16 +5,17 @@
                 <div class="section_title text-center mb-20">
                     <h3 class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s">Why Choose Us</h3>
                     <span class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s" style="background: #000 !important;"></span>
-                    <p>Say YES for all the NOs!</p>
+                    <p>Say YES for all the NO's!!</p>
                 </div>
             </div>
         </div>
+
         <div class="row process-list">
-            <div class="col-lg-4 col-md-6 col-6 process text-center">
+            <div class="col-lg-4 col-md-6 col-sm-6 col-12 process text-center">
                 <div class="single-process">
                     <div class="proces-icon" style="border-radius: 10px;">
                         {{-- <span class="pe-7s-note"></span> --}}
-                        <img src="{{asset('frontend/img/charges.svg')}}" alt="">
+                        <img src="{{asset('frontend/img/about/charges.png')}}" alt="">
                     </div>
                     <div class="content pl-1">
                         <h4 class="process-title">No Upfront-Amount</h4>
@@ -22,11 +23,11 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 col-6 process text-center">
+            <div class="col-lg-4 col-md-6 col-sm-6 col-12 process text-center">
                 <div class="single-process">
                     <div class="proces-icon" style="border-radius: 10px;">
                         {{-- <span class="pe-7s-id"></span> --}}
-                        <img src="{{asset('frontend/img/paper.svg')}}" alt="">
+                        <img src="{{asset('frontend/img/about/paper.png')}}" alt="">
                     </div>
                     <div class="content">
                         <h4 class="process-title">No Insurance</h4>
@@ -34,11 +35,11 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 col-6 process text-center">
+            <div class="col-lg-4 col-md-6 col-sm-6 col-12 process text-center">
                 <div class="single-process">
                     <div class="proces-icon" style="border-radius: 10px;">
                         {{-- <span class="pe-7s-check"></span> --}}
-                        <img src="{{asset('frontend/img/easy_approval.svg')}}" alt="">
+                        <img src="{{asset('frontend/img/about/easy_approval.png')}}" alt="">
                     </div>
                     <div class="content">
                         <h4 class="process-title">No Paperwork</h4>
@@ -46,11 +47,11 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 col-6 process text-center">
+            <div class="col-lg-4 col-md-6 col-sm-6 col-12 process text-center">
                 <div class="single-process">
                     <div class="proces-icon" style="border-radius: 10px;">
                         {{-- <span class="pe-7s-cash"></span> --}}
-                        <img src="{{asset('frontend/img/loan_icon.svg')}}" alt="">
+                        <img src="{{asset('frontend/img/about/loan_icon.png')}}" alt="">
                     </div>
                     <div class="content">
                         <h4 class="process-title">No Need to Wait</h4>
@@ -58,11 +59,11 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 col-6 process text-center">
+            <div class="col-lg-4 col-md-6 col-sm-6 col-12 process text-center">
                 <div class="single-process">
                     <div class="proces-icon" style="border-radius: 10px;">
                         {{-- <span class="pe-7s-cash"></span> --}}
-                        <img src="{{asset('frontend/img/intrest.png')}}" alt="">
+                        <img src="{{asset('frontend/img/about/intrest.png')}}" alt="">
                     </div>
                     <div class="content">
                         <h4 class="process-title">No to High-Interest Rates</h4>
@@ -71,5 +72,6 @@
                 </div>
             </div>
         </div>
+
     </div>
 </section>

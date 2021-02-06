@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="{{asset('frontend/css/animate.min.css')}}">
 <link rel="stylesheet" href="{{asset('frontend/css/slick.css')}}">
 <link rel="stylesheet" href="{{asset('frontend/css/slicknav.css')}}">
-
+<link rel="stylesheet" href="{{asset('/frontend/css/newstyle.css')}}">
 <link rel="stylesheet" href="{{asset('frontend/css/style.css')}}">
 <link rel="stylesheet" href="{{asset('frontend/css/style3.css')}}">
 <link rel="stylesheet" href="{{asset('frontend/css/custom.css')}}">

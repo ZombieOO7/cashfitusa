@@ -9,7 +9,51 @@
                 </div>
             </div>
         </div>
-        <div class="row process-list">
+
+        <div class="row process-list2">
+            <div class="col-lg-4 col-md-6 col-12 text-center">
+                <div class="single-process sin-pro">
+                    <div class="proces-icon">
+                        <img src="{{asset('/frontend/img/about/id_card.png')}}" alt="">
+                    </div>
+                    <div class="content">
+                        <h4 class="process-title pro-title">Register</h4>
+
+                        <p>Provide your basic contact details – name, residential address, educational & professional background (not mandatory) and a few other everyday details. These will help us match you with the right professional opportunities for earning.</p>
+                        <p>You might be asked to state your age so we can sure you are an adult resident eligible for professional opportunities. You might also be asked for your bank account details so we may transfer the amount as soon as you are eligible for the payments. Don’t worry – we will not ask for any details that let us withdraw any cash from your account.</p>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-12 text-center">
+                <div class="single-process sin-pro">
+                    <div class="proces-icon">
+                        <img src="{{asset('/frontend/img/about/check.png')}}" alt="">
+                    </div>
+                    <div class="content">
+                        <h4 class="process-title pro-title">Get Approved</h4>
+
+                        <p>As soon as you have provided all the details, our technology will assess your profile and find the possible earning opportunities for you. It has never been this easy to get approved for a lifetime of easy earnings.</p>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-12 text-center">
+                <div class="single-process sin-pro">
+                    <div class="proces-icon">
+                        <img src="{{asset('/frontend/img/about/get_money.png')}}" alt="">
+                    </div>
+                    <div class="content">
+                        <h4 class="process-title pro-title">Start Earning</h4>
+
+                        <p>Once you are approved, all you have to do is visit your dashboard and get started with earning.</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class="row process-list">
             <div class="col-lg-4 col-md-6 process text-center">
                 <div class="help-process">
                     <div class="proces-icon">
@@ -57,6 +101,8 @@
                     </div>
                 </div>
             </div> --}}
-        </div>
+        </div> -->
+
+
     </div>
 </section>

@@ -30,7 +30,7 @@ if($setting){
     <!-- end of help section -->
     
     <!-- start how it work section -->
-    @include('frontend.sections.work_1')
+    @include('frontend.sections.work')
     <!-- end of how it work section -->
 
     <!-- start testinomial section -->

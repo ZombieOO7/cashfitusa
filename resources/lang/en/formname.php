@@ -303,7 +303,7 @@ return [
         'created_at' => 'Apply Date',
         'list' => 'Loan List',
         'amount' => 'Amount',
-        'submit' => 'Apply Now',
+        'submit' => 'Start Now',
         'reason' => 'Reason For reject loan'
     ],
     'app' => [
