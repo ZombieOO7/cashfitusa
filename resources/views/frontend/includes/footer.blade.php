@@ -111,10 +111,10 @@
                             Avoid Late Payments to Protect Your Credit Score
                             Every loan that is approved will have terms and conditions for repayment as well as late payments. Please take a note that any missing payment or making a late payment can negatively impact your credit score. We request you to thoroughly study the terms and conditions, to protect yourself and your credit history, and then only accept loan terms that you can afford to repay. In case of any delays regarding the payments, we request you to immediately bring the same to our notice.
                         </p>
-                        <p class="text-justify">
+                        {{-- <p class="text-justify">
                             Email : Support@RapidCashAmerica.com <br/>
                             Phone : +1(216)-232-6665
-                        </p>
+                        </p> --}}
                     </div>
                 </div>
             </div>
