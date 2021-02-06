@@ -104,6 +104,8 @@ $title=__('formname.web_setting.name');
 															</div>
 														</div>
 													</div> --}}
+
+													
 													<div class="form-group m-form__group row">
 														{!! Form::label(trans('setting.image').'', null,array('class'=>'col-form-label col-lg-3 col-sm-12')) !!}
 														<div class="col-lg-6 col-md-9 col-sm-12">
