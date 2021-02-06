@@ -54,6 +54,9 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        if ($exception instanceof TokenMismatchException && $request->getRequestUri() === '/logout') {
+            return redirect()->route('login')->with(['message' => 'Session expired re login']);
+        }
         return parent::render($request, $exception);
     }
     protected function unauthenticated($request, AuthenticationException $exception)
