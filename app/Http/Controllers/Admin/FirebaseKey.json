@@ -1,0 +1,13 @@
+{
+    "type": "service_account",
+    "project_id": "bellohop",
+    "private_key_id": "c7c96984b0d6be7943d274c43a199c671cd4ca90",
+    "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDJd6cikXm30qZH\nTxmwY3QeynEHsI8gqLC+E2kVElz+1gdBSArbrqYS6k69Cchw7drbtHmFj8LBj+Zi\nATAArh4DYBtTK6yzVcoiEhr6Hqzcs2eqqROvy6PGj27KKI/pnw69RHKV7yGSzzGP\nxkQ+jkHaL3TkpLHeFqOtIQN4KOVMiuqqn/7DmJWgRVJg8PgD+4a9k67opT4giw8L\nvs1rpmkh8ABZevKpY67VnEBkRUaVFmsTZn16yrFwzf6HtlJ7GpLmU7bNsTB6oJui\nmpVYBnBbf08PCZ3hOcwhwTxZalw1dXcMxYDQb/tFywbnenWRjNQhM+D7FPNNgKUT\n+vTZwWRDAgMBAAECggEAQorAq0w9VZe/z+GybG4M1naq6o1IWNMevUkP9iPAj3MF\npmwzGegPdkPpicqHZ7VICjULxi97dg8fWtNllXPs+dRucgQE4J6/So2MV3x2P9cJ\nsHZzyCaMi3KodyD6l4EvjxfieN8oyaKhjglAVSELYxM1mqdDEEWN/grfaHqpcaQB\nyIw509iuTqPjb1JU8QOWiNj8pQ5T58LoGds/nbZ8cKcX1RHlwkIJv5RQGOnbP7aL\nm0RYwDWmaeIhq3Ebeqou5ljCYfrTT0ClwVQAuFvhxFNWlvPiJKWdjVOdrsXQAZFV\nMRXVgSzTHeQQZ42J79F6eQBklrl4yyYBbXDE0PbwkQKBgQD4izU0ifQ5oCwMkpe7\naBiia2hhpZOPxIt9dd6SGkg60f3P3TEGgxyD1zlZ8gRbO9Xt4fOoWUluVY4UoE7E\nCu9rwyNMduHn4T3y388TI2BqQ1BzBjv+i9vC0N4FZ9lzuMHDg446lFsxVJz4vy+t\nCsnGl5T8RDt/5xV9JwJF09TdFwKBgQDPgucnm4+Q991z2EMYGI6GmfBjKhpx8pz1\np1b6SJFRTkWuDyG/0kOGdzTyEbmSs3fYi2cZq/FxSIQEVGndEIS7sqB/+SDTNO4h\niP00JTgtHrjRjXIMIeyXuLY82jPYw9XZBYaTtgisxOMMDojI44mGSDuN5LBY1H3h\n8SfeeZFltQKBgGvhEIDzeBwjF7uFTXK8piSpdi8cDUaTyu/z312PJtbRGtfEbGkl\nM5VOL8iIsbdf62VLc9UYnDTV0cvGISoajP07P/EKkNdy/s6SsnDeJBU7jom+pP/B\neOvAeP3jq5D9Gq1gRrXKeyKYVWHqqijzy8z1MmekviawCLW/3s6sOXKVAoGAdX1W\nR3SqWpgcSGTfyBrPR6KNGnhSNMX63JN8iYTg0joQ9bYXk7YHCXEhBxXGDiuS5YY4\nP668qzk1lgX9Um7x2BwRB6QUU8EaOt6HDiksn09PsUX2lqv2ewjYFagtxsNKpu+b\n/LIKQ1fOfZsVEzjROrhXD8W1mvXkuDKEMlB+ZCkCgYEA4LRBG5pydIcOrKYqLk0m\nAAM7OPDhLg4FFxozF+OhpvRhJmTtAz88jjabpsylt0RHsxB36UIZ41FzZuxlK6xw\nTyqYGZQSD1c3OlHMH+mEo+aBheAn4ESP/cStQiwLhBN1313ylJwavjS1AUlNqgL0\nAoOJuYfz2qGUAkDwasVVlgw=\n-----END PRIVATE KEY-----\n",
+    "client_email": "firebase-adminsdk-p5q6y@bellohop.iam.gserviceaccount.com",
+    "client_id": "103367317636805963950",
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://oauth2.googleapis.com/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+    "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-p5q6y%40bellohop.iam.gserviceaccount.com"
+  }
+  
