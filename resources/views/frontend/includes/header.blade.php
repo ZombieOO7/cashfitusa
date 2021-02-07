@@ -45,6 +45,22 @@ $totalNotification = count($loanNotificationlist)+count($earningNotificationlist
                                         <ul id="navigation" class="mb-0">
                                             <li class="menu-name {{($routeName=='loan' || $routeName=='loan.detail' || $routeName=='calculate' || $routeName=='application')?'active':''}}"><a style="text-decoration:none;" href="{{route('loan')}}"><i class="fa fa-money ml-3"></i> Loan</a></li>
                                             <li class="menu-name {{($routeName=='work-from-home' || $routeName=='earning' || $routeName=='apply.work-from-home')?'active':''}}"><a style="text-decoration:none;" href="{{route('work-from-home')}}"><i class="fa fa-laptop mr-1"></i>Remote Working</a></li>
+                                            <li><a href="javascript:;" class="text-bold h6">Services</a>
+                                                <ul class="submenu">
+                                                    <li><a href="{{route('loan.detail')}}" title="Apply For Loan">Apply For Loan</a></li>
+                                                    <li><a href="{{route('work-from-home')}}" title="Remote Working">Remote Working</a></li>
+                                                    <li><a href="{{route('get.contact-us')}}" title="Contact Us">Contact Us</a></li>
+                                                    <li><a href="{{route('get.about-us')}}" title="About Us">About Us</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="javascript:;" class="text-bold h6">Legal</a>
+                                                <ul class="submenu">
+                                                    <li><a href="#">Terms Of Use</a></li>
+                                                    <li><a href="#">Security and Privacy</a></li>
+                                                    <li><a href="#">Accessibility</a></li>
+                                                    <li><a href="#">Do Not Sell My Information</a></li>
+                                                </ul>
+                                            </li>
                                             <li>
                                                 <a style="text-decoration:none;" href="#" id='notification-bell'>
                                                     <span class="fa fa-bell"></span>
@@ -128,6 +144,22 @@ $totalNotification = count($loanNotificationlist)+count($earningNotificationlist
                                             <ul id="navigation" class="mb-0">
                                                 <li class="menu-name {{($routeName=='loan' || $routeName=='loan.detail' || $routeName=='calculate' || $routeName=='application')?'active':''}}"><a style="text-decoration:none;" href="{{route('loan')}}"><i class="fa fa-money mr-1"></i> Loan</a></li>
                                                 <li class="menu-name {{($routeName=='work-from-home')?'active':''}}"><a style="text-decoration:none;" href="{{route('work-from-home')}}"><i class="fa fa-laptop mr-1"></i> Remote Working</a></li>
+                                                <li><a href="javascript:;" class="text-bold h6">Services</a>
+                                                    <ul class="submenu">
+                                                        <li><a href="{{route('loan.detail')}}" title="Apply For Loan">Apply For Loan</a></li>
+                                                        <li><a href="{{route('work-from-home')}}" title="Remote Working">Remote Working</a></li>
+                                                        <li><a href="{{route('get.contact-us')}}" title="Contact Us">Contact Us</a></li>
+                                                        <li><a href="{{route('get.about-us')}}" title="About Us">About Us</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li><a href="javascript:;" class="text-bold h6">Legal</a>
+                                                    <ul class="submenu">
+                                                        <li><a href="#">Terms Of Use</a></li>
+                                                        <li><a href="#">Security and Privacy</a></li>
+                                                        <li><a href="#">Accessibility</a></li>
+                                                        <li><a href="#">Do Not Sell My Information</a></li>
+                                                    </ul>
+                                                </li>
                                                 <li><a href="{{route('login')}}" class="btn header-btn cst-btn text-white">Log in </a></li>
                                             </ul>
                                         </nav>
