@@ -154,9 +154,9 @@ $totalNotification = count($loanNotificationlist)+count($earningNotificationlist
                                                 </li>
                                                 <li><a href="javascript:;" class="text-bold h6">Legal</a>
                                                     <ul class="submenu">
-                                                        <li><a href="#">Terms Of Use</a></li>
-                                                        <li><a href="#">Security and Privacy</a></li>
-                                                        <li><a href="#">Accessibility</a></li>
+                                                        <li><a href="{{route('terms-of-use')}}">Terms Of Use</a></li>
+                                                        <li><a href="{{route('security-privacy')}}">Security and Privacy</a></li>
+                                                        <li><a href="{{route('accessibility')}}">Accessibility</a></li>
                                                         <li><a href="#">Do Not Sell My Information</a></li>
                                                     </ul>
                                                 </li>
