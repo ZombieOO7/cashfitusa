@@ -220,7 +220,7 @@ p {
   font-family: "Roboto", sans-serif;
   color: #000;
   font-size: 14px;
-  line-height: 30px;
+  line-height: 1.4;
   margin-bottom: 15px;
   font-weight: normal;
 }
@@ -2526,7 +2526,7 @@ hr {
 @media only screen and (min-width: 1200px) and (max-width: 1600px) {
   /* line 714, ../../../sponDon TI/Running Project/259.Finance_HTML/assets/scss/_common.scss */
   .section-padding2 {
-    padding-top: 70px;
+    margin-top: 70px;
     padding-bottom: 40px;
   }
 }
@@ -2835,11 +2835,15 @@ hr {
 .work-section-tittle h2 {
   font-size: 22px;
   display: block;
-  color: #000a2d;
+  text-align: center;
+  color: #fff;
   font-weight: normal;
   line-height: 1.3;
-  padding-top: 25%;
-  padding-left: 22%;
+  margin-top: 25%;
+  margin-left: 22%;
+  border-radius: 5px;
+  padding: 2px 5px;
+  background: #001d38;
 }
 
 @media only screen and (min-width: 576px) and (max-width: 767px) {
@@ -2855,6 +2859,8 @@ hr {
     font-size: 24px;
     padding-top: 20px;
     padding-left: 0;
+    margin-left: 0;
+    margin-top: 20px;
   }
 }
 
@@ -3734,6 +3740,7 @@ hr {
 .about-low-area .about-caption p {
   font-size: 16px;
   color: #64676c;
+  text-align: center;
   line-height: 1.6;
   margin-bottom: 35px;
   padding-right: 50px;
@@ -3758,6 +3765,7 @@ hr {
   /* line 4, ../../../sponDon TI/Running Project/259.Finance_HTML/assets/scss/_about.scss */
   .about-low-area .about-caption p {
     padding-right: 0px;
+    padding-left: 0;
   }
 }
 
@@ -4234,7 +4242,7 @@ hr {
   height: 60px;
   background: #fff;
   border-radius: 0px;
-  padding: 11px 19px 11px 17px;
+  padding: 11px 19px 11px 22px;
   color: #616875;
   line-height: 42px;
   border: 0;
@@ -4246,7 +4254,7 @@ hr {
   /* line 29, ../../../sponDon TI/Running Project/259.Finance_HTML/assets/scss/_application.scss */
   .application-area form.search-box .select-form .nice-select {
     margin-bottom: 20px;
-    padding-left: 25px;
+    padding-left: 18px;
   }
 }
 

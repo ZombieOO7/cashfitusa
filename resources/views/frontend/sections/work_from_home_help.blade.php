@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-12 text-center">
                 <div class="section_title text-center mb-40">
-                    <h3 class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s">Need Help? We are Here.</h3>
+                    <h3 class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s">Just Few Steps To START!!</h3>
                     <span class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s" style="background: #000 !important;"></span>
                     {{-- <p>You are not alone in these difficult times. We are here to ease your burden amidst the financial crisis with our quick and easy-approved loans.</p> --}}
                 </div>

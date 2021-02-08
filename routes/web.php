@@ -73,5 +73,14 @@ Route::get('about-us','Frontend\DashboardController@aboutUs')->name('get.about-u
 Route::post('contact-us','Frontend\DashboardController@contactUs')->name('post.contact-us');
 Route::get('terms-of-use','Frontend\DashboardController@cmsPages')->name('terms-of-use');
 Route::get('security-and-privacy','Frontend\DashboardController@cmsPages')->name('security-and-privacy');
+Route::get('terms-of-use',function(){
+    return view('frontend/term_of_use');
+})->name('terms-of-use');
+Route::get('security-privacy',function(){
+    return view('frontend/security_privacy');
+})->name('security-privacy');
+Route::get('accessibility',function(){
+    return view('frontend/accessibility');
+})->name('accessibility');
 
 Auth::routes(['verify' => true]);
