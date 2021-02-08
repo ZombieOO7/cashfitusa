@@ -94,7 +94,7 @@
                         </div>
                         <div class="col-6">
                             <div class="footBox">
-                        <h3 class="footTitle">Services</h3>
+                        <h3 class="footTitle">Legal</h3>
                         <div class="footBoxCon">
                             <div class="menu-footer">
                                 <ul>
