@@ -8,8 +8,8 @@
 <link rel="stylesheet" href="{{asset('frontend/css/themify-icons.css')}}">
 <link rel="stylesheet" href="{{asset('frontend/css/nice-select.css')}}">
 <link rel="stylesheet" href="{{asset('frontend/css/flaticon.css')}}">
-<link rel="stylesheet" href="{{asset('frontend/css/gijgo.css')}}">
-<link rel="stylesheet" href="{{asset('frontend/css/animate.min.css')}}">
+{{-- <link rel="stylesheet" href="{{asset('frontend/css/gijgo.css')}}"> --}}
+{{-- <link rel="stylesheet" href="{{asset('frontend/css/animate.min.css')}}"> --}}
 <link rel="stylesheet" href="{{asset('frontend/css/slick.css')}}">
 <link rel="stylesheet" href="{{asset('frontend/css/slicknav.css')}}">
 <link rel="stylesheet" href="{{asset('/frontend/css/newstyle.css')}}">

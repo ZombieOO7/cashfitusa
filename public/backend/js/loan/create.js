@@ -31,11 +31,11 @@ $(document).ready(function () {
                 maxlength: rule.name_length,
                 noSpace: true,
             },
-            middle_name: {
-                required: true,
-                maxlength: rule.name_length,
-                noSpace: true,
-            },
+            // middle_name: {
+            //     required: true,
+            //     maxlength: rule.name_length,
+            //     noSpace: true,
+            // },
             email: {
                 required: !0,
                 email: !0,

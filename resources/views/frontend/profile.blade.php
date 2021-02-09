@@ -13,14 +13,11 @@
 </script>
 {{-- <link href="{{ asset('backend/dist/default/assets/vendors/base/vendors.bundle.css') }}" rel="stylesheet"
     type="text/css" /> --}}
-{{-- <link href="{{ asset('backend/dist/default/assets/demo/default/base/style.bundle.css') }}" rel="stylesheet"
-    type="text/css" /> --}}
+<link href="{{ asset('backend/dist/default/assets/demo/default/base/style.bundle.css') }}" rel="stylesheet"
+    type="text/css" />
 @endsection
 @section('content')
 @section('title', 'Dashboard')
-@section('front_css')
-<link rel="stylesheet" href="{{asset('frontend/css/custom.css')}}">
-@stop
 <section class="loan-process-section section-padding pt-100">
     <div class="col-md-12 pl-5">
         <div class="mb-2">

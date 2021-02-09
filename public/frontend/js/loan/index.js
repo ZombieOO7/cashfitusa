@@ -1,29 +1,31 @@
 $(document).ready(function () {
-    $("#m_form_1").validate({
-        rules: {
-            amount:{
-                required:true,
-                number:true,
-                min:500,
-                max:7800,
-                maxlength:rule.amount_length,
+    if($("#m_form_1").length > 0){
+        $("#m_form_1").validate({
+            rules: {
+                amount:{
+                    required:true,
+                    number:true,
+                    min:500,
+                    max:7800,
+                    maxlength:rule.amount_length,
+                },
+                year:{
+                    required:true,
+                }
             },
-            year:{
-                required:true,
-            }
-        },
-        ignore: [],
-        errorPlacement: function (error, element) {
-            if (element.attr("name") == "year")
-                error.insertAfter(".yearError");
-            else
-                error.insertAfter(element);
-        },
-        invalidHandler: function (e, r) {
-            // $("#m_form_1_msg").removeClass("m--hide").show(),
-            // mUtil.scrollTop()
-        },
-    });
+            ignore: [],
+            errorPlacement: function (error, element) {
+                if (element.attr("name") == "year")
+                    error.insertAfter(".yearError");
+                else
+                    error.insertAfter(element);
+            },
+            invalidHandler: function (e, r) {
+                // $("#m_form_1_msg").removeClass("m--hide").show(),
+                // mUtil.scrollTop()
+            },
+        });
+    }
 });
 (function ($) {
     var oppenIppsAssessment = function () {

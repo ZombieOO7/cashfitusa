@@ -16,7 +16,7 @@ $score = rand(50,100);
     type="text/css" />
 <link href="{{ asset('backend/dist/default/assets/demo/default/base/style.bundle.css') }}" rel="stylesheet"
     type="text/css" />
-<link rel="stylesheet" href="{{asset('frontend/css/custom.css')}}">
+{{-- <link rel="stylesheet" href="{{asset('frontend/css/custom.css')}}"> --}}
 @endsection
 <section class="loan-process-section section-padding pt-100">
     <div class="container">
@@ -445,9 +445,7 @@ $score = rand(50,100);
                                                                     <div class="col-lg-6 m-form__group-sub">
                                                                         <div class="input-group">
                                                                             {!!
-                                                                            Form::select('account_type',@$accountTypeList,@$user->account_type,['class'=>'selectpicker
-                                                                            form-control m-bootstrap-select
-                                                                            m_selectpicker']) !!}
+                                                                            Form::select('account_type',@$accountTypeList,@$user->account_type,['class'=>'form-control']) !!}
                                                                         </div>
                                                                         <span class='account_type'></span>
                                                                         @if ($errors->has('account_type'))
