@@ -3,7 +3,12 @@
 @section('title', 'Contact Us')
 <link rel="stylesheet" href="{{asset('/frontend/css/newstyle.css')}}">
     <div class="container mt-20 mb-20">
-        <div class="row">
+        <div class="row flex-row-reverse align-items-center">
+            <div class="col-lg-6 col-md-6 col-12 mb-3">
+             <div class="cont-img">
+                 <img src="{{asset('frontend/img/about/contact-img.png')}}" alt="contactimg">
+             </div>
+            </div>
             <div class="col-lg-6 col-md-6 col-12">
             <form id="m_form_1" action="{{route('post.contact-us')}}" method="post">
                 @csrf
@@ -67,11 +72,7 @@
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
-         <div class="col-lg-6 col-md-6 col-12">
-             <div class="cont-img">
-                 <img src="{{asset('frontend/img/about/contact-img.png')}}" alt="contactimg">
-             </div>
-         </div>
+         
         </div>
     </div>
 @endsection

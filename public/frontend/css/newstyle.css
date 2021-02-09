@@ -222,8 +222,8 @@ background: url(../img/about/cmsconarrowleft.png) no-repeat center;}
 .process{margin-bottom: 20px;}
 
 /*---contact us---*/
-.cont-img{display: none;}
-.cont-img img{margin: auto;}
+.cont-img{}
+.cont-img img{margin: auto;width: 100%;}
 /*---contact us---*/
 
 /*---footer---*/
