@@ -15,7 +15,7 @@ WebFont.load({
 </script>
 <!--end::Web font -->
 <link rel="stylesheet" href="{{asset('css/dataTables.bootstrap4.min.css')}}">
-<link href="{{ asset('backend/dist/default/assets/vendors/custom/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
+{{-- <link href="{{ asset('backend/dist/default/assets/vendors/custom/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" /> --}}
 <link href="{{ asset('backend/dist/default/assets/demo/default/base/style.bundle.css') }}" rel="stylesheet" type="text/css" />
 <link href="{{ asset('backend/css/common.css') }}" rel="stylesheet" type="text/css" />
 @endsection

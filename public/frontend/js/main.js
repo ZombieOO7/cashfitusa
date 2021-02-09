@@ -328,14 +328,16 @@ function resizer(){
 		if($(window).width() < 1000) {
 			flag= false;
 		}
-		menu.slicknav({
-			prependTo: ".mobile_menu",
-			closedSymbol: '+',
-			openedSymbol:'-',
-			removeIds: false,
-			removeClasses:false,
-			duplicate: flag,
-		});
+    // if(menu.length > 0){
+    //   menu.slicknav({
+    //     prependTo: ".mobile_menu",
+    //     closedSymbol: '+',
+    //     openedSymbol:'-',
+    //     removeIds: false,
+    //     removeClasses:false,
+    //     duplicate: flag,
+    //   });
+    // }
 	}
 }
 

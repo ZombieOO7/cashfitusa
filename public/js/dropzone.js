@@ -110,7 +110,7 @@ var DropzoneDemo = {
 };
 DropzoneDemo.init();
 
-// Dropzone.autoDiscover = false;
+Dropzone.autoDiscover = false;
 url1 = $("#m-dropzone-one").attr('data-url');
 size1 = $("#m-dropzone-one").attr('data-size');
 status1 = $("#m-dropzone-one").attr('data-status');

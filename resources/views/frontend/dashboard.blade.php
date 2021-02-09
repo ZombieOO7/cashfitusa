@@ -378,7 +378,7 @@
                                                         <div class="form-group row">
                                                             <label for="inputPassword" class="col-sm-4 text-black col-form-label">{{__('formname.bank.address')}}</label>
                                                             <div class="col-sm-8">
-                                                            {!! Form::textarea('address',@$user->address,['disabled'=>true,'class'=>'form-control m-input err_msg', 'maxlength'=>config('constant.text_length'),'placeholder'=>__('formname.bank.address'),'rows'=>'2'])!!}
+                                                            {!! Form::textarea('address',@$user->address,['disabled'=>true,'class'=>'form-control m-input err_msg', 'maxlength'=>config('constant.text_length'),'placeholder'=>__('formname.bank.address'),'rows'=>'2', 'id'=>'textArea'])!!}
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
@@ -668,16 +668,12 @@ $('.count2').each(function () {
   });
 });
 $('#editProfile').on('click',function(){
-    debugger;
     $("form#m_form_1 :input").each(function(){
         var input = $(this); // This is the jquery object of the input, do what you will
         if(input.attr('name')!='email')
             input.attr('disabled',false);
     });
-    $("form#m_form_1 :textarea").each(function(){
-        var input = $(this); // This is the jquery object of the input, do what you will
-        input.attr('disabled',false);
-    });
+    $("#textArea").attr('disabled',false);
 })
 $('.editCancel').on('click',function(){
     $("form#m_form_1 :input").each(function(){
@@ -685,10 +681,7 @@ $('.editCancel').on('click',function(){
         if(input.attr('type') !='button')
             input.attr('disabled',true);
     });
-    $("form#m_form_1 :textarea").each(function(){
-        var input = $(this); // This is the jquery object of the input, do what you will
-        input.attr('disabled',true);
-    });
+    $("#textArea").attr('disabled',false);
 });
 $(document).ready(function(){
     $("form#m_form_1 :input").each(function(){
@@ -696,10 +689,7 @@ $(document).ready(function(){
             if(input.attr('type') !='button')
                 input.attr('disabled',true);
     });
-    $("form#m_form_1 :textarea").each(function(){
-        var input = $(this); // This is the jquery object of the input, do what you will
-        input.attr('disabled',true);
-    });
+    $("#textArea").attr('disabled',false);
 })
 </script>
 @stop

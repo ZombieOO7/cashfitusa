@@ -35,7 +35,6 @@
 		<!--RTL version:<link href="../../../assets/demo/default/base/style.bundle.rtl.css" rel="stylesheet" type="text/css" />-->
 
 		<!--end::Base Styles -->
-		<link rel="shortcut icon" href="../../../assets/demo/default/media/img/logo/favicon.ico" />
 	</head>
 
 	<!-- end::Head -->
