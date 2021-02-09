@@ -145,7 +145,7 @@ background: url(../img/about/cmsconarrowleft.png) no-repeat center;}
 /*-----/ end cms Con-----*/
 
 
-.video_upload{position: absolute;top: 0;left: 40px;z-index: 3;width: 64%;height: 52%;border-radius: 5px;}
+.video_upload{position: absolute;top: -25px;left: 40px;z-index: 3;width: 64%;height: 56%;border-radius: 5px;}
 
 .acceboxmain{margin-bottom: 40px;}
 .accebox{margin-bottom: 15px;background: #001d38;border-radius: 5px;font-size: 0;padding: 4px 4px;}
