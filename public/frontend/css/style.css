@@ -499,8 +499,9 @@ color: #1a6eff !important;}
 .card.card-body .h5{color: #343c6a;font-weight: 600;font-size: 28px;}
 .card-body .text-primary{color: #718fbf !important;}
 .card-body .text-dark{color: #343c6a !important;}
-.card-body tr th{color: #718fbf;padding: 5px 31px;display: inline-block;}
-.card-body tr td.form-label{line-height: 30px;padding-left: 24px;}
+.card-body tr th{color: #2171d3 !important;padding: 5px 15px;display: inline-block;background: #dbeafd;
+width: 50%;}
+.card-body tr td.form-label{line-height: 18px;width: 50%;display: inline-block;}
 .card-body label{color: #000;}
 .imgdashcol{display: block;}
 .imgdashcolmb{display: none;}

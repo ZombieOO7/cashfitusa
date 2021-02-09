@@ -15,9 +15,9 @@
                     <div class="content">
                         <div>
                          <img class="card-img-top" src="{{asset('frontend/img/about/loanvideoimg.png')}}" alt="Card image cap"> 
-                            {{-- <video class="" id="video_upload_preview" controls style="position: absolute;top: 20px;left: 30px;z-index: 3;width: 82%;height: 90%;border-radius: 15px;" width="320" height="240" alt="Work From Home Video">
+                            <video class="video_upload" id="video_upload_preview" controls width="320" height="240" alt="Work From Home Video">
                                 <source src="{{ asset('images/video1.mp4') }}" type="video/mp4">
-                            </video> --}}
+                            </video>
                             {{-- <img class="videoimg" src="{{asset('frontend/img/faq/faq.png')}}" alt="Card image cap">                                 --}}
                         </div>
                     </div>
