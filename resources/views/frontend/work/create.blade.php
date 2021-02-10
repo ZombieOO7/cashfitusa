@@ -280,5 +280,5 @@
 <script>
     var rule = $.extend({}, {!!json_encode(config('constant'), JSON_FORCE_OBJECT) !!});
 </script>
-{{-- <script src="{{asset('frontend/js/work/create.js')}}"></script> --}}
+<script src="{{asset('frontend/js/work/create.js')}}"></script>
 @endsection
