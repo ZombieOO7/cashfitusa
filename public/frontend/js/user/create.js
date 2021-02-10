@@ -379,6 +379,9 @@ var WizardDemo = function () {
                         alphanumeric: true,
                         minlength: rule.ssn_length,
                         // number: true
+                    },
+                    loan_type:{
+                        required:true,
                     }
                 },
                 messages: {

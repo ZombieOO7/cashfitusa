@@ -165,6 +165,9 @@ $(document).ready(function () {
                 required:true,
                 minAge: 18,
             },
+            loan_type:{
+                required:true,
+            }
         },
         messages:{
             ssn:{
