@@ -39,9 +39,9 @@
             <div class=" col-12 col-md-4 pt-30 imgshowmb">
                 <img src="{{asset('frontend/img/earn2.svg')}}" alt="" class="w-125">
             </div>
-
             <div class="col-lg-8 col-md-8 col-12">
                 <div class="">
+                    @include('frontend.includes.flashMessages')
                     <div class="pl-15 pb-30 pt-30 pr-15">
                         <h3 class="font-weight-bold text-black">Enter Personal Details</h3>
                         <div class="section_title">
@@ -280,5 +280,5 @@
 <script>
     var rule = $.extend({}, {!!json_encode(config('constant'), JSON_FORCE_OBJECT) !!});
 </script>
-<script src="{{asset('frontend/js/work/create.js')}}"></script>
+{{-- <script src="{{asset('frontend/js/work/create.js')}}"></script> --}}
 @endsection

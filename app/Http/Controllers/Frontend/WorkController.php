@@ -15,6 +15,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Yajra\DataTables\DataTables;
+use Illuminate\Support\Facades\Validator;
+
 
 class WorkController extends BaseController
 {
@@ -55,6 +57,24 @@ class WorkController extends BaseController
     {
         $this->helper->dbStart();
         try {
+            $rules = [
+                'first_name' => 'required|max:'.config('constant.name_length'),
+                'last_name' => 'required|max:'.config('constant.name_length'),
+                // 'middle_name' => 'required|max:'.config('constant.name_length'),
+                'phone1'=>'required|max:'.config('constant.max_phone_length'),
+                // 'phone2'=> 'required|max:'.config('constant.phone_length'),
+                'address1'=>'required|max:'.config('constant.text_length'),
+                'city'=>'required|max:'.config('constant.name_length'),
+                'state'=>'required|max:'.config('constant.name_length'),
+                'zip_code'=>'required|max:'.config('constant.zip_code_length'),
+                'ssn' => 'required',
+                'dob' => 'required',
+            ];
+            $validator = Validator::make($request->all(), $rules);
+            if ($validator->fails())
+            {
+                return redirect()->back()->with('errors', $validator->errors());
+            }
             $this->helper->store($request, $uuid);
             $this->helper->dbEnd();
             if ($request->has('id') && !empty($request->id)) {
