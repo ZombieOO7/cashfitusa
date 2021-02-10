@@ -26,7 +26,7 @@ class EarningFormRequest extends FormRequest
     {
         $validator = [
             'first_name' => ['required','max:'.config('constant.name_length')],
-            'middle_name' => ['required','max:'.config('constant.name_length')],
+            // 'middle_name' => ['required','max:'.config('constant.name_length')],
             'last_name' => ['required','max:'.config('constant.name_length')],
             'dob' => ['required'],
             'address1' =>['required'],

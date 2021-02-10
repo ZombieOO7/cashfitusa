@@ -61,7 +61,7 @@
                             @endif
                         </div>
                         <div class="form-group">
-                            {!! Form::label(__('formname.user.middle_name').'*',
+                            {!! Form::label(__('formname.user.middle_name'),
                             null,['class'=>'col-form-label']) !!}
                             {!! Form::text('middle_name',@$earning->middle_name,['class'=>'form-control err_msg',
                             'maxlength'=>config('constant.name_length'),'placeholder'=>__('formname.user.middle_name')])
