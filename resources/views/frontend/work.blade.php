@@ -1,6 +1,7 @@
 @extends('frontend.layouts.default')
-@section('title','Work From Home')
+@section('title','Remote Working')
 @section('content')
+<div class="loanpagemain">
     <!-- slider Area Start-->
     @include('frontend.sections.work_slider_1')
     <!-- slider Area End-->    
@@ -154,6 +155,7 @@
 <!-- start testinomial section -->
 @include('frontend.sections.testinomial')
 <!-- en d of testinomial process section -->
+</div>
 @section('front_script')
 <script src="https://unpkg.com/aksvideoplayer@1.0.0/dist/aksVideoPlayer.min.js"></script>
 @endsection

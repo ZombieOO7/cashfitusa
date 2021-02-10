@@ -76,22 +76,22 @@
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="0" ></li>
+        <li data-target="#myCarousel" data-slide-to="1" class="active"></li>
     </ol>
 
     <div class="carousel-inner">
-        <div class="item active">
+        <!-- <div class="item active">
             <div class="slider-area slider-height" data-background="assets/img/hero/h1_hero.jpg">
                 <div class="slider-active">
-                    <!-- Single Slider -->
+                    
                     <div class="single-slider">
                         <div class="slider-cap-wrapper">
                             <div class="hero__caption">
                                 {{-- <p data-animation="fadeInLeft" data-delay=".2s">Achieve your financial goal</p> --}}
                                 <h2 data-animation="fadeInLeft" data-delay=".5s">Working from the comfort of your couch and being financially independent is the new normal.</h2>
                                 <h2 data-animation="fadeInLeft" data-delay=".5s">RapidCashAmerica offers freedom and flexibility to its users for working remotely eliminating the global boundaries.</h2>
-                                <!-- Hero Btn -->
+                                
                                 
                             </div>
                             <div class="hero__img">
@@ -101,8 +101,8 @@
                     </div>
                 </div>            
             </div>
-        </div>
-        <div class="item">
+        </div> -->
+        <div class="item active">
             <div class="about-low-area section-padding2">
                 <div class="container">
                     <div class="row">

@@ -3122,11 +3122,11 @@ hr {
 
 /* line 139, ../../../sponDon TI/Running Project/259.Finance_HTML/assets/scss/_headerMenu.scss */
 .header-transparent {
- /* position: absolute;*/
+position: relative;
   top: 0;
   right: 0;
   left: 0;
-  z-index: 9;
+  z-index: 999;
   background: #fff;
 }
 

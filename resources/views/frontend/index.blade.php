@@ -9,6 +9,7 @@ if($setting){
 @endphp
 @section('content')
 @section('title', 'Loan')
+<div class="loanpagemain">
     <!-- apply_for_loan_start -->
     @include('frontend.sections.apply_loan')
     <!-- apply_for_loan_end  -->
@@ -36,4 +37,5 @@ if($setting){
     <!-- start testinomial section -->
     @include('frontend.sections.testinomial')
     <!-- end of testinomial process section -->
+</div>
 @endsection

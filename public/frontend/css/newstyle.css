@@ -91,9 +91,9 @@ display: block;}
 .nav-pills .nav-link.active{border-radius: 10px;}
 .nav-pills .nav-link{border-radius: 10px;margin-right: 5px;}
 
-.tranhismain{border-radius: 20px;overflow: hidden;display: inline-block;background: #eef5ff;}
-.tranhismain tr.headdastitle{background: #dbeafd;padding: 5px;}
-.tranhismain tbody tr{display: inline-block;padding: 5px;}
+.tranhismain{border-radius: 20px;overflow: hidden;}
+.tranhismain tr.headdastitle{padding: 5px;width: 100%;}
+.tranhismain tbody tr{padding: 5px 15px;width: 100%;display: block;font-size: 0;background: #eef5ff;}
 
 
 .loanstmain{border-radius: 10px;overflow: hidden;}
@@ -109,7 +109,7 @@ display: block;}
 /*-----cms Con-----*/
 .cmsCon{padding: 50px 0; }
 
-.cmsCon h1{font-size: 40px;color: #fff;display:block;font-weight:700;letter-spacing:1px;margin:0px 0;margin-bottom: 10px;
+.cmsCon h1{font-size: 40px;color: #fff;font-weight:700;letter-spacing:1px;margin:0px 0;margin-bottom: 10px;
 background: #001d38;border-radius: 5px;padding: 4px 8px;display: inline-block;}
 .cmsCon h1 span{color: #ff9833;font-size: 40px;background: #001d38;border-radius: 5px;padding: 4px 8px;display: inline-block;}
 .cmsCon h2{font-size: 38px;color: #fff; margin-bottom: 20px;font-weight: bold;
@@ -125,13 +125,13 @@ background: #001d38;border-radius: 5px;padding: 4px 8px;display: inline-block;}
 .cmsCon span{font-size: 26px;line-height: normal;color: #001d38;font-weight: 600;margin-bottom: 20px;display: block;}
 .cmsCon b{color: #012f51;display: block;position: relative;}
 .cmsCon b span{position: relative;padding-left: 35px;font-size: 18px;}
-.cmsCon b span:before{position: absolute;left: 0;top: 0;content: "";width: 20px;height: 10px;
+.cmsCon b span:before{position: absolute;left: 0;top: 5px;content: "";width: 20px;height: 10px;
 background: url(../img/about/cmsconarrowleft.png) no-repeat center;}
 
 .cmsCon ul{ list-style: none; padding: 10px 0px;}
-.cmsCon ul li{ position: relative;display: block;padding-left: 20px;font-size: 17px;line-height: 34px;color: #000;font-weight: normal;padding-bottom: 0px;}
-.cmsCon ul li:before{content: '';background: #012f51;width: 2px;height: 2px;left: 0;top: 0px;position: absolute;bottom: inherit;margin: auto;border-radius: 50%;bottom: 0;}
-.cmsCon p{font-size: 17px;line-height: 26px;color: #012f51;margin-bottom: 20px;}
+.cmsCon ul li{ position: relative;display: block;padding-left: 20px;font-size: 16px;line-height: 26px;color: #012f51;font-weight: normal;margin-bottom: 15px;}
+.cmsCon ul li:before{content: '';background: #012f51;width: 2px;height: 2px;left: 0;top: 12px;position: absolute;bottom: inherit;margin: auto;border-radius: 50%;}
+.cmsCon p{font-size: 16px;line-height: 26px;color: #012f51;margin-bottom: 20px;}
 .cmsCon p a{color: #012f51;font-size: 16px;line-height: 24px;transition: all 0.4s ease-in-out;}
 .cmsCon p a:hover{color: #000;}
 .cmsCon ul li a{color: #012f51;font-size: 16px;line-height: 24px;transition: all 0.4s ease-in-out;}
@@ -144,6 +144,25 @@ background: url(../img/about/cmsconarrowleft.png) no-repeat center;}
 .cmsCon ol li{font-size: 16px;line-height: 20px;color: #012f51;font-style: normal;padding-bottom: 15px;}
 /*-----/ end cms Con-----*/
 
+
+.video_upload{position: absolute;top: -25px;left: 40px;z-index: 3;width: 64%;height: 56%;border-radius: 5px;}
+
+.acceboxmain{margin-bottom: 40px;}
+.accebox{margin-bottom: 15px;background: #001d38;border-radius: 5px;font-size: 0;padding: 4px 4px;}
+
+.acceboxtitle{font-size: 0;display: block;}
+.acceboxtitle li{font-size: 16px;line-height: normal;color: #012f51; font-weight: 600;margin-bottom: 12px;}
+.acceboxtitle li:nth-child(1){width: 70%;display: inline-block;vertical-align: middle;text-align: left;}
+.acceboxtitle li:nth-child(2){width: 15%;display: inline-block;vertical-align: middle;text-align: center;
+}
+.acceboxtitle li:nth-child(3){width: 15%;display: inline-block;vertical-align: middle;text-align: center;}
+
+.acceboxleft{width: 70%;display: inline-block;vertical-align: middle;}
+.acceboxleft p{font-size: 16px;line-height: 1.4;color: #fff;font-weight: normal;margin-bottom: 0;}
+.acceboxsec{width: 15%;display: inline-block;vertical-align: middle;text-align: center;}
+.acceboxsec p{font-size: 16px;line-height: 1.4;color: #fff;font-weight: normal;margin-bottom: 0;}
+.acceboxright{width: 15%;display: inline-block;vertical-align: middle;text-align: center;}
+.acceboxright p{font-size: 16px;line-height: 1.4;color: #fff;font-weight: normal;margin-bottom: 0;}
 
 
 @media only screen and (max-width:1199px){
@@ -254,7 +273,7 @@ background: url(../img/about/cmsconarrowleft.png) no-repeat center;}
  .cmsCon p{font-size: 14px;line-height: 24px;margin-bottom: 15px;}
  .cmsCon p a{font-size: 14px;line-height: 24px;}
   .cmsCon ul{padding: 0;}
- .cmsCon ul li{font-size: 14px;padding-bottom: 5px;line-height: 24px;padding-left: 15px;}
+ .cmsCon ul li{font-size: 14px;line-height: 24px;padding-left: 15px;margin-bottom: 5px;}
  .cmsCon .alignleft{float: none;max-width: 100%;margin: 0 0px 10px 0;}
  .cmsCon .aligncenter{margin: 0 auto 20px auto;}
  .cmsCon ul li::before{top: 9px;}
@@ -263,5 +282,13 @@ background: url(../img/about/cmsconarrowleft.png) no-repeat center;}
 
 /*---cmscon---*/
 
+.acceboxleft{width: 50%;}
+.acceboxsec{width: 25%;}
+.acceboxright{width: 25%;}
+.acceboxtitle li:nth-child(1){width: 50%;}
+.acceboxtitle li:nth-child(2){width: 25%;}
+.acceboxtitle li:nth-child(3){width: 25%;}
+.acceboxtitle li{font-size: 14px;}
+.acceboxsec p{font-size: 14px;}
 
 }

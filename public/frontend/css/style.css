@@ -499,8 +499,9 @@ color: #1a6eff !important;}
 .card.card-body .h5{color: #343c6a;font-weight: 600;font-size: 28px;}
 .card-body .text-primary{color: #718fbf !important;}
 .card-body .text-dark{color: #343c6a !important;}
-.card-body tr th{color: #718fbf;padding: 5px 31px;display: inline-block;}
-.card-body tr td.form-label{line-height: 30px;padding-left: 24px;}
+.card-body tr th{color: #2171d3 !important;padding: 5px 15px;display: inline-block;background: #dbeafd;
+width: 50%;}
+.card-body tr td.form-label{line-height: 18px;width: 50%;display: inline-block;}
 .card-body label{color: #000;}
 .imgdashcol{display: block;}
 .imgdashcolmb{display: none;}
@@ -516,7 +517,7 @@ color: #1a6eff !important;}
 .condetcol{padding-left: 50px !important;}
 .loan-process-section .card .form-lable{color: #2171d3 !important;padding-bottom: 5px;position: relative;}
 .loan-process-section .card .form-lable:before{position: absolute;content: "";width: 70px;height: 2px;
-background: #2171d3;left: 0;bottom: 0;}
+background: #2171d3;left: 0;bottom: 0;display: none;}
 
 /*---dashbord---*/
 
@@ -7197,13 +7198,13 @@ background: #001d38;font-size: 16px;border-radius: 5px;margin-bottom: 0;}
 .here-help .single-process{min-height: 335px;}
 .loan-process-section .single-processvicon .content{padding-top: 0 !important;}
 
-.process-list {
+.loanpagemain .loan-process-section .process-list {
   counter-reset: section;
   margin-left: -40px;
   margin-right: -40px;
-  /* text-align: center; */
+   text-align: center; 
   display: block;
-  /* font-size: 0; */
+   font-size: 0; 
 }
 
 .process-list .process:before {
@@ -7485,7 +7486,8 @@ overflow-x: auto;
   .main-header.header-sticky .slicknav_btn{right: 25px;}
   .tableTd span{font-weight: normal;}
   .table .thead-dark th{font-weight: 500;}
-  #video_upload_preview{top: 10px !important;left: 18px !important;}
+  #video_upload_preview{top: -16px;left: 16px;}
+  .video_upload{width: 66%;height: 57%;}
   .socilemedia{text-align: center;}
  .condetcol{padding-left: 15px !important}
  .imgdashcol{display: none;}
@@ -7522,7 +7524,7 @@ overflow-x: auto;
 .m-wizard.m-wizard--4 .m-wizard__form .m-wizard__form-step{padding-bottom: 1rem;}
 #creditScore h5{font-size: 16px;}
 .process{margin-bottom: 20px;}
-.process-list{margin-left: -15px;margin-right: -15px;}
+.loanpagemain .loan-process-section .process-list{margin-left: -15px;margin-right: -15px;}
 .process-list .process{padding: 0 15px;}
 
 
