@@ -83,4 +83,8 @@ Route::get('accessibility',function(){
     return view('frontend/accessibility');
 })->name('accessibility');
 
+Route::get('do-not-sell-my-information',function(){
+    return view('frontend/my_information');
+})->name('do-not-sell-my-information');
+
 Auth::routes(['verify' => true]);

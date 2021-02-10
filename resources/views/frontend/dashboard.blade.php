@@ -207,14 +207,14 @@
                                                     <label for="" class="form-lable text-bold text-black">Transaction History</label>
                                                     <table class="w-100 tranhismain">
                                                         <thead class="border-0">
-                                                            <tr class="headdastitle">
+                                                            <tr class="headdastitle font-sizezero font-sizezero">
                                                                 <th class="text-black">Date</th>
-                                                                <th class="text-right text-black">Amount</th>
+                                                                <th class="text-black">Amount</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
                                                             @forelse(@$loanTransactions as $transaction)
-                                                                <tr>
+                                                                <tr class="font-sizezero">
                                                                     <td class='form-label text-dark'>{{$transaction->proper_date}}</td>
                                                                     <td class='form-label text-dark text-right'> {{$transaction->proper_amount}}</td>
                                                                 </tr>
@@ -563,14 +563,14 @@
                                                     <label for="" class="form-lable text-bold text-black">Transaction History</label>
                                                     <table class="w-100 tranhismain">
                                                         <thead class="border-0">
-                                                            <tr class="headdastitle">
+                                                            <tr class="headdastitle font-sizezero">
                                                                 <th class="text-black">Date</th>
-                                                                <th class="text-right text-black">Amount</th>
+                                                                <th class="text-black">Amount</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
                                                             @forelse(@$earnings as $earning)
-                                                            <tr>
+                                                            <tr class="font-sizezero">
                                                                 <td class='form-label text-dark'>{{$earning->proper_date2}}</td>
                                                                 <td class='form-label text-dark text-right'> {{config('constant.currency_symbol').$earning->amount}}</td>
                                                             </tr>

@@ -92,8 +92,11 @@ display: block;}
 .nav-pills .nav-link{border-radius: 10px;margin-right: 5px;}
 
 .tranhismain{border-radius: 20px;overflow: hidden;}
-.tranhismain tr.headdastitle{padding: 5px;width: 100%;}
+.tranhismain tr.headdastitle.{padding: 5px;width: 100%;}
+.font-sizezero{font-size: 0;}
 .tranhismain tbody tr{padding: 5px 15px;width: 100%;display: block;font-size: 0;background: #eef5ff;}
+.tranhismain tbody tr td{font-size: 14px;line-height: 1.4;color: #000;display: inline-block;
+width: 50%;}
 
 
 .loanstmain{border-radius: 10px;overflow: hidden;}
@@ -105,6 +108,11 @@ display: block;}
 .content p{color: #012f51;}
 
 /*.remslidtitle{background: #001D38;padding: 5px 10px;border-radius: 5px;display: inline-block !important;color: #fff !important;}*/
+.con-img{width: 100%;}
+.con-img img{width: 100%;}
+.identimg{}
+.identimg img{margin: auto;display: block;width: auto;}
+
 
 /*-----cms Con-----*/
 .cmsCon{padding: 50px 0; }
@@ -123,7 +131,7 @@ background: #001d38;border-radius: 5px;padding: 4px 8px;display: inline-block;}
 .cmsCon h6{font-size: 20px;color: #fff;margin:0 0 10px 0;font-weight: 600;
 background: #001d38;border-radius: 5px;padding: 4px 8px;display: inline-block;}
 .cmsCon span{font-size: 26px;line-height: normal;color: #001d38;font-weight: 600;margin-bottom: 20px;display: block;}
-.cmsCon b{color: #012f51;display: block;position: relative;}
+.cmsCon b{color: #012f51;position: relative;}
 .cmsCon b span{position: relative;padding-left: 35px;font-size: 18px;}
 .cmsCon b span:before{position: absolute;left: 0;top: 5px;content: "";width: 20px;height: 10px;
 background: url(../img/about/cmsconarrowleft.png) no-repeat center;}
@@ -136,6 +144,7 @@ background: url(../img/about/cmsconarrowleft.png) no-repeat center;}
 .cmsCon p a:hover{color: #000;}
 .cmsCon ul li a{color: #012f51;font-size: 16px;line-height: 24px;transition: all 0.4s ease-in-out;}
 .cmsCon ul li a:hover{color: #000;}
+.conleft{padding-right: 142px;}
 
 .cmsCon .alignleft{float: left; width: auto; max-width: 50%; margin: 0 30px 30px 0;}
 .cmsCon .alignright{float: right; width: auto; max-width: 50%; margin: 0 0 30px 30px;}
@@ -163,6 +172,19 @@ background: url(../img/about/cmsconarrowleft.png) no-repeat center;}
 .acceboxsec p{font-size: 16px;line-height: 1.4;color: #fff;font-weight: normal;margin-bottom: 0;}
 .acceboxright{width: 15%;display: inline-block;vertical-align: middle;text-align: center;}
 .acceboxright p{font-size: 16px;line-height: 1.4;color: #fff;font-weight: normal;margin-bottom: 0;}
+
+.uploadimgrow{margin-left: -50px;margin-right: -50px;}
+.uploadcol{padding: 0 50px;margin-bottom: 100px;}
+.uploadbox{border:2px dashed #8097a8;border-radius: 20px;text-align: center;padding: 20px;}
+.uploadimg{width: 100px;margin: auto;margin-bottom: 5px;}
+.uploadimg img{width: 100%;height: 100%;}
+.cmsCon h6.uploadtitle{font-size: 16px;color: #586b7f;line-height: 1.6;margin-bottom: 5px;font-weight: 600;
+background: transparent;}
+.uploadbtn{}
+.uploadbtn .btn{min-width: 0 !important;font-size: 14px;font-weight: 600;border-radius: 5px;padding: 5px 10px;
+line-height: normal;color: #fff;}
+.uploadbtn .blue-btn{background: #012f51;}
+.uploadbtn .green-btn{background: #4fce2c;}
 
 
 @media only screen and (max-width:1199px){
@@ -208,7 +230,10 @@ background: url(../img/about/cmsconarrowleft.png) no-repeat center;}
  .cmsCon ol li{font-size: 14px;line-height: 24px;}
 
 /*---cmscon---*/
-
+.uploadimgrow{margin-left: -30px;margin-right: -30px;}
+.uploadcol{padding: 0 30px;margin-bottom: 60px;}
+.identimg img{width: 100%;}
+.conleft{padding-right: 0;}
 
 }
 
@@ -290,5 +315,13 @@ background: url(../img/about/cmsconarrowleft.png) no-repeat center;}
 .acceboxtitle li:nth-child(3){width: 25%;}
 .acceboxtitle li{font-size: 14px;}
 .acceboxsec p{font-size: 14px;}
+
+.uploadimgrow{margin-left: -15px;margin-right: -15px;}
+.uploadcol{padding: 0 15px;margin-bottom: 20px;}
+
+
+}
+@media only screen and (max-width:320px){
+	.uploadbtn .blue-btn{margin-bottom: 10px;}
 
 }

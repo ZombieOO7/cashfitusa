@@ -575,3 +575,6 @@ width: 160px;
     }
   }
   /*# sourceMappingURL=bootstrap.css.map */
+  .font-0{
+    font-size: 0px !important;
+  }

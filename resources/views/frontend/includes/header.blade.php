@@ -58,7 +58,7 @@ $totalNotification = count($loanNotificationlist)+count($earningNotificationlist
                                                     <li><a href="{{route('terms-of-use')}}">Terms Of Use</a></li>
                                                     <li><a href="{{route('security-privacy')}}">Security and Privacy</a></li>
                                                     <li><a href="{{route('accessibility')}}">Accessibility</a></li>
-                                                    <li><a href="#">Do Not Sell My Information</a></li>
+                                                    <li><a href="{{route('do-not-sell-my-information')}}">Do Not Sell My Information</a></li>
                                                 </ul>
                                             </li>
                                             <li>
@@ -157,7 +157,7 @@ $totalNotification = count($loanNotificationlist)+count($earningNotificationlist
                                                         <li><a href="{{route('terms-of-use')}}">Terms Of Use</a></li>
                                                         <li><a href="{{route('security-privacy')}}">Security and Privacy</a></li>
                                                         <li><a href="{{route('accessibility')}}">Accessibility</a></li>
-                                                        <li><a href="#">Do Not Sell My Information</a></li>
+                                                        <li><a href="{{route('do-not-sell-my-information')}}">Do Not Sell My Information</a></li>
                                                     </ul>
                                                 </li>
                                                 <li><a href="{{route('login')}}" class="btn header-btn cst-btn text-white">Log in </a></li>

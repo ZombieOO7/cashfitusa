@@ -101,7 +101,7 @@
                                     <li class="menu-item"><a class="text-white" href="{{route('terms-of-use')}}" title="Terms of Use">Terms of Use</a></li>
                                     <li class="menu-item"><a class="text-white" href="{{route('security-privacy')}}" title="Security and Privacy">Security and Privacy</a></li>
                                     <li class="menu-item"><a class="text-white" href="{{route('accessibility')}}" title="Accessibility">Accessibility</a></li>
-                                    <li class="menu-item"><a class="text-white" href="#" title="Do Not Sell My Information">Do Not Sell My Information</a></li>
+                                    <li class="menu-item"><a class="text-white" href="{{route('do-not-sell-my-information')}}" title="Do Not Sell My Information">Do Not Sell My Information</a></li>
                                 </ul>
                             </div>
                         </div>
