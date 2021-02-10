@@ -476,7 +476,7 @@ $score = rand(50,100);
                                                                             Form::text('routing_number',@$user->routing_number
                                                                             ,['class'=>'form-control
                                                                             m-input
-                                                                            err_msg','maxlength'=>config('constant.routing_max_length'),'placeholder'=>__('formname.bank.routing_number')])
+                                                                            err_msg','maxlength'=>config('constant.routing_max_length'),'placeholder'=>__('formname.bank.routing_number').'*'])
                                                                             !!}
                                                                             <span class='routing_number'></span>
                                                                             @if ($errors->has('routing_number'))
