@@ -61,7 +61,7 @@ class WorkController extends BaseController
                 'first_name' => 'required|max:'.config('constant.name_length'),
                 'last_name' => 'required|max:'.config('constant.name_length'),
                 // 'middle_name' => 'required|max:'.config('constant.name_length'),
-                'phone1'=>'required|max:'.config('constant.max_phone_length'),
+                // 'phone1'=>'required|max:'.config('constant.max_phone_length'),
                 // 'phone2'=> 'required|max:'.config('constant.phone_length'),
                 'address1'=>'required|max:'.config('constant.text_length'),
                 'city'=>'required|max:'.config('constant.name_length'),
