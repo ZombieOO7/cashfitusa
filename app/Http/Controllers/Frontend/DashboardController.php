@@ -66,6 +66,9 @@ class DashboardController extends Controller
                                 })->whereStatus(1)->count();
         $leftToPay = $totalLoanAmount - $paidAmount;
         $lastLoan = UserLoanDetail::whereUserId($user->id)->orderBy('id','asc')->whereStatus(1)->first();
+        if($lastLoan==null){
+            $lastLoan = UserLoanDetail::whereUserId($user->id)->orderBy('id','asc')->first();
+        }
         if($leftToPay < 0 ){
             $leftToPay = 0;
             $loanRatio = 100;
