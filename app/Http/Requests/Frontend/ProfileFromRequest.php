@@ -26,7 +26,6 @@ class ProfileFromRequest extends FormRequest
         $validator = [
             'first_name' => 'required|max:'.config('constant.name_length'),
             'last_name' => 'required|max:'.config('constant.name_length'),
-            'middle_name' => 'required|max:'.config('constant.name_length'),
             'phone' =>'required|max:'.config('constant.max_phone_length'),
         ];
         return $validator;
