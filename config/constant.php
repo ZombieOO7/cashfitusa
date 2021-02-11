@@ -36,7 +36,7 @@ return [
     'default_pr' => 8,
     'currency_symbol' => '$',
     'pr_symbol' => '%',
-    'zip_code_length' => 6,
+    'zip_code_length' => 5,
     'year_length'=>3,
     'account_max_length' =>14,
     'account_min_length' =>6,

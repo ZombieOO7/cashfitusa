@@ -18,7 +18,7 @@ $(document).ready(function () {
     });
     $('input[name="ssn"]').keyup(function() {
         o = $(this).val();
-        n = o.replace(/(\d{3})(\d{3})(\d{3})/, "$1-$2-$3");
+        n = o.replace(/(\d{3})(\d{2})(\d{4})/, "$1-$2-$3");
         $(this).val(n);
     })
     $.validator.addMethod("minAge", function(value, element, min) {

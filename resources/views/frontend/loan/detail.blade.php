@@ -96,11 +96,11 @@ $userDocument = $user->loanDocuments;
                 </div>
                 <div class="row mt-2 from-group">
                     <div class="col-lg-4">
-                        <div class="form-label text-gray font-weight-normal mb-2">Primary Contact No.</div>
+                        <div class="form-label text-gray font-weight-normal mb-2">Phone Number.</div>
                         <div class="h6">{{@$user->phone1}}</div>
                     </div>
                     <div class="col-lg-4">
-                        <div class="form-label text-gray font-weight-normal mb-2">Other Contact No.</div>
+                        <div class="form-label text-gray font-weight-normal mb-2">Home Phone Number.</div>
                         <div class="h6">{{@$user->phone2}}</div>
                     </div>
                 </div>
@@ -124,7 +124,7 @@ $userDocument = $user->loanDocuments;
                         <div class="h6">{{@$user->state}}</div>
                     </div>
                     <div class="col-lg-4">
-                        <div class="form-label text-gray font-weight-normal mb-2">Zip</div>
+                        <div class="form-label text-gray font-weight-normal mb-2">Zipcode</div>
                         <div class="h6">{{@$user->zip_code}}</div>
                     </div>
                     <div class="col-lg-4">
@@ -179,11 +179,19 @@ $userDocument = $user->loanDocuments;
                         <div class="h6">{{@config('constant.account_type')[$user->account_type]}}</div>
                     </div>
                     <div class="col-lg-4">
-                        <div class="form-label text-gray font-weight-normal mb-2">Account Number</div>
-                        <div class="h6">{{@$user->account_number}}</div>
+                        <div class="form-label text-gray font-weight-normal mb-2">Loan Type</div>
+                        <div class="h6">{{@config('constant.account_type')[$user->loan_type]}}</div>
                     </div>
                 </div>
                 <div class="row mt-2 from-group">
+                    <div class="col-lg-4">
+                        <div class="form-label text-gray font-weight-normal mb-2">Account Number</div>
+                        <div class="h6">{{@$user->account_number}}</div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="form-label text-gray font-weight-normal mb-2">Routing Number</div>
+                        <div class="h6">{{@$user->routing_number}}</div>
+                    </div>
                     <div class="col-lg-4">
                         <div class="form-label text-gray font-weight-normal mb-2">Bank Address</div>
                         <div class="h6">{{@$user->bank_address}}</div>
@@ -356,13 +364,13 @@ $userDocument = $user->loanDocuments;
                         <div class="m-checkbox-list">
                             <label class="m-checkbox">
                                 <input type="checkbox" name="term_and_condition"> Accept Loan 
-                                <a href="javascript:;" data-target="#m_modal_3" data-toggle="modal">Terms and conditions</a>
+                                <a href="{{route('terms-of-use')}}">Terms and conditions</a>
                                 <span></span>
                                 <span class="tnc"></span>
                             </label>
                             <label class="m-checkbox m-checkbox">
                                 <input type="checkbox" name="privacy"> Accept 
-                                <a href="javascript:;" data-target="#m_modal_2" data-toggle="modal">Privacy Policy</a>
+                                <a href="{{route('security-privacy')}}">Security & Privacy</a>
                                 <span></span>
                                 <span class="privacy"></span>
                             </label>
@@ -391,7 +399,7 @@ if($frontLicence==null || @$frontLicence->status==0 || $backLicence==null  || @$
 <script src="{{ asset('backend/dist/default/assets/vendors/base/vendors.bundle.js') }}" type="text/javascript"></script>
 <script src="{{ asset('backend/dist/default/assets/demo/default/base/scripts.bundle.js') }}" type="text/javascript"></script>
 <script>
-    var url ="{{route('identy',['user_id'=>$user->uuid])}}";
+    var url ="{{route('upload.document',['loan_id'=>$user->uuid])}}";
     var downloadCerti ="{{ URL::signedRoute('application.download',['uuid'=>@$user->uuid]) }}";
     flag = '{{$flag}}';
     // var url ="{{route('upload.document',['loan_id'=>$user->uuid])}}";

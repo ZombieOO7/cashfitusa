@@ -8,7 +8,7 @@ $('#ssn').keyup(function() {
 });
 $('#ssn').keyup(function() {
     o = $(this).val();
-    n = o.replace(/(\d{3})(\d{3})(\d{3})/, "$1-$2-$3");
+    n = o.replace(/(\d{3})(\d{2})(\d{4})/, "$1-$2-$3");
     $(this).val(n);
 })
 $.validator.addMethod("minAge", function(value, element, min) {
@@ -521,7 +521,7 @@ var WizardDemo = function () {
                                     $('#creditScore').hide();
                                     $('#approvedLoan').show();
                                     var acno = $('#account_number').val();
-                                    var fourDigit =  'X'.repeat(acno.length - 4) + acno.slice(-4)
+                                    var fourDigit =  'X'.repeat(10) + acno.slice(-4)
                                     console.log(fourDigit);
                                     $( 'div[ m-wizard-target=m_wizard_form_step_4]' ).addClass('m-wizard__step--done');
                                     $('#acno').text(fourDigit);

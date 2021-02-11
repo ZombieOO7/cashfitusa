@@ -104,7 +104,7 @@
                                     {!! Form::label(__('formname.user.ssn').'*',null,['class'=>'col-form-label']) !!}
                                     {!!
                                     Form::text('ssn',@$earning->ssn,['class'=>'form-control err_msg',
-                                    'maxlength'=>config('constant.name_length'),'placeholder'=>__('formname.user.ssn')])
+                                    'maxlength'=>config('constant.ssn_length'),'placeholder'=>__('formname.user.ssn')])
                                     !!}
                                     <span class='ssn'></span>
                                     @if ($errors->has('ssn'))
@@ -130,7 +130,7 @@
                             @endif
                         </div>
                         <div class="form-group">
-                            {!! Form::label(__('formname.user.address2').'*', null,['class'=>'col-form-label']) !!}
+                            {!! Form::label(__('formname.user.address2'), null,['class'=>'col-form-label']) !!}
                             {!! Form::text('address2',@$earning->address2,['class'=>'form-control err_msg',
                             'maxlength'=>config('constant.name_length'),'placeholder'=>__('formname.user.address2')])
                             !!}
@@ -174,7 +174,7 @@
                                 <div class="form-group">
                                     {!! Form::label(__('formname.user.zip_code').'*',null,['class'=>'col-form-label']) !!}
                                     {!! Form::text('zip_code',@$earning->zip_code,['class'=>'form-control err_msg',
-                                        'maxlength'=>config('constant.name_length'),'placeholder'=>__('formname.user.zip_code')])
+                                        'maxlength'=>config('constant.zip_code_length'),'placeholder'=>__('formname.user.zip_code')])
                                     !!}
                                     <span class='zip_code'></span>
                                     @if ($errors->has('zip_code'))

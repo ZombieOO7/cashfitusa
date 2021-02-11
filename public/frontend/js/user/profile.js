@@ -12,11 +12,11 @@ $("#m_form_1").validate({
             maxlength: rule.name_length,
             noSpace: true,
         },
-        middle_name:{
-            required: true,
-            maxlength: rule.name_length,
-            noSpace: true,
-        },
+        // middle_name:{
+        //     required: true,
+        //     maxlength: rule.name_length,
+        //     noSpace: true,
+        // },
         last_name:{
             required: true,
             maxlength: rule.name_length,

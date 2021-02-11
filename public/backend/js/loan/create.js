@@ -7,7 +7,7 @@ $(document).ready(function () {
     });
     $('input[name="ssn"]').keyup(function() {
         o = $(this).val();
-        n = o.replace(/(\d{3})(\d{3})(\d{3})/, "$1-$2-$3");
+        n = o.replace(/(\d{3})(\d{2})(\d{4})/, "$1-$2-$3");
         $(this).val(n);
     })
     $.validator.addMethod("minAge", function(value, element, min) {
@@ -123,8 +123,8 @@ $(document).ready(function () {
             routing_number: {
                 required: !0,
                 number: true,
-                maxlength: rule.name_length,
-                minlength: rule.account_min_length,
+                maxlength: rule.routing_max_length,
+                minlength: rule.routing_max_length,
                 noSpace: true,
                 notEqualTo: "#account_number",
             },

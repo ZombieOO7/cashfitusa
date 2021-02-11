@@ -181,14 +181,14 @@
                                                             <label for="" class="col-6 form-label h6  text-black">Loan Type</label>
                                                             <label for="" class="col-6 form-label h6  text-black">{{@config('constant.loan_type')[$lastLoan->loan_type]}}</label>
                                                         </div>
-                                                        <div class="row mb-0 loanst">
+                                                        {{-- <div class="row mb-0 loanst">
                                                             <label for="" class="col-6 form-label h6  text-black">Status</label>
                                                             <label for="" class="col-6 form-label h6 text-black">Active</label>
-                                                        </div>
-                                                        <div class="row mb-0 loanst">
+                                                        </div> --}}
+                                                        {{-- <div class="row mb-0 loanst">
                                                             <label for="" class="col-6 form-label h6 text-black">No of Emis</label>
                                                             <label for="" class="col-6 form-label h6 text-black count2">{{@$totalLoan}}</label>
-                                                        </div>
+                                                        </div> --}}
                                                         <div class="row mb-0 loanst">
                                                             <label for="" class="col-6 form-label h6  text-black">Monthly Instalments Due</label>
                                                             <label for="" class="col-6 form-label h6 text-black">{{$user->dueInstallments->count()}}</label>
@@ -358,7 +358,7 @@
                                                                             <i class="la la-phone"></i>
                                                                         </span>
                                                                     </div>
-                                                                    {{Form::text('phone',@$user->phone,['class'=>'form-control','disabled'=>true,'maxlength'=>config('constant.name_length'),'placeholder'=>__('formname.user.phone1')])}}
+                                                                    {{Form::text('phone',@$user->phone,['class'=>'form-control','disabled'=>true,'minlength'=>config('constant.max_phone_length'),'maxlength'=>config('constant.max_phone_length'),'placeholder'=>__('formname.user.phone1')])}}
                                                                 </div>
                                                                 <span class="phoneError"></span>
                                                             </div>
@@ -513,7 +513,7 @@
 
                                             <div class="col-lg-4 col-md-6 grphcol">
                                                 <div class="card card-body h-100 grphbox grphbox">
-                                                    <label for="" class="form-lable text-bold text-black">Reimbursement Percentage.</label>
+                                                    <label for="" class="form-lable text-bold text-black">Earning Percentage.</label>
                                                     <div class="col-md-12">
                                                         {{-- <div id="containercircle" class="col-md-12 p-3"></div> --}}
                                                         <div class="datacontainer justify-content-md-center col-md-12 p-3">
@@ -524,22 +524,17 @@
 
                                                         <div class="loanstmain">
                                                         <div class="row mb-0 loanst">
-                                                            <label for="" class="col-6 form-label h6  text-black">Loan Type</label>
-                                                            <label for="" class="col-6 form-label h6  text-black"></label>
+                                                            <label for="" class="col-6 form-label h6  text-black">Transaction</label>
+                                                            <label for="" class="col-6 form-label h6  text-black">{{@$totalLoanTransaction}}</label>
                                                         </div>
                                                         <div class="row mb-0 loanst">
-                                                            <label for="" class="col-6 form-label h6  text-black">Status</label>
-                                                            <label for="" class="col-6 form-label h6 text-black">Active</label>
+                                                            <label for="" class="col-6 form-label h6  text-black">Last Transaction</label>
+                                                            <label for="" class="col-6 form-label h6 text-black">{{@$lastTransactionDate}}</label>
                                                         </div>
                                                         <div class="row mb-0 loanst">
-                                                            <label for="" class="col-6 form-label h6 text-black">No of Emis</label>
-                                                            <label for="" class="col-6 form-label h6 text-black count2">0</label>
+                                                            <label for="" class="col-6 form-label h6 text-black">Earning Method</label>
+                                                            <label for="" class="col-6 form-label h6 text-black">{{@$earningMethodName}}</label>
                                                         </div>
-                                                        <div class="row mb-0 loanst">
-                                                            <label for="" class="col-6 form-label h6  text-black">Monthly Instalments Due</label>
-                                                            <label for="" class="col-6 form-label h6 text-black">0</label>
-                                                        </div>
-
                                                     </div>
 
                                                         <!-- <div class="row mb-2">

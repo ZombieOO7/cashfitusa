@@ -25,7 +25,7 @@
                                 <div class="col-lg-5 col-md-6">
                                     <div class="payment_form white-bg wow fadeInDown" data-wow-duration="1.2s" data-wow-delay=".2s">
                                         <div class="info text-center">
-                                            <h4>Get instant approved loans straight into your bank account.</h4>
+                                            <h4>Get instant approved loans straight into your bank account at flat 8% Per Annum.</h4>
                                             {{-- <p>Get instant approved loans straight into your bank account.</p> --}}
                                         </div>
                                         @include('admin.includes.flashMessages')
@@ -84,7 +84,7 @@
                                 <div class="col-lg-5 col-md-6">
                                     <div class="payment_form white-bg wow fadeInDown" data-wow-duration="1.2s" data-wow-delay=".2s">
                                         <div class="info text-center">
-                                            <h4>Get instant approved loans straight into your bank account.</h4>
+                                            <h4>Get instant approved loans straight into your bank account at flat 8% Per Annum.</h4>
                                             {{-- <p>Get instant approved loans straight into your bank account.</p> --}}
                                         </div>
                                         @include('admin.includes.flashMessages')

@@ -142,7 +142,7 @@ $user = Auth::guard('web')->user();
             <div class="m-checkbox-list">
                 <label class="m-checkbox">
                     <input type="checkbox" name="term_and_condition"> Accept Loan 
-                    <a href="javascript:;" data-target="#m_modal_3" data-toggle="modal">Terms and conditions</a>
+                    <a href="{{route('terms-of-use')}}">Terms and conditions</a>
                     <span></span>
                     <span class="tnc"></span>   
                 </label>

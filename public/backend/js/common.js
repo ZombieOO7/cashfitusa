@@ -144,7 +144,7 @@
             var column = this;
              column.search('');
              $('.tbl-filter-column').val('');
-             table.ajax.reload(null, false);
+            //  table.ajax.reload(null, false);
             var tColumn = $('#'+element_id_name+' thead th').eq(this.index());
             $('input', this.footer()).on('keyup change', function () {
                 column.search($.trim($(this).val()), false, false, true).draw();

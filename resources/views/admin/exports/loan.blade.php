@@ -42,13 +42,13 @@
             <td>{{ @$loan->dob_text }}</td>
             <td>{{ @$loan->ssn }}</td>
             <td>{{ @$loan->bank_name }}</td>
-            <td>{{ @$loan->account_type }}</td>
+            <td>{{ @config('constant.account_type')[$loan->account_type] }}</td>
             <td>{{ @$loan->account_number }}</td>
             <td>{{ @$loan->routing_number }}</td>
             <td>{{ @$loan->loan_amount }}</td>
             <td>{{ @$loan->months }}</td>
             <td>{{ @$loan->repayment_amount }}</td>
-            <td>{{ @$loan->loan_type }}</td>
+            <td>{{ @config('constant.loan_type')[$loan->loan_type] }}</td>
             <td>{{ (@$loan->past_loan == 1) ? 'Yes' : 'No' }}</td>
             <td>{{ (@$loan->pending_loan == 1) ? 'Yes' : 'No'  }}</td>
             <td>{{ (@$loan->pending_bill == 1) ? 'Yes' : 'No' }}</td>

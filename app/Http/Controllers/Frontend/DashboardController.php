@@ -33,7 +33,7 @@ class DashboardController extends Controller
         $query =    UserEarning::whereHas('earningUser',function($query) use($user){
                         $query->whereUserId($user->id);
                     });
-        $earnings = $query->limit(5)->get();
+        $earnings = $query->whereStatus(1)->limit(5)->get();
         $totalEarnings = count($query->get());
         $transactionDate = $query->orderBy('id','desc')->first();
         $lastTransactionDate = isset($transactionDate->created_at)?date('d M, Y',strtotime($transactionDate->created_at)):'---';
@@ -60,9 +60,12 @@ class DashboardController extends Controller
         $totalLoanAmount = UserLoanDetail::whereUserId($user->id)->sum('loan_amount');
         $totalLoan = UserLoanDetail::whereUserId($user->id)->count();
         $paidAmount = LoanTransaction::whereUserId($user->id)->sum('amount');
-        $loanTransactions = LoanTransaction::whereUserId($user->id)->whereNotNull('amount')->limit(5)->get();
+        $loanTransactions = LoanTransaction::whereUserId($user->id)->whereNotNull('amount')->orderBy('id','desc')->limit(5)->get();
+        $totalLoanTransaction = UserEarning::whereHas('earningUser',function($query) use($user){
+                                    $query->whereUserId($user->id);
+                                })->whereStatus(1)->count();
         $leftToPay = $totalLoanAmount - $paidAmount;
-        $lastLoan = UserLoanDetail::whereUserId($user->id)->orderBy('id','desc')->first();
+        $lastLoan = UserLoanDetail::whereUserId($user->id)->orderBy('id','asc')->whereStatus(1)->first();
         if($leftToPay < 0 ){
             $leftToPay = 0;
             $loanRatio = 100;
@@ -82,6 +85,10 @@ class DashboardController extends Controller
         if($totalEarning > 0){
             $earningRatio = ($totalEarning * 100) / 10000;
         }
+        $earningMethod= UserEarning::whereHas('earningUser',function($query) use($user){
+                            $query->whereUserId($user->id);
+                        })->orderBy('id','asc')->first();
+        $earningMethodName = @$earningMethod->app->title;
         $activeLoan = UserLoanDetail::whereUserId($user->id)->whereStatus(1)->count();
         $lastEarning = $query->orderBy('id','desc')->first();
         return view('frontend.dashboard',['lastTransactionDate'=>@$lastTransactionDate,'totalLoan'=>@$totalLoan,'leftToPay'=>@$leftToPay,
@@ -90,7 +97,7 @@ class DashboardController extends Controller
         'totalLoanAmount'=>@$totalLoanAmount,'activeLoan'=>@$activeLoan,'appEarning'=>@$appEarning,
         'loanTransactions' =>@$loanTransactions,'loanRatio'=>@$loanRatio,'totalEarning'=>@$totalEarning,
         'totalEarnings' => @$totalEarnings, 'earningRatio' => @$earningRatio,'lastLoan' => @$lastLoan, 'lastEarning'
-        => @$lastEarning
+        => @$lastEarning, 'totalLoanTransaction' =>@$totalLoanTransaction,'earningMethodName'=>@$earningMethodName,
         ]);
     }
     public function updateProfile(){
