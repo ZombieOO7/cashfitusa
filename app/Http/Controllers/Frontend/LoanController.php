@@ -82,7 +82,7 @@ class LoanController extends BaseController
                 'account_type' => 'required',
                 'account_number' => 'required|max:'.config('constant.name_length'),
                 // 'confirm_account_number' => 'required|max:'.config('constant.name_length').'|same:account_number',
-                'bank_address' =>'required|max:'.config('constant.text_length'),
+                // 'bank_address' =>'required|max:'.config('constant.text_length'),
                 'loan_amount' => 'required|max:'.config('constant.amount_length'),
                 'months' => 'required|max:'.config('constant.name_length'),
                 'repayment_amount' =>'required|max:'.config('constant.name_length'),
