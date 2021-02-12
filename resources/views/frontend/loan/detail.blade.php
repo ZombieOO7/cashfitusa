@@ -48,7 +48,7 @@ $userDocument = $user->loanDocuments;
                 </div>
             </div>
             @elseif(($frontLicence->status==0) || ($backLicence->status==0) || ($addressProof->status==0) || ($selfie->status==2))
-            <div class="mt-20 mb-20">
+            <div class="col-md-8 mt-20 mb-20">
                 <div class="alert alert-dismissible fade show text-white" style="background-color: #f4516c;" role="alert">
                     <a href="#" class="text-white" style="text-decoration: none;"><span class="fa fa-bell mr-2"></span> Document verification pending !</a>
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">

@@ -8,7 +8,7 @@ $(document).ready(function () {
     $('#addressProof').on('click',function(){
         $('#addressProofId').click();
     })
-    $('#aselfieId').on('click',function(){
+    $('#selfieProof').on('click',function(){
         $('#selfieId').click();
     })
     /* Form Validation */
@@ -16,52 +16,55 @@ $(document).ready(function () {
         rules: {
             front_licence:{
                     required: function (element) {
-                        if ($("#m-dropzone-one .dz-preview").length > 0) {
+                        if ($("#flicenceImg").attr('src') != '') {
                             return false;
                         } else {
                             return true;
                         }
                     },
+                    accept: "image/jpg,image/jpeg,image/png,application/pdf",
             },
             back_licence:{
-                    required: function (element) {
-                        if ($("#m-dropzone-two .dz-preview").length > 0) {
-                            return false;
-                        } else {
-                            return true;
-                        }
-                    },
+                required: function (element) {
+                    if ($("#blicenceImg").attr('src') != '') {
+                        return false;
+                    } else {
+                        return true;
+                    }
+                },
+                accept: "image/jpg,image/jpeg,image/png,application/pdf",
             },
             address_proof:{
-                    required: function (element) {
-                        if ($("#m-dropzone-three .dz-preview").length > 0) {
-                            return false;
-                        } else {
-                            return true;
-                        }
-                    },
+                required: function (element) {
+                    if ($("#addressImg").attr('src') != '') {
+                        return false;
+                    } else {
+                        return true;
+                    }
+                },
+                accept: "image/jpg,image/jpeg,image/png,application/pdf",
             },
             selfie:{
-                    required: function (element) {
-                        if ($("#m-dropzone-four .dz-preview").length > 0) {
-                            return false;
-                        } else {
-                            return true;
-                        }
-                    },
+                required: function (element) {
+                    if ($("#selfieImg").attr('src') != '') {
+                        return false;
+                    } else {
+                        return true;
+                    }
+                },
+                accept: "image/jpg,image/jpeg,image/png,application/pdf",
             },
             term_and_condition:{
                 required: true,
             },
-            identy:{
-                required: true,
-            }
+            
         },
         ignore: [],
         errorPlacement: function (error, element) {
+            debugger;
             console.log(element);
             if(element.attr("name") == 'front_licence')
-                error.insertAfter('.frontLicence');
+                error.insertAfter('.frontLicenceError');
             else if(element.attr("name") == 'back_licence')
                 error.insertAfter('.backLicence');
             else if(element.attr("name") == 'address_proof')
@@ -81,10 +84,46 @@ $(document).ready(function () {
         submitHandler: function (form) {
             if (!this.beenSubmitted) {
                 this.beenSubmitted = true;
-                // form.submit();
+                form.submit();
                 // Simulate an HTTP redirect:
-                window.location.replace(url);
+                // window.location.replace(url);
             }
         },
     })
 });
+$(".uploadLoanImg").change(function () {
+    classId= $(this).attr('data-class');
+    thisClassId= $(this).attr('data-this_class');
+    readURL(this,classId,thisClassId);
+});
+
+$('.removeImg').click(function(){
+    classId= $(this).attr('data-class');
+    thisClassId= $(this).attr('data-this_class');
+    imageId = $(this).attr('data-id');
+    $('.'+classId).show();
+    $('.'+thisClassId).hide();    
+    $('#'+imageId).val('');
+})
+
+function readURL(input,id,className) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        var file = input.files[0];
+        if ( /\.(jpe?g|png|gif)$/i.test(file.name) ) {
+            reader.onload = function (e) {
+                $('#'+id).attr('src', e.target.result);
+                $('#'+id).css('width','500px');
+                // $(id).css('display', 'block');
+                $('.'+id).show();
+                $('.'+className).hide();
+            }
+            reader.readAsDataURL(input.files[0]);
+        }else{
+            $('#'+id).attr('src', defaultImg);
+            $('#'+id).css('width','150px');
+            $('.'+id).show();
+            $('.'+className).hide();
+        }
+    }
+}

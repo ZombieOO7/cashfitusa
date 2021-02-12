@@ -10,7 +10,7 @@
     <script src="{{asset('frontend/js/jquery.scrollUp.min.js')}}"></script>
     <script src="{{asset('frontend/js/wow.min.js')}}"></script>
     <script src="{{asset('frontend/js/nice-select.min.js')}}"></script>
-    {{-- <script src="{{asset('frontend/js/jquery.slicknav.min.js')}}"></script> --}}
+    <script src="{{asset('frontend/js/jquery.slicknav.min.js')}}"></script>
     <script src="{{asset('frontend/js/jquery.magnific-popup.min.js')}}"></script>
     <script src="{{asset('frontend/js/plugins.js')}}"></script>
     <script src="{{asset('frontend/js/gijgo.min.js')}}"></script>

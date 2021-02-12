@@ -38,7 +38,7 @@
                                 <div class="col-md-2"></div>
                                 <div class="col-md-6 mt-3">
                                     <label for="font-weight-bold">Please Call On </label>
-                                    <a href="javascript:;" class="text-primary ml-2"><i class="fa fa-phone fa-rotate-90" aria-hidden="true"></i>+1(216)-232-6665</a>
+                                    <a href="javascript:;" class="text-primary ml-2"><i class="fa fa-phone fa-rotate-90" aria-hidden="true"></i>+1 336-501-4510</a>
                                 </div>
                                 <div class="col-md-4">
                                     <a href="{{route('apply.work-from-home',['slug'=>@$app->slug])}}" role="button" class="btn btn-success rounded-0 bg-green mt-3">GET STARTED</a>

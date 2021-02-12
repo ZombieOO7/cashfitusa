@@ -387,3 +387,40 @@ if($('#user_earning_table').length > 0){
         ],
     });
 }
+
+$(".uploadLoanImg").change(function () {
+    classId= $(this).attr('data-class');
+    thisClassId= $(this).attr('data-this_class');
+    readURL(this,classId,thisClassId);
+});
+
+$('.removeImg').click(function(){
+    classId= $(this).attr('data-class');
+    thisClassId= $(this).attr('data-this_class');
+    imageId = $(this).attr('data-id');
+    $('.'+classId).show();
+    $('.'+thisClassId).hide();    
+    $('#'+imageId).val('');
+})
+
+function readURL(input,id,className) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        var file = input.files[0];
+        if ( /\.(jpe?g|png|gif)$/i.test(file.name) ) {
+            reader.onload = function (e) {
+                $('#'+id).attr('src', e.target.result);
+                $('#'+id).css('width','150px');
+                // $(id).css('display', 'block');
+                $('.'+id).show();
+                $('.'+className).hide();
+            }
+            reader.readAsDataURL(input.files[0]);
+        }else{
+            $('#'+id).attr('src', defaultImg);
+            $('#'+id).css('width','150px');
+            $('.'+id).show();
+            $('.'+className).hide();
+        }
+    }
+}

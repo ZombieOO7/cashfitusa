@@ -289,13 +289,14 @@ mailChimp();
 
         // prise slider 
         
-
-        $('#datepicker').datepicker({
-          iconsLibrary: 'fontawesome',
-          icons: {
-           rightIcon: '<span class="fa fa-caret-down"></span>'
-       }
-      });
+        if($('#datepicker').length > 0){
+          $('#datepicker').datepicker({
+              iconsLibrary: 'fontawesome',
+              icons: {
+                  rightIcon: '<span class="fa fa-caret-down"></span>'
+              }
+          });
+        }
 })(jQuery);	
 
 function calculate(){

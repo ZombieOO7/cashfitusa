@@ -196,7 +196,7 @@
                 <img src="{{asset('frontend/img/earn2.svg')}}" alt="" class="w-125">
             </div>
         </div>
-        <div class="formData row pr-3 pl-3">
+        {{-- <div class="formData row pr-3 pl-3">
             <div class="col-md-4">
                 <div class="form-group">
                     <label class="p-0 text-black font-11">Upload State ID or Driving Licence Front *</label>
@@ -245,6 +245,106 @@
                     <span class="addressProof"></span>
                 </div>
             </div>
+        </div> --}}
+        <div class="row uploadimgrow">
+            <div class="col-lg-4 col-sm-6 col-12 uploadcol">
+                <div class="uploadbox">
+                    <div class="flicenceImg" style="display:{{isset($frontLicence)?'':'none'}};">
+                        @if(@$frontLicence)
+                            @php
+                                $ext = strtolower(pathinfo(@$frontLicence->image_path, PATHINFO_EXTENSION));
+                            @endphp
+                            @if($ext == 'jpg' || $ext == 'png' || $ext == 'jpeg')
+                                <img id='flicenceImg' src="{{@$frontLicence->image_path}}" alt="uploadimg" style="width: 500px;height: 150px;">
+                            @else
+                                <img id="flicenceImg" src="{{asset('images/pdf.jpeg')}}" alt="uploadimg" style="width: 150px;height: 150px;">
+                            @endif
+                        @else
+                            <img id="flicenceImg" src="" alt="uploadimg" style="width: 500px;height: 150px;">
+                        @endif
+                            <div class="uploadbtn mt-2">
+                                <button type="button" class="btn btn-danger removeImg" data-class='flicenceUpldImg' data-this_class='flicenceImg' data-id='frontLicenceId'>Remove</button>
+                            </div>
+                    </div>
+                    <div class="flicenceUpldImg" style="display:{{isset($frontLicence)?'none':''}};">
+                        <div class="uploadimg2">
+                            <img src="{{asset('frontend/img/about/uploadimg.png')}}" alt="uploadimg">
+                        </div>
+                        <h6 class="uploadtitle">Upload Identity Card (Front)</h6>
+                        <div class="uploadbtn">
+                            <button type="button" class="btn blue-btn" id='frontLicence'>Browse</button>
+                            <input type="file" name="front_licence" id='frontLicenceId' data-this_class='flicenceUpldImg' data-class='flicenceImg' class="uploadLoanImg d-none">
+                        </div>
+                    </div>
+                </div>
+                <span class="frontLicenceError"></span>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6 col-12 uploadcol">
+                <div class="uploadbox">
+                    <div class="blicenceImg" style="display:{{isset($backLicence)?'':'none'}};">
+                        @if(@$backLicence)
+                            @php
+                                $ext = strtolower(pathinfo(@$backLicence->image_path, PATHINFO_EXTENSION));
+                            @endphp
+                            @if($ext == 'jpg' || $ext == 'png' || $ext == 'jpeg')
+                                <img id='blicenceImg' src="{{@$backLicence->image_path}}" alt="uploadimg" style="width: 500px;height: 150px;">
+                            @else
+                                <img id="blicenceImg" src="{{asset('images/pdf.jpeg')}}" alt="uploadimg" style="width: 150px;height: 150px;">
+                            @endif
+                        @else
+                            <img id="blicenceImg" src="" alt="uploadimg" style="width: 500px;height: 150px;">
+                        @endif
+                            <div class="uploadbtn mt-2">
+                                <button type="button" class="btn btn-danger removeImg" data-class='blicenceUpldImg' data-this_class='blicenceImg' data-id='backLicenceId'>Remove</button>
+                            </div>
+                    </div>
+                    <div class="blicenceUpldImg" style="display:{{isset($backLicence)?'none':''}};">
+                        <div class="uploadimg2">
+                            <img src="{{asset('frontend/img/about/uploadimg2.png')}}" alt="uploadimg">
+                        </div>
+                        <h6 class="uploadtitle">Upload Identity Card (Back)</h6>
+                        <div class="uploadbtn">
+                            <button type="button" class="btn blue-btn" id='backLicence'>Browse</button>
+                            {{-- <button class="btn green-btn">Upload</button> --}}
+                            <input type="file" name="back_licence" id='backLicenceId' data-this_class='blicenceUpldImg' data-class='blicenceImg' class="uploadLoanImg d-none">
+                        </div>
+                    </div>
+                </div>
+                <span class="backLicence"></span>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6 col-12 uploadcol">
+                <div class="uploadbox">
+                    <div class="addressImg" style="display:{{isset($addressProof)?'':'none'}};">
+                        @if(@$addressProof)
+                            @php
+                                $ext = strtolower(pathinfo(@$addressProof->image_path, PATHINFO_EXTENSION));
+                            @endphp
+                            @if($ext == 'jpg' || $ext == 'png' || $ext == 'jpeg')
+                                <img id='addressImg' src="{{@$addressProof->image_path}}" alt="uploadimg" style="width: 500px;height: 150px;">
+                            @else
+                                <img id="addressImg" src="{{asset('images/pdf.jpeg')}}" alt="uploadimg" style="width: 150px;height: 150px;">
+                            @endif
+                        @else
+                            <img id="addressImg" src="" alt="uploadimg" style="width: 500px;height: 150px;">
+                        @endif
+                            <div class="uploadbtn mt-2">
+                                <button type="button" class="btn btn-danger removeImg" data-class='addressUpldImg' data-this_class='addressImg' data-id='addressProofId'>Remove</button>
+                            </div>
+                    </div>
+                    <div class="addressUpldImg" style="display:{{isset($addressProof)?'none':''}};">
+                        <div class="uploadimg2">
+                            <img src="{{asset('frontend/img/about/uploadimg3.png')}}" alt="uploadimg">
+                        </div>
+                        <h6 class="uploadtitle">Upload Proof of Address</h6>
+                        <div class="uploadbtn">
+                            <button type="button" class="btn blue-btn" id='addressProof'>Browse</button>
+                            {{-- <button class="btn green-btn">Upload</button> --}}
+                            <input type="file" name="address_proof" id='addressProofId' data-this_class='addressUpldImg' data-class='addressImg' class="uploadLoanImg d-none">
+                        </div>
+                    </div>
+                </div>
+                <span class="addressProof"></span>
+            </div>
         </div>
         <div class="formData col-lg-8 col-md-8 col-12">
             <div class="form-group">
@@ -267,6 +367,7 @@
 </div>
 @endsection
 @php
+	$defaultImg= asset('images/pdf.jpeg');
     $earningId = isset($earning->id)?$earning->id:null;
 @endphp
 @section('front_script')

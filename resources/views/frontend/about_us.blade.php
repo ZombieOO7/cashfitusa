@@ -26,15 +26,15 @@
         					<ul>
         						<li>
         							<h6 class="numtitle">General Department</h6>
-        							<span><i class="icon fa fa-phone"></i><a href="tel:+1 123-456-7890">+1 123-456-7890</a></span>
+        							<span><i class="icon fa fa-phone"></i><a href="tel:+1 216-230-9510">+1 216-230-9510</a></span>
         						</li>
         						<li>
         							<h6 class="numtitle">Verification Department</h6>
-        							<span><i class="icon fa fa-phone"></i><a href="tel:+1 123-456-7890">+1 123-456-7890</a></span>
+        							<span><i class="icon fa fa-phone"></i><a href="tel:+1 216-232-6655">+1 216-232-6655</a></span>
         						</li>
         						<li>
         							<h6 class="numtitle">Funding Department</h6>
-        							<span><i class="icon fa fa-phone"></i><a href="tel:+1 123-456-7890">+1 123-456-7890</a></span>
+        							<span><i class="icon fa fa-phone"></i><a href="tel:+1 336-501-4510">+1 336-501-4510</a></span>
         						</li>
         					</ul>
         					<div class="coninfoemail">
@@ -51,7 +51,7 @@
         					<ul>
         						<li>
         							<h6 class="numtitle">General Department</h6>
-        							<span><i class="icon fa fa-phone"></i><a href="tel:+1 123-456-7890">+1 123-456-7890</a></span>
+								<span><i class="icon fa fa-phone"></i><a href="tel:+1 216-230-9510">+1 216-230-9510</a></span>
         						</li>
         					</ul>
         					<div class="coninfoemail">

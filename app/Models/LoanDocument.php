@@ -38,7 +38,7 @@ class LoanDocument extends BaseModel
         // url('storage/app/earning/'.$this->address_proof) : null;
         // return $path;
 
-        $file = config('constant.app_path').'loan-'.$this->loan->user_id.'/'.$this->name;
+        $file = config('constant.app_path').'user-'.$this->loan->user_id.'/'.$this->name;
         
         if(file_exists($file) && $this->name != null){
             $avatarPath = url($file);
@@ -49,7 +49,7 @@ class LoanDocument extends BaseModel
 
     public function getSizeAttribute()
     {
-        $file = config('constant.app_path').'loan-'.$this->loan->user_id.'/'.$this->name;
+        $file = config('constant.app_path').'user-'.$this->loan->user_id.'/'.$this->name;
         return \File::size($file);
     }
 

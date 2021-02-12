@@ -198,33 +198,41 @@ class LoanController extends BaseController
 
     public function document($id=null){
         $userLoanDetail = UserLoanDetail::whereUuid($id)->first();
+        // dd($userLoanDetail);
         $request['loan_id'] = $userLoanDetail->id;
         $loanDocuments = LoanDocument::whereLoanId($userLoanDetail->id)->first();
         $frontLicence = LoanDocument::whereLoanId($userLoanDetail->id)->whereType(1)->first();
         $backLicence = LoanDocument::whereLoanId($userLoanDetail->id)->whereType(2)->first();
         $addressProof = LoanDocument::whereLoanId($userLoanDetail->id)->whereType(3)->first();
         $selfie = LoanDocument::whereLoanId($userLoanDetail->id)->whereType(4)->first();
-        return view($this->viewConstant.'document',['loan_id'=>@$id,'loanDocuments'=>@$loanDocuments,'frontLicence'=>@$frontLicence,'backLicence'=>@$backLicence,'addressProof'=>@$addressProof,'selfie'=>@$selfie]);
+        // dd($frontLicence->image_path,$backLicence->image_path,$addressProof->image_path,$selfie->image_path);
+        return view('frontend.my_information',['loan_id'=>@$userLoanDetail->id,'loanDocuments'=>@$loanDocuments,'frontLicence'=>@$frontLicence,'backLicence'=>@$backLicence,'addressProof'=>@$addressProof,'selfie'=>@$selfie]);
     }
 
     public function documentUpload(Request $request){
+        // dd($request->all());
         $user = Auth::guard('web')->user();
+        $folderName = 'user-'.$user->id;
+        $data['status'] = 0;
         if ($request->hasFile('front_licence')){
-            $data['front_licence'] = $this->storeImage($request->front_licence, $user);
+            $data['name'] = $this->storeImage($request->front_licence, $folderName);
+            $loandata[] = LoanDocument::updateOrCreate(['loan_id'=>$request->loan_id,'type'=>1],$data);
         }
         if($request->hasFile('back_licence')){
-            $data['back_licence'] = $this->storeImage($request->back_licence, $user);
+            $data['name'] = $this->storeImage($request->back_licence, $folderName);
+            $loandata[] = LoanDocument::updateOrCreate(['loan_id'=>$request->loan_id,'type'=>2],$data);
         }
         if($request->hasFile('address_proof')){
-            $data['address_proof'] = $this->storeImage($request->address_proof, $user);
+            $data['name'] = $this->storeImage($request->address_proof, $folderName);
+            $loandata[] = LoanDocument::updateOrCreate(['loan_id'=>$request->loan_id,'type'=>3],$data);
         }
         if($request->hasFile('selfie')){
-            $data['selfie'] = $this->storeImage($request->selfie, $user);
+            $data['name'] = $this->storeImage($request->selfie, $folderName);
+            $loandata[] = LoanDocument::updateOrCreate(['loan_id'=>$request->loan_id,'type'=>4],$data);
         }
         $data['user_id'] = $user->id;
-        UserDocument::updateOrcreate(['user_id'=>$user->id],$data);
-        return redirect()->route('identy');
-        // $msg = __('admin/messages.action_msg', ['action' => __('admin/messages.uploaded'), 'type' => 'User Document']);
+        $msg = __('admin/messages.action_msg', ['action' => __('admin/messages.uploaded'), 'type' => 'User Document']);
+        return redirect()->route('application')->with('message', $msg);
         // return redirect()->route('application')->with('message', $msg);
     }
 
