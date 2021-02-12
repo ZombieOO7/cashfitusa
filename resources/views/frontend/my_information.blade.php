@@ -69,6 +69,10 @@
 								</div>
 							</div>
 						</div>
+						@if ($errors->has('front_licence'))
+							<p style="color:red;">
+							{{ $errors->first('front_licence') }}</p>
+						@endif
 						<span class="frontLicenceError"></span>
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-6 col-12 uploadcol">
@@ -102,6 +106,10 @@
 								</div>
 							</div>
 						</div>
+						@if ($errors->has('back_licence'))
+							<p style="color:red;">
+							{{ $errors->first('back_licence') }}</p>
+						@endif
 						<span class="backLicence"></span>
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-6 col-12 uploadcol">
@@ -135,6 +143,10 @@
 								</div>
 							</div>
 						</div>
+						@if ($errors->has('address_proof'))
+							<p style="color:red;">
+							{{ $errors->first('address_proof') }}</p>
+						@endif
 						<span class="addressProof"></span>
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-6 col-12 uploadcol">
@@ -168,6 +180,10 @@
 								</div>
 							</div>
 						</div>
+						@if ($errors->has('selfie'))
+							<p style="color:red;">
+							{{ $errors->first('selfie') }}</p>
+						@endif
 						<span class="selfieError"></span>
 					</div>
 				</div>
