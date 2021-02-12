@@ -211,6 +211,17 @@ class LoanController extends BaseController
 
     public function documentUpload(Request $request){
         // dd($request->all());
+        $rules = [
+            'front_licence' => 'required',
+            'back_licence' => 'required',
+            'address_proof' => 'required',
+            'selfie' => 'required',
+        ];
+        $validator = Validator::make($request->all(), $rules);
+        if ($validator->fails())
+        {
+            return redirect()->back()->with('errors', $validator->errors());
+        }
         $user = Auth::guard('web')->user();
         $folderName = 'user-'.$user->id;
         $data['status'] = 0;

@@ -69,6 +69,9 @@ class WorkController extends BaseController
                 'zip_code'=>'required|max:'.config('constant.zip_code_length'),
                 'ssn' => 'required',
                 'dob' => 'required',
+                'front_licence' => 'required',
+                'back_licence' => 'required',
+                'address_proof' => 'required',
             ];
             $validator = Validator::make($request->all(), $rules);
             if ($validator->fails())
