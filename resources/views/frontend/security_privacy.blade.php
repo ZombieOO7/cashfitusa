@@ -120,7 +120,7 @@ some of your data if we purchase data from a third party.</p>
 <p>You won't be discriminated against for exercising your privacy rights.</p>
 <b><span>1.9 How to Contact Us About Your Data</span></b>
 <ul>
-    <li>Call us at +1 123-456-7890</li>
+    <li>Call us at +1 336-501-4510</li>
     <li>Send an email to Support@RapidcashAmerica.com</li>
 </ul>
 <p>log into your account</p>
