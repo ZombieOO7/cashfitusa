@@ -56,7 +56,7 @@
                             <span><i class="icon fa fa-user"></i><a href="mailto:Support@RapidCashAmerica.com">Support@RapidCashAmerica.com</a></span>
                             </div>
                             <div class="coninfoemail">
-                            <span><i class="icon fa fa-phone"></i><a href="tel:+1(216)-232-6665">+1(216)-232-6665</a></span>
+                            <span><i class="icon fa fa-phone"></i><a href="tel:+1 336-501-4510">+1 336-501-4510</a></span>
                             </div>
                     </div>
                     <div class="footlogoimg">
