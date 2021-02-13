@@ -1,8 +1,3 @@
-@section('front_script')
-{{-- <link rel="stylesheet" href="{{asset('frontend/css/custom.css')}}"> --}}
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-@endsection
     <!-- apply_for_loan_start -->
     <div class="">
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -88,7 +83,7 @@
                                             {{-- <p>Get instant approved loans straight into your bank account.</p> --}}
                                         </div>
                                         @include('admin.includes.flashMessages')
-                                        {{ Form::open(['route' => 'apply-loan','method'=>'post','class'=>'','id'=>'m_form_1']) }}
+                                        {{ Form::open(['route' => 'apply-loan','method'=>'post','class'=>'','id'=>'m_form_2']) }}
                                         @csrf
                                         <div class="form">
                                             <div class="row">
