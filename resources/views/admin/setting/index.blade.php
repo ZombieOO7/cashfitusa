@@ -51,11 +51,11 @@ $title=__('formname.web_setting.name');
 												data-toggle="tab" href="#general_tab"
 												role="tab">{{__('formname.web_setting.general')}}</a>
 										</li>
-										<li class="nav-item m-tabs__item">
+										{{-- <li class="nav-item m-tabs__item">
 											<a class="nav-link m-tabs__link "
 												data-toggle="tab" href="#social_tab"
 												role="tab">{{__('formname.web_setting.social_media_links')}}</a>
-										</li>
+										</li> --}}
 									</ul>
 									<div class="tab-content m--margin-top-40">
 										<div class="tab-pane active" id="general_tab" role="tabpanel">
@@ -94,7 +94,7 @@ $title=__('formname.web_setting.name');
 															<span class="m-form__help">@lang('setting.image_msg')</span>
 														</div>
 													</div> --}}
-													<div class="form-group m-form__group row image-block"  style="display:{{ isset($webSettings->logo)  ? 'flex':'none'}} ">
+													{{-- <div class="form-group m-form__group row image-block"  style="display:{{ isset($webSettings->logo)  ? 'flex':'none'}} ">
 														{!! Form::label('', null,array('class'=>'col-form-label col-lg-3 col-sm-12')) !!}
 														<div class="col-lg-6 col-md-9 col-sm-12">
 															<div class="input-group">
@@ -103,7 +103,7 @@ $title=__('formname.web_setting.name');
 																</video>
 															</div>
 														</div>
-													</div>
+													</div> --}}
 													<div class="form-group m-form__group row">
 														{!! Form::label(trans('setting.image').'', null,array('class'=>'col-form-label col-lg-3 col-sm-12')) !!}
 														<div class="col-lg-6 col-md-9 col-sm-12">
