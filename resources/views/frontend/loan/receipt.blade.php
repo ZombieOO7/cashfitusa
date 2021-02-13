@@ -8,6 +8,13 @@
     <link rel="stylesheet" href="{{ asset('frontend/css/bootstrap.min.css') }}" media="all" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
+<style>
+    .bg-dark-blue{
+        border: 1px solid #061f37 !important;
+        background-color: #061f37 !important;
+        color: #fff;
+    }
+</style>
 <body>
     <div class="container">
         <div class="col-md-12 text-right mt-2">
@@ -22,10 +29,10 @@
                     <img src="{{logo()}}" alt="" style="max-width: 114px;">
                 </div>
                 <div class="col-md-6 text-right mt-4">
-                    <span class="align-text-bottom">Fund Transfer Request Authorization(FTRA)</span></div>
+                    <span class="align-text-bottom">Electronic Fund Transfer (EFT)</span></div>
             </div>
             <div class="row ">
-                <div class="mb-2 border col-md-12 bg-light font-weight-bold">
+                <div class="mb-2 border col-md-12 bg-light font-weight-bold bg-dark-blue">
                     <div class="mt-1 mb-1">Customer Information</div>
                 </div>
                 <div class="col-md-12 row mb-2">
@@ -42,12 +49,12 @@
                         <div class="col-md-6">{{@$user->address1}} ,{{@$user->address2}}</div>
                     </div>
                     <div class="col-md-6 row">
-                        <div class="col-md-6">State:</div>
-                        <div class="col-md-6">{{@$user->state}}</div>
-                    </div>
-                    <div class="col-md-6 row">
                         <div class="col-md-6">City:</div>
                         <div class="col-md-6">{{@$user->city}}</div>
+                    </div>
+                    <div class="col-md-6 row">
+                        <div class="col-md-6">State:</div>
+                        <div class="col-md-6">{{@$user->state}}</div>
                     </div>
                     <div class="col-md-6 row">
                         <div class="col-md-6">Zip Code:</div>
@@ -56,13 +63,23 @@
                 </div>
             </div>
             <div class="row">
-                <div class="mb-2 border col-md-12 bg-light font-weight-bold">
+                <div class="mb-2 border col-md-12 bg-light font-weight-bold bg-dark-blue">
                     <div class="mt-1 mb-1">Account Information</div>
                 </div>
                 <div class="col-md-12 row mb-2">
                     <div class="col-md-6 row">
-                        <div class="col-md-6">Account Type:</div>
-                        <div class="col-md-6">{{@config('constant.account_type')[$user->account_type]}}</div>
+                        <div class="col-md-6">Bank Name:</div>
+                        <div class="col-md-6">{{@$user->bank_name}}</div>
+                    </div>
+                    <div class="col-md-6 row">
+                        <div class="col-md-6">Routing Number :</div>
+                        <div class="col-md-6"> {{@$user->routing_number}} </div>
+                    </div>
+                </div>
+                <div class="col-md-12 row mb-2">
+                    <div class="col-md-6 row">
+                        <div class="col-md-6">Account Type :</div>
+                        <div class="col-md-6"> {{@config('constant.account_type')[$user->account_type]}} </div>
                     </div>
                 </div>
                 <div class="col-md-12 row mb-2">
@@ -71,25 +88,19 @@
                         <div class="col-md-6"> {{@$user->account_number}} </div>
                     </div>
                 </div>
-                <div class="col-md-12 row mb-2">
-                    <div class="col-md-6 row">
-                        <div class="col-md-6">Routing Number :</div>
-                        <div class="col-md-6"> {{@$user->routing_number}} </div>
-                    </div>
-                </div>
             </div>
             <div class="row mb-2">
-                <div class="mb-2 border col-md-12 bg-light font-weight-bold">
+                <div class="mb-2 border col-md-12 bg-light font-weight-bold bg-dark-blue">
                     <div class="mt-1 mb-1">Funds Transfer Information</div>
                 </div>
                 <div class="col-md-12 row">
                     <div class="col-md-6 row">
                         <div class="col-md-6">Transfer Type :</div>
-                        <div class="col-md-6"> Wire Transfer, Zelle </div>
+                        <div class="col-md-6"> ______________ </div>
                     </div>
                     <div class="col-md-6 row">
                         <div class="col-md-5">Transfer Date :</div>
-                        <div class="col-md-7"> {{@$user->created_at_text}} </div>
+                        <div class="col-md-7"> _____________ </div>
                     </div>
                 </div>
                 <div class="col-md-12 row">
@@ -113,7 +124,7 @@
                     </div>
                     <div class="col-md-6 row mt-4">
                         <div class="col-md-5">Source:</div>
-                        <div class="col-md-7">{{@$user->loan_type}}</div>
+                        <div class="col-md-7">{{@config('constant.loan_type')[$user->loan_type] }}</div>
                     </div>
                 </div>
                 {{-- <div class="col-md-12 row">
@@ -154,50 +165,52 @@
                 </div> --}}
             </div>
             <div class="row mb-2">
-                <div class="mb-2 border col-md-12 bg-light font-weight-bold">
+                <div class="mb-2 border col-md-12 bg-light font-weight-bold bg-dark-blue">
                     <div class="mt-1 mb-1">Documents Information</div>
                 </div>
                 <div class="col-md-12 row">
                     <div class="col-md-6 row">
                         <div class="col-md-6">Id Type :</div>
-                        <div class="col-md-6">Drivers Licence, State Id, Passport</div>
+                        <div class="col-md-6">Drivers Licence, State Id, Address proof</div>
                     </div>
-                    <div class="col-md-6 row">
-                        <div class="col-md-5">Bank Name :</div>
-                        <div class="col-md-7">{{@$user->bank_name}}</div>
-                    </div>
+                </div>
+                <div class="col-md-12 row">
                     <div class="col-md-6 row">
                         <div class="col-md-6">Id State  :</div>
-                        <div class="col-md-6"></div>
+                        <div class="col-md-6">___________</div>
                     </div>
                 </div>
             </div>
             <div class="row mb-2">
-                <div class="mb-2 border col-md-12 bg-light font-weight-bold">
+                <div class="mb-2 border col-md-12 bg-light font-weight-bold bg-dark-blue">
                     <div class="mt-1 mb-1">Receipt Information</div>
                 </div>
                 <div class="col-md-12 row">
                     <div class="col-md-6 row">
                         <div class="col-md-6">Receipt Number :</div>
-                        <div class="col-md-6">XXXXXXXXXXXXXXXXX</div>
+                        <div class="col-md-6">__________________</div>
                     </div>
                     <div class="col-md-6 row">
-                        <div class="col-md-5">Additional Reference Information :</div>
+                        <div class="col-md-5">Additional Bank Instruction :</div>
                         <div class="col-md-7">N/A</div>
                     </div>
                 </div>
                 <div class="col-md-12 row">
                     <div class="col-md-6 row">
-                        <div class="col-md-6">Additional Bank Instruction :</div>
-                        <div class="col-md-6">N/A</div>
+                        <div class="col-md-6">Loan Account Number :</div>
+                        <div class="col-md-6">{{@$user->auto_account_number}}</div>
                     </div>
                     <div class="col-md-6 row">
                         <div class="col-md-5">Agent Name :</div>
                         <div class="col-md-7"></div>
                     </div>
                     <div class="col-md-6 row">
-                        <div class="col-md-6">Agent ID Number :</div>
-                        <div class="col-md-6"></div>
+                        <div class="col-md-6">Additional Reference Information</div>
+                        <div class="col-md-6">N/A</div>
+                    </div>
+                    <div class="col-md-6 row">
+                        <div class="col-md-5">Agent ID Number :</div>
+                        <div class="col-md-7"></div>
                     </div>
                 </div>
                 {{-- <div class="col-md-12 row">
@@ -227,27 +240,43 @@
                 </div> --}}
             </div>
             <div class="row mb-2">
-                <div class="mb-2 border col-md-12 bg-light font-weight-bold">
+                <div class="mb-2 border col-md-12 bg-light font-weight-bold bg-dark-blue">
                     <div class="mt-1 mb-1">Customer Approval</div>
                 </div>
                 <div class="col-md-12 row">
-                    <p class="pl-3 pr-3">
-                        i authorize Bank of America to transfer my fund as set fourth in the instructions herein(including debiting my account if applicable). and agree that
-                        such tranfer of funds is subject to the Bank of America standard transfer agreement (see disclosure pages of this form) and applicable fees. If this is a
-                        foreign currency wire transfer, I accept the conversion rate provided by Bank of America at the time the wire is sent. <br>
-                        For a Consumer International wire We rely on you the customer, to inform us of the curruncy of the receiving account (denoted under 'Curruncy of Receipient Account')
-                        so that we may disclosures the exchange rate for conversion in the wire process. If you chose to send USD rather than the foreign currency of the account ,
-                        we will honor your choice, however, we will not be able to provide exchange rate information. Additionaly, so that we may provide required disclosures, you must remain
-                        in the financial center until we provide you the Remittance Transfer Receipt(RTR). if you leave prior to receiving the RTR, we will change the International Remittance Transfer. 
+                    <p class="pl-3 pr-3 text-justify">
+                        {{-- i authorize Rapidcash America to transfer my fund as set fourth in the instructions herein(including debiting my account if <br/>
+                        applicable). and agree that such tranfer of funds is subject to the Rapidcash America standard transfer agreement (see disclosure<br/> 
+                        pages of this form) and applicable fees. If this is a foreign currency wire transfer, I accept the conversion rate provided by Rapidcash<br/>
+                        America at the time the wire is sent.<br/>
+                        For a Consumer International wire We rely on you the customer, to inform us of the curruncy of the receiving account (denoted<br/>
+                        under ’Curruncy of Receipient Account’) so that we may disclosures the exchange rate for conversion in the wire process. If you<br/>
+                        chose to send USD rather than the foreign currency of the account , we will honor your choice, however, we will not be able to<br/>
+                        provide exchange rate information. Additionaly, so that we may provide required disclosures, you must remain in the financial<br/>
+                        center until we provide you the Remittance Transfer Receipt(RTR). if you leave prior to receiving the RTR, we will change the<br/>
+                        International Remittance Transfer. --}}
+                        i authorize Rapidcash America to transfer my fund as set fourth in the instructions herein(including debiting my account if 
+                        applicable). and agree that such tranfer of funds is subject to the Rapidcash America standard transfer agreement (see disclosure 
+                        pages of this form) and applicable fees. If this is a foreign currency wire transfer, I accept the conversion rate provided by Rapidcash
+                        America at the time the wire is sent.
+                        For a Consumer International wire We rely on you the customer, to inform us of the curruncy of the receiving account (denoted
+                        under ’Curruncy of Receipient Account’) so that we may disclosures the exchange rate for conversion in the wire process. If you
+                        chose to send USD rather than the foreign currency of the account , we will honor your choice, however, we will not be able to
+                        provide exchange rate information. Additionaly, so that we may provide required disclosures, you must remain in the financial
+                        center until we provide you the Remittance Transfer Receipt(RTR). if you leave prior to receiving the RTR, we will change the
+                        International Remittance Transfer.
                     </p>
                 </div>
                 <div class="col-md-12 row">
                     <div class="col-md-7 row">
-                        <div class="col-md-12">Customer Signature : __________________________________________________________</div>
+                        <div class="col-md-12">Customer Signature : </div>
                     </div>
                     <div class="col-md-5 row">
                         <div class="col-md-5 text-right">Date of request:</div>
                         <div class="col-md-7 text-left">_____/_____/__________</div>
+                    </div>
+                    <div class="col-md-7 row">
+                        __________________________________________________________
                     </div>
                 </div>
             </div>
