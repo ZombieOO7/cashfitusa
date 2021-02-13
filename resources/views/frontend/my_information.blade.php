@@ -1,9 +1,5 @@
 @extends('frontend.layouts.default')
 @section('content')
-@section('front_css')
-<link href="{{ asset('backend/dist/default/assets/demo/default/base/style.bundle.css') }}" rel="stylesheet"
-    type="text/css" />
-@endsection
 @section('title', 'Documents')
 <div class="container">
         <div class="cmsCon">
@@ -47,12 +43,12 @@
 										$ext = strtolower(pathinfo(@$frontLicence->image_path, PATHINFO_EXTENSION));
 									@endphp
 									@if($ext == 'jpg' || $ext == 'png' || $ext == 'jpeg')
-										<img id='flicenceImg' src="{{@$frontLicence->image_path}}" alt="uploadimg" style="width: 500px;height: 150px;">
+										<img id='flicenceImg' src="{{@$frontLicence->image_path}}" alt="uploadimg" style="width: 460px;height: 150px;">
 									@else
 										<img id="flicenceImg" src="{{asset('images/pdf.jpeg')}}" alt="uploadimg" style="width: 150px;height: 150px;">
 									@endif
 								@else
-									<img id="flicenceImg" src="" alt="uploadimg" style="width: 500px;height: 150px;">
+									<img id="flicenceImg" src="" alt="uploadimg" style="width: 460px;height: 150px;">
 								@endif
 									<div class="uploadbtn mt-2">
 										<button type="button" class="btn btn-danger removeImg" data-class='flicenceUpldImg' data-this_class='flicenceImg' data-id='frontLicenceId'>Remove</button>
@@ -83,12 +79,12 @@
 										$ext = strtolower(pathinfo(@$backLicence->image_path, PATHINFO_EXTENSION));
 									@endphp
 									@if($ext == 'jpg' || $ext == 'png' || $ext == 'jpeg')
-										<img id='blicenceImg' src="{{@$backLicence->image_path}}" alt="uploadimg" style="width: 500px;height: 150px;">
+										<img id='blicenceImg' src="{{@$backLicence->image_path}}" alt="uploadimg" style="width: 460px;height: 150px;">
 									@else
 										<img id="blicenceImg" src="{{asset('images/pdf.jpeg')}}" alt="uploadimg" style="width: 150px;height: 150px;">
 									@endif
 								@else
-									<img id="blicenceImg" src="" alt="uploadimg" style="width: 500px;height: 150px;">
+									<img id="blicenceImg" src="" alt="uploadimg" style="width: 460px;height: 150px;">
 								@endif
 									<div class="uploadbtn mt-2">
 										<button type="button" class="btn btn-danger removeImg" data-class='blicenceUpldImg' data-this_class='blicenceImg' data-id='backLicenceId'>Remove</button>
@@ -120,12 +116,12 @@
 										$ext = strtolower(pathinfo(@$addressProof->image_path, PATHINFO_EXTENSION));
 									@endphp
 									@if($ext == 'jpg' || $ext == 'png' || $ext == 'jpeg')
-										<img id='addressImg' src="{{@$addressProof->image_path}}" alt="uploadimg" style="width: 500px;height: 150px;">
+										<img id='addressImg' src="{{@$addressProof->image_path}}" alt="uploadimg" style="width: 460px;height: 150px;">
 									@else
 										<img id="addressImg" src="{{asset('images/pdf.jpeg')}}" alt="uploadimg" style="width: 150px;height: 150px;">
 									@endif
 								@else
-									<img id="addressImg" src="" alt="uploadimg" style="width: 500px;height: 150px;">
+									<img id="addressImg" src="" alt="uploadimg" style="width: 460px;height: 150px;">
 								@endif
 									<div class="uploadbtn mt-2">
 										<button type="button" class="btn btn-danger removeImg" data-class='addressUpldImg' data-this_class='addressImg' data-id='addressProofId'>Remove</button>
@@ -157,12 +153,12 @@
 										$ext = strtolower(pathinfo(@$selfie->image_path, PATHINFO_EXTENSION));
 									@endphp
 									@if($ext == 'jpg' || $ext == 'png' || $ext == 'jpeg')
-										<img id='selfieImg' src="{{@$selfie->image_path}}" alt="uploadimg" style="width: 500px;height: 150px;">
+										<img id='selfieImg' src="{{@$selfie->image_path}}" alt="uploadimg" style="width: 460px;height: 150px;">
 									@else
 										<img id="selfieImg" src="{{asset('images/pdf.jpeg')}}" alt="uploadimg" style="width: 150px;height: 150px;">
 									@endif
 								@else
-									<img id="selfieImg" src="" alt="uploadimg" style="width: 500px;height: 150px;">
+									<img id="selfieImg" src="" alt="uploadimg" style="width: 460px;height: 150px;">
 								@endif
 									<div class="uploadbtn mt-2">
 										<button type="button" class="btn btn-danger removeImg" data-class='selfieUpldImg' data-this_class='selfieImg' data-id='selfieId'>Remove</button>
@@ -221,6 +217,5 @@
 </script>
 <script src="{{ asset('js/vendors.bundle.js') }}" type="text/javascript"></script>
 <script src="{{ asset('js/scripts.bundle.js') }}" type="text/javascript"></script>
-{{-- <script src="{{asset('js/dropzone.js')}}"></script> --}}
 <script src="{{ asset('frontend/js/loan/document.js')}}"></script>
 @endsection

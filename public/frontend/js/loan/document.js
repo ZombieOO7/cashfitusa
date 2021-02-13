@@ -113,7 +113,7 @@ function readURL(input,id,className) {
         if ( /\.(jpe?g|png|gif)$/i.test(file.name) ) {
             reader.onload = function (e) {
                 $('#'+id).attr('src', e.target.result);
-                $('#'+id).css('width','500px');
+                $('#'+id).css('width','460px');
                 // $(id).css('display', 'block');
                 $('.'+id).show();
                 $('.'+className).hide();
