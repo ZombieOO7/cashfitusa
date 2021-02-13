@@ -1,6 +1,6 @@
 @extends('frontend.layouts.default')
 @section('content')
-@section('title', 'Terms of Use')
+@section('title', @$title)
 <link rel="stylesheet" href="{{asset('/frontend/css/newstyle.css')}}">
 
 
