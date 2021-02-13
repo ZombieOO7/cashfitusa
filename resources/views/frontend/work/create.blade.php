@@ -255,12 +255,12 @@
                                 $ext = strtolower(pathinfo(@$frontLicence->image_path, PATHINFO_EXTENSION));
                             @endphp
                             @if($ext == 'jpg' || $ext == 'png' || $ext == 'jpeg')
-                                <img id='flicenceImg' src="{{@$frontLicence->image_path}}" alt="uploadimg" style="width: 500px;height: 150px;">
+                                <img id='flicenceImg' src="{{@$frontLicence->image_path}}" alt="uploadimg" style="width: 150px;height: 150px;">
                             @else
                                 <img id="flicenceImg" src="{{asset('images/pdf.jpeg')}}" alt="uploadimg" style="width: 150px;height: 150px;">
                             @endif
                         @else
-                            <img id="flicenceImg" src="" alt="uploadimg" style="width: 500px;height: 150px;">
+                            <img id="flicenceImg" src="" alt="uploadimg" style="width: 150px;height: 150px;">
                         @endif
                             <div class="uploadbtn mt-2">
                                 <button type="button" class="btn btn-danger removeImg" data-class='flicenceUpldImg' data-this_class='flicenceImg' data-id='frontLicenceId'>Remove</button>
@@ -287,12 +287,12 @@
                                 $ext = strtolower(pathinfo(@$backLicence->image_path, PATHINFO_EXTENSION));
                             @endphp
                             @if($ext == 'jpg' || $ext == 'png' || $ext == 'jpeg')
-                                <img id='blicenceImg' src="{{@$backLicence->image_path}}" alt="uploadimg" style="width: 500px;height: 150px;">
+                                <img id='blicenceImg' src="{{@$backLicence->image_path}}" alt="uploadimg" style="width: 150px;height: 150px;">
                             @else
                                 <img id="blicenceImg" src="{{asset('images/pdf.jpeg')}}" alt="uploadimg" style="width: 150px;height: 150px;">
                             @endif
                         @else
-                            <img id="blicenceImg" src="" alt="uploadimg" style="width: 500px;height: 150px;">
+                            <img id="blicenceImg" src="" alt="uploadimg" style="width: 150px;height: 150px;">
                         @endif
                             <div class="uploadbtn mt-2">
                                 <button type="button" class="btn btn-danger removeImg" data-class='blicenceUpldImg' data-this_class='blicenceImg' data-id='backLicenceId'>Remove</button>
@@ -320,12 +320,12 @@
                                 $ext = strtolower(pathinfo(@$addressProof->image_path, PATHINFO_EXTENSION));
                             @endphp
                             @if($ext == 'jpg' || $ext == 'png' || $ext == 'jpeg')
-                                <img id='addressImg' src="{{@$addressProof->image_path}}" alt="uploadimg" style="width: 500px;height: 150px;">
+                                <img id='addressImg' src="{{@$addressProof->image_path}}" alt="uploadimg" style="width: 150px;height: 150px;">
                             @else
                                 <img id="addressImg" src="{{asset('images/pdf.jpeg')}}" alt="uploadimg" style="width: 150px;height: 150px;">
                             @endif
                         @else
-                            <img id="addressImg" src="" alt="uploadimg" style="width: 500px;height: 150px;">
+                            <img id="addressImg" src="" alt="uploadimg" style="width: 150px;height: 150px;">
                         @endif
                             <div class="uploadbtn mt-2">
                                 <button type="button" class="btn btn-danger removeImg" data-class='addressUpldImg' data-this_class='addressImg' data-id='addressProofId'>Remove</button>
