@@ -153,8 +153,48 @@
     <!-- end of how it work section -->
 
 <!-- start testinomial section -->
-@include('frontend.sections.testinomial')
+    {{-- @include('frontend.sections.testinomial') --}}
 <!-- en d of testinomial process section -->
+
+     <div class="partnersmain section-padding">
+        <div class="container">
+            <div class="section_title text-center mb-40">
+                    <h3 class="wow fadeInUp">Our Partners</h3>
+                </div>
+
+                <div class="verificationmain">
+                    <div class="section_title mb-40">
+                        <h5 class="wow fadeInUp">Our Verification & Funding Partners</h5>
+                    </div>
+
+                    <ul>
+                        <li><img src="{{asset('frontend/img/partnersimg1.jpg')}}" alt="" /></li>
+                        <li><img src="{{asset('frontend/img/partnersimg2.jpg')}}" alt="" /></li>
+                        <li><img src="{{asset('frontend/img/partnersimg3.jpg')}}" alt="" /></li>
+                        <li><img src="{{asset('frontend/img/partnersimg4.jpg')}}" alt="" /></li>
+                        <li><img src="{{asset('frontend/img/partnersimg5.jpg')}}" alt="" /></li>
+                    </ul>
+                </div>
+
+                <div class="bankingpartmain">
+                    <div class="section_title mb-40">
+                        <h5 class="wow fadeInUp">Our Banking Partners</h5>
+                    </div>
+
+                    <ul>
+                        <li><img src="{{asset('frontend/img/verificationimg1.jpg')}}" alt="" /></li>
+                        <li><img src="{{asset('frontend/img/verificationimg2.jpg')}}" alt="" /></li>
+                        <li><img src="{{asset('frontend/img/verificationimg3.jpg')}}" alt="" /></li>
+                        <li><img src="{{asset('frontend/img/verificationimg4.jpg')}}" alt="" /></li>
+                        <li><img src="{{asset('frontend/img/verificationimg5.jpg')}}" alt="" /></li>
+                        <li><img src="{{asset('frontend/img/verificationimg6.jpg')}}" alt="" /></li>
+                    </ul>
+                </div>
+        </div>
+    </div>
+
+
+
 </div>
 @section('front_script')
 <script src="https://unpkg.com/aksvideoplayer@1.0.0/dist/aksVideoPlayer.min.js"></script>

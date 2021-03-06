@@ -187,6 +187,25 @@ line-height: normal;color: #fff;}
 .uploadbtn .green-btn{background: #4fce2c;}
 
 
+.partnersmain{}
+.partnersmain .section_title h3{}
+
+.verificationmain{margin-bottom: 50px;}
+.verificationmain .section_title h5{font-size: 20px;font-weight: 500;color: #fff;background: #001D38;display: inline-block;position: relative;z-index: 0;
+padding: 5px 10px;border-radius: 5px;margin-bottom: 15px;}
+.verificationmain ul{font-size: 0; margin: 0 -15px;}
+.verificationmain ul li{display: inline-block;width: 20%;padding: 0 15px;text-align: center;}
+.verificationmain ul li img{margin: auto;width: 60px;}
+
+.bankingpartmain .section_title h5{font-size: 20px;font-weight: 500;color: #fff;background: #001D38;display: inline-block;position: relative;z-index: 0;
+padding: 5px 10px;border-radius: 5px;margin-bottom: 15px;}
+.bankingpartmain ul{font-size: 0; margin: 0 -15px;}
+.bankingpartmain ul li{display: inline-block;width: 16.66%;padding: 0 15px;text-align: center;}
+.bankingpartmain ul li img{margin: auto;width: 150px;}
+
+
+
+
 @media only screen and (max-width:1199px){
 
 .headTitle .title{font-size: 30px;}
@@ -239,7 +258,8 @@ line-height: normal;color: #fff;}
 
 @media only screen and (max-width:991px){
 
-
+.verificationmain ul li img{margin: auto;width: 40px;}
+.bankingpartmain ul li img{margin: auto;width: 100px;}
 
 
 }
@@ -319,12 +339,22 @@ line-height: normal;color: #fff;}
 .uploadimgrow{margin-left: -15px;margin-right: -15px;}
 .uploadcol{padding: 0 15px;margin-bottom: 20px;}
 
+.verificationmain ul li{width: 50%;margin-bottom: 20px;}
+.verificationmain ul li img{width: 60px;}
+.bankingpartmain ul li{width: 50%;margin-bottom: 20px;}
+
 
 }
 @media only screen and (max-width:320px){
 	.uploadbtn .blue-btn{margin-bottom: 10px;}
 
 }
+
+@media only screen and (min-width: 568px) and (max-width: 767px) {
+.verificationmain ul li{width: 33.33%;margin-bottom: 20px;}
+.bankingpartmain ul li{width: 33.33%;margin-bottom: 20px;}
+}
+
 
 .uploadimg2 img{
 	width: 100%;

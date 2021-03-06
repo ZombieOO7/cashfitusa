@@ -178,9 +178,10 @@
                             By submitting your information via this website, you are authorizing RapidCashAmerica and its partners to do a credit check, which may include verifying your social security number, driver license number or other identification, and a review of your creditworthiness. 
                         </p>
                         <p class="text-justify">
-                            Avoid Late Payments to Protect Your Credit Score
-                            Every loan that is approved will have terms and conditions for repayment as well as late payments.</p>
-                        <p class="text-justify"> Please take a note that any missing payment or making a late payment can negatively impact your credit score. We request you to thoroughly study the terms and conditions, to protect yourself and your credit history, and then only accept loan terms that you can afford to repay. In case of any delays regarding the payments, we request you to immediately bring the same to our notice.
+                            Avoid Late Payments to Protect Your Credit Score</p>
+                        <p class="text-justify"> Every loan that is approved will have terms and conditions for repayment as well as late payments. Please take a note that any missing payment or making a late payment can negatively impact your credit score. We request you to thoroughly study the terms and conditions, to protect yourself and your credit history, and then only accept loan terms that you can afford to repay. In case of any delays regarding the payments, we request you to immediately bring the same to our notice.
+                        </p>
+                        <p class="text-justify"> RapidCashAmeria has no relation to Google, Google Voice, Cashapp, Uphold, ID.me, Citibank, Capitalone Bank, PNC Bank, Wells Fargo Bank, Bank of America, Green dot Bank Mentioned On RapidCashAmerica. We do not claim regarding being supported by or are supporting these services. The trademarks, patents, brand identities, images, and wordmarks belong exclusively to the products' parent companies. We are third party and do not claim ownership regarding the same.
                         </p>
                     </div>
                 </div>
