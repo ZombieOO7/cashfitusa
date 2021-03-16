@@ -59,9 +59,9 @@ class LoanController extends BaseController
     {
         try {
             $userList = UserLoanDetail::where(function($q)use($request){
-                            if($request->status != null){
-                                $q->whereStatus($request->status);
-                            }
+                            // if($request->status != null){
+                                // $q->whereStatus($request->status);
+                            // }
                         })->get();
             return Datatables::of($userList)
                 ->addColumn('action', function ($user) {

@@ -9,12 +9,14 @@ use App\Models\UserLoanDetail;
 
 class LoanExport implements FromView
 {
-    
+    protected $userLoanDetail;
+    function __construct($userLoanDetail) {
+        $this->userLoanDetail = $userLoanDetail;
+    }
     public function view(): View
     {
-        $userLoanDetail = UserLoanDetail::orderBy('created_at','desc')->get();
         return view('admin.exports.loan', [
-            'userLoanDetail' => $userLoanDetail
+            'userLoanDetail' => $this->userLoanDetail
         ]);
     }
 }
