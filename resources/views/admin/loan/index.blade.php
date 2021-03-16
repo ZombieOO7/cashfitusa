@@ -53,12 +53,25 @@
                                 </a>
                             </li>
                             <li class="m-portlet__nav-item">
-                                <a href="{{route('loan.export')}}" class="btn btn-success m-btn m-btn--pill m-btn--custom m-btn--icon m-btn--air">
-                                    <span>
-                                        <i class="fas fa-file-excel"></i>
-                                        <span>{{__('formname.export')}}</span>
-                                    </span>
-                                </a>
+                                <form action="{{route('loan.export')}}" method="POST" id='exportData'>
+                                    @csrf
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <input type="text" class="form-control" name="from_date" placeholder="From Date" id="startDate" readonly>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <input type="text" class="form-control" name="to_date" placeholder="To Date" id="endDate" readonly>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <button type="submit" class="btn btn-success m-btn m-btn--pill m-btn--custom m-btn--icon m-btn--air mt-0">
+                                                <span>
+                                                    <i class="fas fa-file-excel"></i>
+                                                    <span>{{__('formname.export')}}</span>
+                                                </span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
                                 @endif
                             </li>
                         </ul>
@@ -123,5 +136,6 @@
 <script>
 var url = "{{ route('loan.datatable') }}";
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
 <script src="{{ asset('backend/js/loan/index.js') }}" type="text/javascript"></script>
 @stop

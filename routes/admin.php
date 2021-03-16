@@ -40,7 +40,7 @@ Route::group(['middleware' => 'admin', 'namespace' => 'Admin'], function () {
         Route::get('approve/{uuid?}', 'LoanController@update')->name('loan.approve');
         Route::get('reject/{uuid?}','LoanController@update')->name('loan.reject');
         Route::post('docStatus','LoanController@docStatus')->name('doc.status');
-        Route::get('export','LoanController@export')->name('loan.export');
+        Route::post('export','LoanController@export')->name('loan.export');
         Route::get('transaction/{uuid?}','LoanController@getTransaction')->name('loan.transaction');
         Route::get('getTransactionData/{id?}','LoanController@getTransactionData')->name('get.loan.transaction');
         Route::post('storeTransactionData','LoanController@storeTransactionData')->name('store.loan.transaction');

@@ -262,12 +262,14 @@ class LoanController extends BaseController
         }
     }
 
-    public function export(){
-        $userLoanDetail = UserLoanDetail::orderBy('created_at','desc')->get();
-        if($userLoanDetail){
+    public function export(Request $request){
+        $fromDate = date('Y-m-d',strtotime($request->from_date. '-1 day'));
+        $toDate = date('Y-m-d',strtotime($request->to_date. '+1 day'));
+        $userLoanDetail = UserLoanDetail::whereBetween('created_at',[$fromDate,$toDate])->orderBy('created_at','desc')->get();
+        if(isset($userLoanDetail) && count($userLoanDetail) > 0){
             return Excel::download(new LoanExport(@$userLoanDetail),'loan-user.xls');
         }else{
-            return redirect()->route('loan.index')->with('message', __('formname.not_found'));
+            return redirect()->route('loan.index')->with('error', __('formname.not_found'));
         }
     }
 

@@ -4,6 +4,7 @@
         <th>Loan Application Number</th>
         <th>First Name</th>
         <th>Last Name</th>
+        <th>Email</th>
         <th>Contact No</th>
         <th>Alternate Contact No</th>
         <th>Address</th>
@@ -33,6 +34,7 @@
             <td>{{ @$loan->auto_account_number }}</td>
             <td>{{ @$loan->first_name }}</td>
             <td>{{ @$loan->last_name }}</td>
+            <td>{{ @$loan->user->email }}</td>
             <td>{{ @$loan->phone1 }}</td>
             <td>{{ @$loan->phone2 }}</td>
             <td>{{ @$loan->address1 }} , {{ @$loan->address2 }}</td>

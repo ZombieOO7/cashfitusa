@@ -89,7 +89,7 @@ return [
     'Action' => 'Action',
     'cat_delete' => 'Deleted',
 
-    'not_found' => 'Not Found',
+    // 'not_found' => 'Not Found',
     //**Sub Category */
     'subcat' => 'Sub Categories',
     'name' => 'Name',
