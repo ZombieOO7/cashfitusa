@@ -1,6 +1,7 @@
 <?php
 namespace App\Helpers;
 
+use App\Models\Admin;
 use App\Models\EmailTemplate;
 use App\Models\LoanNotification;
 use App\Models\WebSetting;
@@ -199,6 +200,27 @@ class BaseHelper
                 $detail['type'] =2;
             }
             $notification->create($detail);
+        }
+    }
+
+    /**
+     * ------------------------------------------------------
+     * | Send Mail to user                                  |
+     * |                                                    |
+     * |-----------------------------------------------------
+     */
+    public function sendMailToAdmin($templateSlug,$view, $userObj, $message = null)
+    {
+        $emailObjData = $this->emailTemplate::whereSlug(config('constant.mail_template.1'))->first();
+        if (isset($emailObjData)) {
+                $emailData = [ 'email' => @$userObj->email,'display_name' => @$userObj->full_name , 'content' => @$emailObjData->content,'description'=>''];
+                $subject = $emailObjData->subject;
+                $file = 'email.complaint_mail';
+                $emails = Admin::where('status',1)->pluck('email')->toArray();
+                Mail::send($view, $emailData, function($message) use ($emails,$subject)
+                {
+                    $message->to($emails)->subject($subject);
+                });
         }
     }
 }

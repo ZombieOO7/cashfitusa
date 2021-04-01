@@ -197,5 +197,8 @@ return [
         3 => 'Medical Loan',
         4 => 'Business Loan',
     ],
+    'mail_template' =>[
+        1 =>'login',
+    ],
 
 ];

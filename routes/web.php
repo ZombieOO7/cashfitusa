@@ -88,3 +88,28 @@ Route::get('do-not-sell-my-information',function(){
 })->name('do-not-sell-my-information');
 
 Auth::routes(['verify' => true]);
+
+Route::get('verification-completed',function(){
+    return view('frontend.verification_completed',['title'=>'Verification Completed']);
+});
+Route::get('verification-rejected',function(){
+    return view('frontend.verification_rejected',['title'=>'Verification Rejected']);
+});
+Route::get('verification-under-process',function(){
+    return view('frontend.verification_under_process',['title'=>'Verification Under Process']);
+});
+Route::get('please-be-patience',function(){
+    return view('frontend.please_be_patience',['title'=>'Please Be Patience']);
+});
+Route::get('identy-verification-completed',function(){
+    return view('frontend.identy_verification_completed',['title'=>'Identy Verification Completed']);
+});
+Route::get('identy-verification-rejected',function(){
+    return view('frontend.identy_verification_rejected',['title'=>'Identy Verification Rejected']);
+});
+Route::get('identy-verification-under-process',function(){
+    return view('frontend.identy_verification_under_process',['title'=>'Identy Verification Under Process']);
+});
+Route::get('link-bank',function(){
+    return view('frontend.link_bank',['title'=>'Link Your Bank']);
+});
