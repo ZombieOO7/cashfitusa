@@ -1,5 +1,9 @@
 @extends('frontend.layouts.default')
 @section('content')
+@section('front_css')
+<link href="{{ asset('backend/dist/default/assets/demo/default/base/style.bundle.css') }}" rel="stylesheet"
+    type="text/css" />
+@endsection
 @section('title', 'Documents')
 <div class="container">
         <div class="cmsCon">

@@ -45,7 +45,7 @@ class UserFormRequest extends FormRequest
             // $validator['phone2'][] = 'unique:users,phone2,NULL,id,deleted_at,NULL';
             $validator['password'] = 'required|max:'.config('constant.password_max_length').'|min:'.config('constant.password_min_length');
             $validator['confirm_password'] = 'required|same:password|max:'.config('constant.password_max_length').'|min:'.config('constant.password_min_length');
-            $validator['confirm_email'] = 'required|same:email|max:'.config('constant.email_length');
+            // $validator['confirm_email'] = 'required|same:email|max:'.config('constant.email_length');
         }
         return $validator;
     }

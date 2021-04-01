@@ -12,22 +12,21 @@
         }
     });
 </script>
-
 <link href="{{ asset('backend/dist/default/assets/vendors/base/vendors.bundle.css') }}" rel="stylesheet"
     type="text/css" />
 <link href="{{ asset('backend/dist/default/assets/demo/default/base/style.bundle.css') }}" rel="stylesheet"
     type="text/css" />
-    <style>
-        .form-label{
-            font-size: 16px;
-        }
-        .h6{
-            font-size: 16px;
-        }
-        p{
-            font-weight: normal !important;
-        }
-    </style>
+<style>
+    .form-label{
+        font-size: 16px;
+    }
+    .h6{
+        font-size: 16px;
+    }
+    p{
+        font-weight: normal !important;
+    }
+</style>
 @endsection
 @section('title', 'Applications')
 @php
