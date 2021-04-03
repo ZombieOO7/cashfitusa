@@ -199,6 +199,7 @@ return [
     ],
     'mail_template' =>[
         1 =>'login',
+        2 =>'reset-password',
     ],
 
 ];

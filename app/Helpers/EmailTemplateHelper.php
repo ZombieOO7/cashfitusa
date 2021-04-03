@@ -8,11 +8,10 @@ use Illuminate\Http\Request;
 class EmailTemplateHelper extends BaseHelper
 {
 
-    protected $emailTemplate;
+    public $emailTemplate;
     public function __construct(EmailTemplate $emailTemplate)
     {
         $this->emailTemplate = $emailTemplate;
-        parent::__construct();
     }
     /**
      * ------------------------------------------------------

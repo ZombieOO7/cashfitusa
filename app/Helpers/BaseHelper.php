@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Storage;
 
 class BaseHelper
 {
-    public $mode;
+    public $mode,$emailTemplate;
     public function __construct()
     {
 
@@ -209,18 +209,17 @@ class BaseHelper
      * |                                                    |
      * |-----------------------------------------------------
      */
-    public function sendMailToAdmin($templateSlug,$view, $userObj, $message = null)
+    public function sendMailToAdmin($templateSlug,$view, $userObj, $message = null,$objectData=null)
     {
-        $emailObjData = $this->emailTemplate::whereSlug(config('constant.mail_template.1'))->first();
+        $emailObjData = EmailTemplate::whereSlug(config('constant.mail_template.1'))->first();
         if (isset($emailObjData)) {
-                $emailData = [ 'email' => @$userObj->email,'display_name' => @$userObj->full_name , 'content' => @$emailObjData->content,'description'=>''];
-                $subject = $emailObjData->subject;
-                $file = 'email.complaint_mail';
-                $emails = Admin::where('status',1)->pluck('email')->toArray();
-                Mail::send($view, $emailData, function($message) use ($emails,$subject)
-                {
-                    $message->to($emails)->subject($subject);
-                });
+            $emailData = [ 'email' => @$userObj->email,'display_name' => @$userObj->full_name , 'content' => @$emailObjData->content,'body'=>@$emailObjData->body,'objectData'=>@$objectData];
+            $subject = $emailObjData->subject;
+            $emails = Admin::where('status',1)->pluck('email')->toArray();
+            Mail::send($view, $emailData, function($message) use ($emails,$subject)
+            {
+                $message->to($emails)->subject($subject);
+            });
         }
     }
 }

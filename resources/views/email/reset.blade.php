@@ -11,16 +11,12 @@
         <tr>
             <td style="padding: 0 20px;">
                 @php
-                $body = str_replace('[EMAIL]',@$email,$body);
+                $body = str_replace('[EMAIL]',@$email,@$body);
                 $body = str_replace('[USER FULL NAME]',@$display_name,$body);
+                $body = str_replace('[LINK]','<a href="'.@$objectData['link'].'">Reset Password</a>',$body);
                 $date = date('F jS Y, h:i A');
                 @endphp
-                {!! str_replace('[CONTENT]', @$content, $body) !!}
-                @if(isset($objectData) && $objectData['isMobile'] == true)
-                    {{$date}}
-                @else
-                    {{$date}}
-                @endif
+                {!! str_replace('[CONTENT]', @$content, @$body) !!}
             </td>
         </tr>
     </table>

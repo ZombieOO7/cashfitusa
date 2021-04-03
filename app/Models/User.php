@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Helpers\BaseHelper;
+use App\Notifications\MailResetPasswordNotification;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -264,5 +266,16 @@ class User extends Authenticatable implements MustVerifyEmail
         $file = config('constant.app_path').'users/'.$this->image;
         $avatarPath = !empty($this->image) && file_exists($file) ? url($file) : asset('images/user.png');
         return asset($avatarPath);
+    }
+
+    /**
+     * Send the password reset notification.
+     *
+     * @param  string  $token
+     * @return void
+     */
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new MailResetPasswordNotification($token));
     }
 }

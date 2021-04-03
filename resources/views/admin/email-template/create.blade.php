@@ -68,6 +68,9 @@
                                         <a href="javascript:void(0);">{{__('formname.emailTemplate.subject_link')}}</a>
                                         <a href="javascript:void(0);">{{__('formname.emailTemplate.message')}}</a>
                                         @endif
+                                        @if(@$emailTemplate->slug == 'reset-password')
+                                        <a href="javascript:void(0);">{{__('formname.emailTemplate.link')}}</a>
+                                        @endif
                                         {{-- @if(@$emailTemplate->slug == 'order-email-to-user' || @$emailTemplate->slug == 'order-email-to-admin')
                                         <a href="javascript:void(0);">{{__('formname.emailTemplate.address')}}</a>
                                         @endif --}}

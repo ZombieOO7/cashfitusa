@@ -229,6 +229,7 @@ return [
         'user_full_name' => '[USER FULL NAME]',
         'email' => '[EMAIL]',
         'content_tag' => '[CONTENT]',
+        'link' => '[LINK]',
     ],
     'close' => 'Close',
     'profile' => 'Profile',

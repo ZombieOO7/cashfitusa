@@ -121,6 +121,11 @@
 										<h3 class="m-login__title">{{ __('Reset Password') }}</h3>
                                     </div>
                                     @include('admin.includes.flashMessages')
+                                    @if($errors->any())
+                                        @foreach ($errors->all() as $error)
+                                            <div>{{ $error }}</div>
+                                        @endforeach
+                                    @endif
                                     <form class="m-login__form m-form" method="POST" action="{{ route('password.update') }}" id='m_form_1'>
                                         <input type="hidden" name="token" value="{{ $token }}">
 										@csrf

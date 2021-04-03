@@ -162,6 +162,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
+        Jenssegers\Agent\AgentServiceProvider::class,
         /*
          * Package Service Providers...
          */
@@ -234,6 +235,7 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
         'Datatables' => Yajra\Datatables\Facades\Datatables::class,
         'Image' => Intervention\Image\Facades\Image::class,
+        'Agent' => Jenssegers\Agent\Facades\Agent::class,
     ],
 
 ];
