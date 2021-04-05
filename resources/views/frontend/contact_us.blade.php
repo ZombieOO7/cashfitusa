@@ -1,4 +1,4 @@
-@extends('frontend.layouts.default')
+/@extends('frontend.layouts.default')
 @section('content')
 @section('title', 'Contact Us')
 <link rel="stylesheet" href="{{asset('/frontend/css/newstyle.css')}}">

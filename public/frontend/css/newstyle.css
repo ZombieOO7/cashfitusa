@@ -204,6 +204,95 @@ padding: 5px 10px;border-radius: 5px;margin-bottom: 15px;}
 .bankingpartmain ul li img{margin: auto;width: 150px;}
 
 
+/*---04-03-21---*/
+.innerpage{margin: 40px 0;}
+/*---seccmsCon---*/
+
+.seccmsCon{padding: 0;margin-right: 80px;}
+.seccmsCon h3{font-weight: 300;position: relative;margin-bottom: 20px;}
+.seccmsCon h3:before{position: absolute;bottom: -15px;width: 120px;height: 2px;background: #001d38;
+left: 15px;content: "";}
+.seccmsCon h4{text-align: right;font-size: 35px;float: right;margin-bottom: 40px;position: relative;}
+.seccmsCon h4:before{position: absolute;bottom: -15px;width: 120px;height: 2px;background: #001d38;
+left: 15px;content: "";}
+.seccmsCon h4 b{font-weight: 600;color: #fff;text-align: right;padding: 0 15px;}
+.seccmsCon p{color: both;font-weight: 400;font-size: 18px;}
+.thecmsCon h6{background: #00a05e;font-weight: 400;margin-bottom: 15px;}
+
+/*---seccmsCon---*/
+
+.resubmitmain{margin-top: 30px;text-align: center;}
+.resubmitmain .resuntitle{font-size: 28px;color: #fff;margin-bottom: 15px;font-weight: 600;
+background: #00a05e;border-radius: 5px;padding: 4px 8px;display: inline-block;}
+.resubmitmain .wpcf7-list-item{display: block;}
+.resubmitmain .wpcf7-list-item label{font-weight: 400;font-size: 18px;color: #001d38;}
+.resubmitmain .wpcf7-list-item label b{color: #001d38;}
+.resubmitmain .wpcf7-list-item label input[type="checkbox"]{opacity: 0;position: absolute;}
+.resubmitmain .wpcf7-list-item label span{position: relative;padding-left: 28px;}
+.resubmitmain .wpcf7-list-item label span:before{border-color: #fff;}
+.resubmitmain .wpcf7-list-item label span:before{content: "";position: absolute;left: 0;
+width: 20px;height: 20px;background: #fff;border: 2px solid #001d38;border-radius: 0px;
+cursor: pointer;-webkit-transition: background .3s;transition: background .3s;z-index: 1;
+top: 0;margin: auto;}
+.resubmitmain .wpcf7-list-item label span:after{content: "";position: absolute;left: 0;top: -2px;
+z-index: 2;}
+.resubmitmain .wpcf7-list-item label input[type="checkbox"]:checked+ span:before{background: #001d38;
+border: none;}
+.resubmitmain .wpcf7-list-item label input[type="checkbox"]:checked+ span:after{width: 12px;
+-webkit-transform: translate(.25em,.33654em) rotate(-45deg);transform: translate(.25em,.33654em) rotate(-45deg);
+height: 8px;border: 2px solid #fff;border-top-style: none;border-right-style: none;}
+.plbetitle{display: block;margin-top: 30px;}
+.plbetitle .pltitle{font-size: 30px;font-weight: 600;color: #022f51;text-align: center;}
+
+.form-group{margin-bottom: 30px;}
+.form-group label{font-size: 22px;font-weight: 600;color: #012f51;display: block;margin-bottom: 5px;}
+.form-group span{display: inline-block;font-weight: 400;font-size: 16px;color: #022f51;margin-right: 5px;}
+.form-group .form-control{border:1px solid #c1c1c1;background: #f0f1f2;color: #000;height: 48px;
+font-size: 16px;}
+.form-group .form-control.inupt-textcvv{width: 80px;}
+.form-group .form-control.input-textmon{width: 50px;display: inline-block;}
+.form-group .form-control.input-textyear{width: 70px;display: inline-block;}
+.formrow{margin: 0 -40px;}
+.formrow .formcol{padding: 0 40px;}
+.subbtn{margin: auto;text-align: center;display: block;}
+.subbtn .btn{background: #00a05e;color: #fff;font-size: 22px;font-weight: 600;padding: 8px 25px;
+border-radius: 7px;transition: all 0.4s ease-in-out;}
+.subbtn .btn:hover{background: #012f51;}
+.formbankmain{}
+.formbankmain .formtitle{font-size: 35px;color: #fff;margin: 0 0 20px 0;font-weight: bold;
+background: #001d38;border-radius: 5px;padding: 4px 8px;display: inline-block;}
+.bankcardopc{padding-top: 40px;}
+.bankopc{display: block;text-align: center;}
+.bankopc p{font-size: 20px;font-weight: 400;color: #012f51;}
+
+.role-list {display: inline-block;margin-right: 15px;}
+.pure-checkbox input[type="checkbox"], .pure-radiobutton input[type="checkbox"], .pure-checkbox input[type="radio"], .pure-radiobutton input[type="radio"] {
+    border: 0; clip: rect(0 0 0 0);  height: 1px;  margin: -1px;  overflow: hidden;  padding: 0;  position: absolute;  width: 1px;}
+.pure-checkbox input[type="checkbox"] + label, .pure-radiobutton input[type="checkbox"] + label, .pure-checkbox input[type="radio"] + label, .pure-radiobutton input[type="radio"] + label {
+    position: relative;  padding: 5px 0px 5px 25px;  vertical-align: middle;  user-select: none;  cursor: pointer;}
+.pure-checkbox input[type="checkbox"] + label:before, .pure-radiobutton input[type="checkbox"] + label:before, .pure-checkbox input[type="radio"] + label:before, .pure-radiobutton input[type="radio"] + label:before {
+    box-sizing: content-box; content: ''; color: #22b9ff; position: absolute; top: 50%; left: 0; width: 20px; height: 20px; margin-top: -9px; border: 2px solid #012f51; text-align: center; transition: all 0.4s ease; border-radius: 6px;
+}
+.pure-checkbox input[type="radio"] + label:before, .pure-radiobutton input[type="radio"] + label:before, .pure-checkbox input[type="radio"] + label:after, .pure-radiobutton input[type="radio"] + label:after {
+    border-radius: 0;
+}
+.pure-checkbox input[type="checkbox"] + label:before, .pure-radiobutton input[type="checkbox"] + label:before, .pure-checkbox input[type="radio"] + label:before, .pure-radiobutton input[type="radio"] + label:before {
+    width: 16px;  height: 16px; /*    margin-top: -6px;*/}
+.pure-checkbox input[type="radio"]:checked + label:after, .pure-radiobutton input[type="radio"]:checked + label:after {
+    transform: scale(1);}
+.pure-checkbox input[type="radio"]:checked + label:before, .pure-radiobutton input[type="radio"]:checked + label:before {
+    border-color: #012f51;}
+.pure-checkbox input[type="checkbox"] + label:after, .pure-radiobutton input[type="checkbox"] + label:after, .pure-checkbox input[type="radio"] + label:after, .pure-radiobutton input[type="radio"] + label:after {
+    box-sizing: content-box; content: ''; background-color: #012f51; position: absolute; top: 50%; left: 5px; width: 10px; height: 10px; margin-top: -4px; transform: scale(0); transform-origin: 50%; transition: transform 200ms ease-out;
+}
+.pure-checkbox .checkboxtextright { display: inline-block; position: relative; top: 1px; color: #666666; font-size: 14px;font-weight: normal;}
+
+.pure-checkbox .checkbox-text-right {display: inline-block;position: relative;top: 1px;color: #012f51;
+font-size: 18px;font-weight: 500;text-transform: uppercase;line-height: 1.4;}
+
+/*---04-03-21---*/
+
+img{width: 100%;}
 
 
 @media only screen and (max-width:1199px){
@@ -235,11 +324,11 @@ padding: 5px 10px;border-radius: 5px;margin-bottom: 15px;}
 
  .cmsCon h1{font-size: 30px;}
  .cmsCon h1 span{font-size: 28px;}
- .cmsCon h2{font-size: 26px; margin-bottom: 10px;font-weight: 500;}
- .cmsCon h3{font-size: 24px;margin: 0 0 10px 0;font-weight: 500;}
- .cmsCon h4{font-size: 22px;margin:0 0 5px 0;font-weight: 500;}
- .cmsCon h5{font-size: 20px;margin:0 0 5px 0;font-weight: 500;}
- .cmsCon h6{font-size: 18px;margin:0 0 5px 0;font-weight: 500;}
+ .cmsCon h2{font-size: 26px; margin-bottom: 10px;}
+ .cmsCon h3{font-size: 24px;margin: 0 0 10px 0;}
+ .cmsCon h4{font-size: 22px;margin:0 0 5px 0;}
+ .cmsCon h5{font-size: 20px;margin:0 0 5px 0;}
+ .cmsCon h6{font-size: 18px;margin:0 0 5px 0;}
  .cmsCon .alignleft{margin: 0 20px 20px 0;}
  .cmsCon .alignright{margin: 0 0 20px 20px;}
  .cmsCon p{font-size: 14px;line-height: 18px;}
@@ -254,13 +343,43 @@ padding: 5px 10px;border-radius: 5px;margin-bottom: 15px;}
 .identimg img{width: 100%;}
 .conleft{padding-right: 0;}
 
+/*---seccmsCon---*/
+
+.seccmsCon{margin-right: 20px;}
+.seccmsCon h3{margin-bottom: 20px;}
+.seccmsCon h4{margin-bottom: 30px;}
+.seccmsCon h3:before{width: 80px;}
+.seccmsCon h4:before{width: 80px;}
+/*---seccmsCon---*/
+
+.resubmitmain{margin-top: 20px;}
+.resubmitmain .resuntitle{font-size: 20px;}
+.resubmitmain .wpcf7-list-item label{font-size: 16px;}
+.plbetitle .pltitle{font-size: 20px;}
+
+.formbankmain .formtitle{font-size: 28px;}
+.form-group label{font-size: 18px;}
+.form-group .form-control{font-size: 16px;}
+.formrow{margin: 0 -15px;}
+.formrow .formcol{padding: 0 15px;}
+.form-group{margin-bottom: 20px;}
+.subbtn .btn{font-size: 18px;}
+.bankopc p{font-size: 16px;}
+.pure-checkbox .checkbox-text-right{font-size: 16px;}
+.pure-checkbox input[type="checkbox"] + label:before, .pure-radiobutton input[type="checkbox"] + label:before, .pure-checkbox input[type="radio"] + label:before, .pure-radiobutton input[type="radio"] + label:before
+{width: 14px;height: 14px;}
+.pure-checkbox input[type="checkbox"] + label:after, .pure-radiobutton input[type="checkbox"] + label:after, .pure-checkbox input[type="radio"] + label:after, .pure-radiobutton input[type="radio"] + label:after
+{width: 8px;height: 8px;}
+
 }
 
 @media only screen and (max-width:991px){
 
 .verificationmain ul li img{margin: auto;width: 40px;}
 .bankingpartmain ul li img{margin: auto;width: 100px;}
-
+/*---seccmsCon---*/
+.seccmsCon{margin-right: 0px;}
+/*---seccmsCon---*/
 
 }
 
@@ -343,6 +462,23 @@ padding: 5px 10px;border-radius: 5px;margin-bottom: 15px;}
 .verificationmain ul li img{width: 60px;}
 .bankingpartmain ul li{width: 50%;margin-bottom: 20px;}
 
+/*---seccmsCon---*/
+.seccmsCon h3{margin-bottom: 20px;}
+.seccmsCon h4{margin-bottom: 30px;}
+/*---seccmsCon---*/
+.resubmitmain .resuntitle{font-size: 18px;}
+.resubmitmain .wpcf7-list-item label span:before{width: 18px;height: 18px;}
+.resubmitmain .wpcf7-list-item label input[type="checkbox"]:checked+ span:after{height: 6px;
+width: 10px;}
+.innerpage{margin: 20px 0;}
+.plbetitle .pltitle{font-size: 16px;}
+.plbetitle{margin-top: 20px;}
+
+.formbankmain .formtitle{font-size: 20px;}
+.form-group label{font-size: 16px;}
+.form-group{margin-bottom: 15px;}
+.form-group .form-control{font-size: 14px;}
+.bankcardopc{padding-top: 20px;}
 
 }
 @media only screen and (max-width:320px){
