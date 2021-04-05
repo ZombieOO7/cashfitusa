@@ -278,4 +278,8 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         $this->notify(new MailResetPasswordNotification($token));
     }
+
+    public function lastLoanDetail(){
+        return $this->hasOne('App\Models\UserLoanDetail','user_id')->orderBy('id','desc');
+    }
 }

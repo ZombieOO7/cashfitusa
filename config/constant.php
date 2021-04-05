@@ -23,7 +23,7 @@ return [
     'oAuthAccessTokensName' => 'Ipps',
     'text_length' => 100,
     'content_length' => 500,
-    'name_length' => 20,
+    'name_length' => 50,
     'text_length' => 100,
     'email_length' => 50,
     'content_length' => 500,
@@ -200,6 +200,9 @@ return [
     'mail_template' =>[
         1 =>'login',
         2 =>'reset-password',
+        3 =>'loan-application',
+        4 =>'identity-verification',
+        5 =>'identity-verification-under-process',
     ],
 
 ];

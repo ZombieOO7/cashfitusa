@@ -45,6 +45,12 @@ Route::group(['middleware' => 'admin', 'namespace' => 'Admin'], function () {
         Route::get('getTransactionData/{id?}','LoanController@getTransactionData')->name('get.loan.transaction');
         Route::post('storeTransactionData','LoanController@storeTransactionData')->name('store.loan.transaction');
     });
+    Route::group(['prefix' => 'bank-account', 'middleware' => ['auth:admin']], function () {
+        Route::get('{uuid?}','LoanController@userBankDetail')->name('account.index');
+        Route::post('store/{uuid?}','LoanController@storeAccountDetail')->name('account.store');
+        Route::get('approve/{uuid?}', 'LoanController@updateAccountStatus')->name('account.approve');
+        Route::get('reject/{uuid?}','LoanController@updateAccountStatus')->name('account.reject');
+    });
 
     /**Role management */
     Route::group(['prefix' => 'role'], function () {

@@ -4,6 +4,9 @@
 <a class="delete" href="javascript:;" id="{{@$user->uuid}}" data-table_name="loan_table" data-url="{{route('loan.delete')}}" title="Delete">
     <i class="fas fa-trash-alt"></i>
 </a>
+<a href="{{route('account.index',['uuid'=>@$user->uuid])}}" title="Link Bank Detail">
+    <i class="flaticon-interface-9"></i>
+</a>
 <a class="" href="{{route('loan.transaction',['uuid'=>@$user->uuid])}}" id="{{@$user->uuid}}" data-table_name="loan_table" title="Transactions">
     <i class="flaticon-list-3"></i>
 </a>

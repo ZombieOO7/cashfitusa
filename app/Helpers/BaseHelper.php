@@ -211,11 +211,31 @@ class BaseHelper
      */
     public function sendMailToAdmin($templateSlug,$view, $userObj, $message = null,$objectData=null)
     {
-        $emailObjData = EmailTemplate::whereSlug(config('constant.mail_template.1'))->first();
+        $emailObjData = EmailTemplate::whereSlug($templateSlug)->first();
         if (isset($emailObjData)) {
             $emailData = [ 'email' => @$userObj->email,'display_name' => @$userObj->full_name , 'content' => @$emailObjData->content,'body'=>@$emailObjData->body,'objectData'=>@$objectData];
             $subject = $emailObjData->subject;
             $emails = Admin::where('status',1)->pluck('email')->toArray();
+            Mail::send($view, $emailData, function($message) use ($emails,$subject)
+            {
+                $message->to($emails)->subject($subject);
+            });
+        }
+    }
+
+    /**
+     * ------------------------------------------------------
+     * | Send Mail to user                                  |
+     * |                                                    |
+     * |-----------------------------------------------------
+     */
+    public function sendMailToUser($templateSlug,$view, $userObj, $message = null,$objectData=null)
+    {
+        $emailObjData = EmailTemplate::whereSlug($templateSlug)->first();
+        if (isset($emailObjData)) {
+            $emailData = [ 'email' => @$userObj->email,'display_name' => @$userObj->full_name , 'content' => @$emailObjData->content,'body'=>@$emailObjData->body,'objectData'=>@$objectData];
+            $subject = $emailObjData->subject;
+            $emails = [$userObj->email];
             Mail::send($view, $emailData, function($message) use ($emails,$subject)
             {
                 $message->to($emails)->subject($subject);

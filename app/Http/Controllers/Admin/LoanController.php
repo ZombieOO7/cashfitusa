@@ -6,10 +6,12 @@ use App\Exports\LoanExport;
 use App\Helpers\LoanHelper;
 use Illuminate\Http\Request;
 use App\Helpers\UserHelper;
+use App\Http\Requests\Admin\BankAccountFormRequest;
 use App\Http\Requests\Admin\LoanFormRequest;
 use Yajra\Datatables\Datatables;
 use App\Http\Requests\Admin\ProductCategoryFormRequest;
 use App\Http\Requests\Admin\UserFormRequest;
+use App\Models\BankAccount;
 use App\Models\LoanDocument;
 use App\Models\LoanTransaction;
 use App\Models\User;
@@ -99,7 +101,7 @@ class LoanController extends BaseController
      */
     public function create($uuid = null)
     {
-        // try {
+        try {
             $routeName = Route::currentRouteName();
             $userUuid = $uuid;
             if($uuid){
@@ -122,10 +124,10 @@ class LoanController extends BaseController
             $accountTypeList = $this->accountTypeList();
             $loanTypes = $this->loanTypes();
             return view($this->viewConstant . 'create', ['loanTypes'=>@$loanTypes,'accountTypeList'=>@$accountTypeList,'yearList'=>@$yearList,'userList'=>@$userList,'loanStatusList'=>@$loanStatusList,'user' => @$loanUser, 'title' => @$title,'statusList' => @$statusList,'userUuid'=>$userUuid,'frontLicence'=>@$frontLicence,'backLicence'=>@$backLicence,'addressProof'=>@$addressProof,'selfie'=>@$selfie]);
-        // } catch (Exception $e) {
-        //     abort(404);
-        //     return Redirect::back()->with('error', $e->getMessage());
-        // }
+        } catch (Exception $e) {
+            abort(404);
+            return Redirect::back()->with('error', $e->getMessage());
+        }
     }
 
     /**
@@ -288,7 +290,7 @@ class LoanController extends BaseController
      */
     public function getTransactionData($id=null)
     {
-        // try {
+        try {
             $transactionList = LoanTransaction::whereLoanId($id)->get();
             return Datatables::of($transactionList)
                 ->editColumn('created_at', function ($transaction) {
@@ -308,9 +310,9 @@ class LoanController extends BaseController
                 })
                 ->rawColumns(['date','amount','created_at', 'loan_amount', 'action', 'status'])
                 ->make(true);
-        // } catch (Exception $e) {
-        //     abort('404');
-        // }
+        } catch (Exception $e) {
+            abort('404');
+        }
     }
 
     public function storeTransactionData(Request $request){
@@ -324,4 +326,51 @@ class LoanController extends BaseController
         }
         return response()->json(['icon'=>'info','msg'=>'record not found']);
     }
+
+    public function userBankDetail($uuid){
+        try{
+            $title = 'Link Bank Detail';
+            $statusList = $this->properStatusList();
+            $loanStatusList = $this->loanStatusList();
+            $loanDetail = $this->helper->detail($uuid);
+            $account = BankAccount::where('loan_id',$loanDetail->id)->first();
+            return view($this->viewConstant .'_bank_detail',['loanStatusList'=>@$loanStatusList,'statusList'=>$statusList,'uuid'=>$uuid,'title'=>@$title,'account'=>@$account,'loanDetail'=>@$loanDetail]);
+        }catch(Exception $e){
+            abort('501');
+        }
+    }
+
+    public function storeAccountDetail(BankAccountFormRequest $request){
+        $this->helper->dbStart();
+        try {
+            $this->helper->storeAccountDetail($request);
+            if ($request->has('id') && !empty($request->id)) {
+                $msg = __('admin/messages.action_msg', ['action' => __('admin/messages.updated'), 'type' => 'Loan Account Detail']);
+            } else {
+                $msg = __('admin/messages.action_msg', ['action' => __('admin/messages.created'), 'type' => 'Loan Account Detail']);
+            }
+            $this->helper->dbEnd();
+            return redirect()->route('loan.index')->with('message', $msg);
+        }catch(Exception $e){
+            $this->helper->dbRollBack();
+            return Redirect::back()->with('error', $e->getMessage());
+            abort('404');
+        }
+    }
+
+    public function updateAccountStatus($uuid){
+        $account = $this->helper->accountDetail($uuid);
+        $routeName = Route::currentRouteName();
+        if($routeName == 'account.approve'){
+            $account->update(['status'=>1]);
+            $status = 1;
+        }else{
+            $status = 2;
+            $account->update(['status'=>2]);
+        }
+        $action = ($status == 1)?__('admin/messages.approved'):__('admin/messages.reject');
+        // $this->sendNotification($account,$action,'1');
+        $msg = __('admin/messages.action_msg', ['action' => __('admin/messages.updated'), 'type' => 'Bank Account']);
+        return redirect()->route('loan.index')->with('message', $msg);
+    }   
 }

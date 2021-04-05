@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\Helpers\BaseHelper;
 use Exception;
 use App\Models\User;
 use PDF;
@@ -24,6 +25,11 @@ class LoanController extends BaseController
 {
     public $viewConstant = 'frontend.loan.';
     
+    public function __construct(BaseHelper $baseHelper)
+    {
+        $this->helper = $baseHelper;
+    }
+
     public function applyLoan(Request $request){
         session()->put([
             'amount' => $request->amount,
@@ -121,6 +127,12 @@ class LoanController extends BaseController
             // $autoAccountNo = generateStudentNo();
             // array_set($request,'auto_account_number',$autoAccountNo);
             $loan = $user->loanDetail()->create($request->all());
+            $view = 'email.apply_loan';
+            $templateSlug = config('constant.mail_template.3');
+            $this->helper->sendMailToUser($templateSlug,$view, $user,null,$user->lastLoanDetail);
+            $templateSlug2 = config('constant.mail_template.4');
+            $view2 = 'email.identity_verification';
+            $this->helper->sendMailToUser($templateSlug2,$view, $user,null,$user->lastLoanDetail);
             if(count($loan->transactions) == 0){
                 $transactionData = [];
                 for($i=1; $i <= $request->months; $i++){
@@ -242,6 +254,9 @@ class LoanController extends BaseController
             $loandata[] = LoanDocument::updateOrCreate(['loan_id'=>$request->loan_id,'type'=>4],$data);
         }
         $data['user_id'] = $user->id;
+        $view = 'email.identity_under_process';
+        $templateSlug = config('constant.mail_template.5');
+        $this->helper->sendMailToUser($templateSlug,$view, $user, null,null);
         $msg = __('admin/messages.action_msg', ['action' => __('admin/messages.uploaded'), 'type' => 'User Document']);
         return redirect()->route('application')->with('message', $msg);
         // return redirect()->route('application')->with('message', $msg);

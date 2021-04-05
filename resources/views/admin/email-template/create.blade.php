@@ -62,6 +62,7 @@
                                         <a href="javascript:void(0);">{{__('formname.emailTemplate.user_full_name')}}</a>
                                         <a href="javascript:void(0);">{{__('formname.emailTemplate.email')}}</a>
                                         <a href="javascript:void(0);">{{__('formname.emailTemplate.content_tag')}}</a>
+                                        <a href="javascript:void(0);">{{__('formname.emailTemplate.link')}}</a>
                                         {{-- @endif --}}
                                         @if(@$emailTemplate->slug == 'contact-us')
                                         <a href="javascript:void(0);">{{__('formname.emailTemplate.phone')}}</a>

@@ -1,6 +1,7 @@
 <?php
 namespace App\Helpers;
 
+use App\Models\BankAccount;
 use App\Models\LoanDocument;
 use App\Models\LoanTransaction;
 use App\Models\ProductCategory;
@@ -14,9 +15,10 @@ class LoanHelper extends BaseHelper
 {
 
     protected $loan;
-    public function __construct(UserLoanDetail $loan)
+    public function __construct(UserLoanDetail $loan,BankAccount $account)
     {
         $this->loan = $loan;
+        $this->account = $account;
         parent::__construct();
     }
     /**
@@ -172,6 +174,28 @@ class LoanHelper extends BaseHelper
         $folderName = 'loan-'.$user->id;
         $imageFunction = $this->uploadImage($request, $folderName,240,320);
         return @$imageFunction;
+    }
+
+    public function storeAccountDetail($request){
+        if ($request->has('id') && $request->id != '') {
+            $account = $this->account::whereUuid($request->id)->first();
+        } else {
+            $account = new BankAccount();
+        }
+        $account->fill($request->all())->save();
+        return $account;
+    }
+
+    /**
+     * ------------------------------------------------------
+     * | product category detail by uuid                    |
+     * |                                                    |
+     * | @param $uuid                                       |
+     * |-----------------------------------------------------
+     */
+    public function accountDetail($uuid)
+    {
+        return $this->account::where('uuid', $uuid)->first();
     }
 
 }
