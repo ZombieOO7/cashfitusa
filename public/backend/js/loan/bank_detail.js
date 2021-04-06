@@ -129,7 +129,13 @@ $(document).find('#status').on('change', function(){
         $(document).find('#reasonDiv').hide();
     }
 })
-$(document).find('.rejectBtn').on('click', function(){
-    $(document).find('#reasonDiv').show();
-    window.location($(this).data('href'));
+$(document).find('.rejectBtn').on('click', function(e){
+    e.preventDefault();
+    $('#statusId').val(2);
+    $('#m_form_1').submit();
+})
+$(document).find('.acceptBtn').on('click', function(e){
+    e.preventDefault();
+    $('#statusId').val(1);
+    $('#m_form_1').submit();
 })

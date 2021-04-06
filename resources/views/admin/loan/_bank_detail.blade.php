@@ -44,11 +44,7 @@
                         </div>
                     </div>
                     <div class="m-portlet__body">
-                        @if(isset($account) || !empty($account))
-                        {{ Form::model($account, ['route' => ['account.store', @$account->uuid], 'method' => 'PUT','id'=>'m_form_1','class'=>'m-form m-form--fit ','files' => true,'autocomplete' => "off"]) }}
-                        @else
                         {{ Form::open(['route' => 'account.store','method'=>'post','class'=>'m-form m-form--fit ','id'=>'m_form_1','files' => true,'autocomplete' => "off"]) }}
-                        @endif
                         <div class="m-form__heading">
                             <h3 class="m-form__heading-title">Link Bank Details</h3>
                         </div>
@@ -348,17 +344,19 @@
                             </div>
                         </span>
                         @if(!isset($account->uuid))
-                        <div class="form-group m-form__group row">
-                            {!! Form::label(__('formname.status').'*', null,['class'=>'col-form-label col-lg-3
-                            col-sm-12']) !!}
-                            <div class="col-lg-6 col-md-9 col-sm-12">
-                                {!! Form::select('status', @$loanStatusList, @$account->status,
-                                ['class' => 'form-control','id'=>'status' ]) !!}
+                            <div class="form-group m-form__group row">
+                                {!! Form::label(__('formname.status').'*', null,['class'=>'col-form-label col-lg-3
+                                col-sm-12']) !!}
+                                <div class="col-lg-6 col-md-9 col-sm-12">
+                                    {!! Form::select('status', @$loanStatusList, @$account->status,
+                                    ['class' => 'form-control','id'=>'status' ]) !!}
+                                </div>
                             </div>
-                        </div>
+                        @else
+                            {!! Form::hidden('status',@$loanDetail->status ,['id'=>'statuId']) !!}
                         @endif
-                        <div id='reasonDiv' style="display: @if(@$account->status!=2) none @endif;" class="form-group m-form__group row">
-                            {!! Form::label('Reason *',
+                        <div id='reasonDiv' class="form-group m-form__group row">
+                            {!! Form::label('Reason',
                             null,['class'=>'col-md-3 col-form-label']) !!}
                             <div class="col-lg-6 col-md-9 col-sm-12">
                                 {!!
@@ -379,8 +377,8 @@
                                 <div class="row">
                                     <div class="col-lg-9 ml-lg-auto">
                                         @isset($account->uuid)
-                                        <a href="{{route('account.approve',['uuid'=>@$account->uuid])}}" class="btn btn-success stsBtn}}">{{__('formname.approve')}}</a>
-                                        <a href="javascript:;" data-href="{{route('account.reject',['uuid'=>@$account->uuid])}}" class="btn btn-danger stsBtn rejectBtn">{{__('formname.reject')}}</a>
+                                        {!! Form::submit(__('formname.approve'), ['class' => 'btn btn-success stsBtn acceptBtn'] )!!}
+                                        {!! Form::submit(__('formname.reject'), ['class' => 'btn btn-danger stsBtn rejectBtn'] )!!}
                                         @endisset
                                         {!! Form::submit(__('formname.submit'), ['class' => 'btn btn-primary'] )!!}
                                         <a href="{{route('loan.index')}}" class="btn btn-secondary">{{__('formname.cancel')}}</a>

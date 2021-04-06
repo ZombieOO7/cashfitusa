@@ -13,7 +13,7 @@
                 @php
                 $body = str_replace('[EMAIL]',@$email,$body);
                 $body = str_replace('[USER FULL NAME]',@$display_name,$body);
-                $body = str_replace('[LINK]','<a href="'.route('upload.document',['id'=>@$objectData->id]).'">Verify Now</a>',$body);
+                $body = str_replace('[LINK]','<a href="'.route('upload.document',['id'=>@$objectData->uuid]).'">Verify Now</a>',$body);
                 $date = date('F jS Y, h:i A');
                 @endphp
                 {!! str_replace('[CONTENT]', @$content, $body) !!}

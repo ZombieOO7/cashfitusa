@@ -36,7 +36,7 @@ class LoginController extends Controller
               return redirect()->route('login')->withError('Your account was banned ');
             }
             $viewFile = 'email.login';
-            $this->helper->sendMailToAdmin(config('constant.mail_template.1'),$viewFile,Auth::user(),null,$objectData);
+            $this->helper->sendMailToUser(config('constant.mail_template.1'),$viewFile,Auth::user(),null,$objectData);
             return redirect('/dashboard');
         }else{
             return redirect()->route('login')->withErrors('Invalid credentials');
