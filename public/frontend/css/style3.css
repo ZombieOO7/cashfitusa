@@ -3128,6 +3128,7 @@ position: relative;
   left: 0;
   z-index: 999;
   background: #fff;
+  border-bottom: 1px solid #dcdcdc;
 }
 
 /* line 147, ../../../sponDon TI/Running Project/259.Finance_HTML/assets/scss/_headerMenu.scss */
@@ -7106,7 +7107,7 @@ sup,
 sub,
 u,
 del {
-  color: #1f2b7b;
+  color: #012f51;
 }
 
 /* line 95, ../../../sponDon TI/Running Project/259.Finance_HTML/assets/scss/_elements.scss */

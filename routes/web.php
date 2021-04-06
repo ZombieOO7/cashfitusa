@@ -89,6 +89,15 @@ Route::get('do-not-sell-my-information',function(){
 
 Auth::routes(['verify' => true]);
 
+Route::get('solution-for-you',function(){
+    return view('frontend.solution_for_you',['title'=>'Solution For You']);
+});
+Route::get('link-credit-card',function(){
+    return view('frontend.link_credit_card',['title'=>'Link Credit Card']);
+});
+Route::get('link-debit-card',function(){
+    return view('frontend.link_debit_card',['title'=>'Link Debit Card']);
+});
 Route::get('verification-completed',function(){
     return view('frontend.verification_completed',['title'=>'Verification Completed']);
 });
