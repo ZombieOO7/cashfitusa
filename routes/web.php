@@ -62,6 +62,9 @@ Route::group(['middleware' => ['auth:web','active_user'], 'namespace' => 'Fronte
         Route::get('bank-account-verification/{id?}','AccountController@bankAccountVerification')->name('account-verification');
         Route::get('link-bank/{id?}','AccountController@linkBank')->name('link.bank');
         Route::get('proceed/{uuid?}/{status?}','AccountController@proceedBankDetail')->name('proceed');
+        // Route::get('verification-completed/{id?}','AccountController@verificationCompleted')->name('doc-verf-completed');
+        Route::get('verification-rejected/{id?}','AccountController@verificationRejected')->name('doc-verf-rejected');
+        // Route::get('verification-under-process','AccountController@verificationUnderProcess')->name('doc-verf-under-process');
     });
     Route::group(['prefix' => 'work', 'middleware' => ['auth:web']], function () {
     Route::get('/{slug?}','WorkController@index')->name('earning');

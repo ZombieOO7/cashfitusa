@@ -21,7 +21,6 @@
         		<p>In order to procees ahead with your application please click on the button given below.</p>
         	</div>
         	<div class="resubmitmain">
-        		<a class="continue" href="{{route('link.bank',['id'=>@$id])}}"><h4 class="resuntitle">Continue</h4></a>
 				<form id='myForm1'>
 					<span class="wpcf7-list-item first">
 						<label>
@@ -31,6 +30,11 @@
 					</span>
 					<span class="tnc"></span>
 				</form>
+				@if(@$bankAccountDetail->status==2)
+					<a class="continue" href="{{route('doc-verf-rejected',['id'=>@$id])}}"><h4 class="resuntitle">Continue</h4></a>
+				@else
+	        		<a class="continue" href="{{route('link.bank',['id'=>@$id])}}"><h4 class="resuntitle">Continue</h4></a>
+				@endif
         	</div>
         </div>
 	</div>

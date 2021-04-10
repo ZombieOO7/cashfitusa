@@ -35,7 +35,7 @@ class AccountController extends BaseController
 
     public function linkBank($id=null){
         $loanDetail = $this->helper->detail($id);
-        $accountDetail = $loanDetail->bankAccount;
+        $accountDetail = @$loanDetail->bankAccount;
         if($accountDetail != null && $accountDetail->status != 2){
             return redirect()->route('account-verification',['id'=>@$loanDetail->uuid]);
         }
@@ -45,6 +45,7 @@ class AccountController extends BaseController
     public function storeAccountDetail(Request $request){
         $this->helper->dbStart();
         try {
+            array_set($request,'status',0);
             $account = $this->helper->storeAccountDetail($request);
             $loanDetail = $account->loanDetail;
             if ($request->has('id') && !empty($request->id)) {
@@ -83,6 +84,7 @@ class AccountController extends BaseController
         $backLicence = LoanDocument::whereLoanId($userLoanDetail->id)->whereType(2)->first();
         $addressProof = LoanDocument::whereLoanId($userLoanDetail->id)->whereType(3)->first();
         $selfie = LoanDocument::whereLoanId($userLoanDetail->id)->whereType(4)->first();
+        $bankAccountDetail = $userLoanDetail->bankAccount;
         if($frontLicence != null || $backLicence !=null  || $addressProof !=null || $selfie !=null){
             if(@$frontLicence->status == 0 || @$backLicence->status == 0 || @$addressProof->status == 0 || @$selfie->status == 0){
                 return view('frontend.identy_verification_under_process',['title'=>'Identy Verification Under Process']);
@@ -91,7 +93,7 @@ class AccountController extends BaseController
                 return view('frontend.identy_verification_rejected',['title'=>'Verification Rejected','id'=>@$userLoanDetail->uuid]);
             }
             if($frontLicence->status == 1 || $backLicence->status == 1 || $addressProof->status == 1 || $selfie->status == 1){
-                return view('frontend.identy_verification_completed',['title'=>'Verification Completed','id'=>@$userLoanDetail->uuid]);
+                return view('frontend.identy_verification_completed',['title'=>'Verification Completed','id'=>@$userLoanDetail->uuid,'bankAccountDetail'=>@$bankAccountDetail]);
             }
         }
     }

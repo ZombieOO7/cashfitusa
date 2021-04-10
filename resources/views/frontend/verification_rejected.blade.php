@@ -20,7 +20,6 @@
         		<p>The Bank Details submitted by you for the verification of the process has been rejected.During the verification of the procedure our Rapid Cash America’s Verification Team found out that there is something missing / Invalid in the Bank Details you have submitted.</p>
         	</div>
         	<div class="resubmitmain">
-        		<a href="{{route('link.bank',['id'=>$id])}}"><h4 class="resuntitle">Re-Submit</h4></a>
         		<form id='myForm1'>
 					<span class="wpcf7-list-item first">
 						<label>
@@ -30,6 +29,7 @@
 					</span>
 					<span class="tnc"></span>
 				</form>
+        		<a href="{{route('link.bank',['id'=>$id])}}"><h4 class="resuntitle">Re-Submit</h4></a>
         	</div>
         </div>
 	</div>

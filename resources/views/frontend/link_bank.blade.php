@@ -301,18 +301,6 @@
                             {!! Form::hidden('user_id',@$loanDetail->user_id ,['id'=>'user_id']) !!}
                         </div>
                     </div>
-                    <div class="subbtn">
-                        <button type="submit" class="btn btn-green">Submit</button>
-                    </div>
-                    <div class="resubmitmain">
-                        <span class="wpcf7-list-item first">
-                            <label>
-                                <input type="checkbox" name="term_and_condition" id='agree' value="0">
-                                <span class="wpcf7-list-item-label">I here by accept all <b>Terms & Conditions</b></span>
-                            </label>
-                        </span>
-                        <span class="tnc"></span>
-                    </div>
                     <div class="bankcardopc">
                         <div class="bankopc">
                             <p>Do You Have Debit Card of <b>“Bank Name”</b> Account Number Ending With “xxxxx1234” ?</p>
@@ -358,6 +346,18 @@
                             </div>
                             <span class="creditCardError"></span>
                         </div>
+                    </div>
+                    <div class="resubmitmain">
+                        <span class="wpcf7-list-item first">
+                            <label>
+                                <input type="checkbox" name="term_and_condition" id='agree' value="0">
+                                <span class="wpcf7-list-item-label">I here by accept all <b>Terms & Conditions</b></span>
+                            </label>
+                        </span>
+                        <span class="tnc"></span>
+                    </div>
+                    <div class="subbtn">
+                        <button type="submit" class="btn btn-green">Submit</button>
                     </div>
                 </div>
             </form>

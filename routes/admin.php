@@ -270,4 +270,15 @@ Route::group(['middleware' => 'admin', 'namespace' => 'Admin'], function () {
         Route::get('/','AdminController@profile')->name('profile');//->middleware(['permission:profile view']);
         Route::match(['post', 'PUT'], '/store/{id}','AdminController@updateProfile')->name('profile_update');//->middleware(['permission:profile update']);
     });
+
+    Route::group(['prefix' =>'wallet','middleware' => ['auth:admin']], function () {
+        Route::get('/', 'EmailTemplateController@index')->name('emailTemplate.index');
+        Route::get('create', 'EmailTemplateController@create')->name('emailTemplate.create');
+        Route::get('edit/{uuid}', 'EmailTemplateController@create')->name('emailTemplate.edit')->middleware('signed');
+        Route::match(['post', 'PUT'], '/store/{id?}', 'EmailTemplateController@store')->name('emailTemplate.store');
+        Route::delete('delete', 'EmailTemplateController@destroy')->name('emailTemplate.delete');
+        Route::get('datatable', 'EmailTemplateController@getdata')->name('emailTemplate.datatable');
+        Route::post('active_inactive', 'EmailTemplateController@updateStatus')->name('emailTemplate.active_inactive');
+        Route::post('multi_delete', 'EmailTemplateController@multidelete')->name('emailTemplate.multi_delete');        
+    });
 });

@@ -21,7 +21,6 @@
         		<p>In order to apply for loan, we advice you to re-submit the <b>VALID & CLEAR</b> documents in order to avoid rejection.</p>
         	</div>
         	<div class="resubmitmain">
-        		<a href="{{route('upload.document',['id'=>$id])}}"><h4 class="resuntitle">Re-Submit</h4></a>
         		<form id='myForm1'>
 					<span class="wpcf7-list-item first">
 						<label>
@@ -31,6 +30,7 @@
 					</span>
 					<span class="tnc"></span>
 				</form>
+        		<a href="{{route('upload.document',['id'=>$id])}}"><h4 class="resuntitle">Re-Submit</h4></a>
         	</div>
         </div>
 	</div>
