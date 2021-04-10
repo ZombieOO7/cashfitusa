@@ -14,7 +14,7 @@
         </div>
         <div class="col-lg-6 col-md-6 col-12">
         	<div class="cmsCon seccmsCon">
-        		<h3>Bank Account Verification</h3>
+        		<h3>Identity Verification</h3>
         		<h4><b>Under Process</b></h4>
         		<div class="clearfix"></div>
         		<p>The documents you <b>HAVE</b> submitted are under process of verification.<b>THIS PROCESS IS FOR VERIFYING</b> whether a real person is using the account and living on the same address provided to Us.</p>

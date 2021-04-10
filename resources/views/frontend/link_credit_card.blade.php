@@ -8,8 +8,8 @@
 <div class="innerpage">
 <div class="container">
 	<div class="formbankmain">
-		<h3 class="formtitle">Link Credit Card</h3>
-		<form class="formlinkbank">
+	<h3 class="formtitle">Link Credit Card</h3>
+	<form class="formlinkbank">
 	<div class="row formrow">
 		<div class="col-md-6 col-12 formcol">
 			<div class="form-group">

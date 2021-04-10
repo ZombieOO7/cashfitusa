@@ -77,4 +77,8 @@ class UserLoanDetail extends BaseModel
     public function lastTransaction(){
         return $this->hasOne('App\Models\LoanTransaction','loan_id');
     }
+
+    public function bankAccount(){
+        return $this->hasOne('App\Models\BankAccount','loan_id');
+    }
 }

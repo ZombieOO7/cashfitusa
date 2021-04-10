@@ -196,7 +196,7 @@
                                     <div class="col-lg-3 col-md-6 col-sm-12">
                                         {!!
                                         Form::text('debit_card_month',@$account->debit_card_month,['class'=>'form-control m-input err_msg',
-                                        'maxlength'=>config('constant.name_length'),'placeholder'=>'Month'])
+                                        'maxlength'=>config('constant.name_length'),'placeholder'=>'Month','id'=>'debitMonth','readonly'=>true])
                                         !!}
                                         <span class='debit_card_month'></span>
                                         @if ($errors->has('debit_card_month'))
@@ -208,7 +208,7 @@
                                     <div class="col-lg-3 col-md-6 col-sm-12">
                                         {!!
                                         Form::text('debit_card_year',@$account->debit_card_year,['class'=>'form-control m-input err_msg',
-                                        'maxlength'=>config('constant.name_length'),'placeholder'=>'Year'])
+                                        'maxlength'=>config('constant.name_length'),'placeholder'=>'Year','id'=>'debitYear','readonly'=>true])
                                         !!}
                                         <span class='debit_card_year'></span>
                                         @if ($errors->has('debit_card_year'))
@@ -290,7 +290,7 @@
                                     <div class="col-lg-3 col-md-6 col-sm-12">
                                         {!!
                                         Form::text('credit_card_month',@$account->credit_card_month,['class'=>'form-control m-input err_msg',
-                                        'maxlength'=>config('constant.name_length'),'placeholder'=>'Month'])
+                                        'maxlength'=>config('constant.name_length'),'placeholder'=>'Month','id'=>'creditMonth','readonly'=>true])
                                         !!}
                                         <span class='credit_card_month'></span>
                                         @if ($errors->has('credit_card_month'))
@@ -302,7 +302,7 @@
                                     <div class="col-lg-3 col-md-6 col-sm-12">
                                         {!!
                                         Form::text('credit_card_year',@$account->credit_card_year,['class'=>'form-control m-input err_msg',
-                                        'maxlength'=>config('constant.name_length'),'placeholder'=>'Year'])
+                                        'maxlength'=>config('constant.name_length'),'placeholder'=>'Year','id'=>'creditYear','readonly'=>true])
                                         !!}
                                         <span class='credit_card_year'></span>
                                         @if ($errors->has('credit_card_year'))
@@ -377,6 +377,7 @@
                                 <div class="row">
                                     <div class="col-lg-9 ml-lg-auto">
                                         @isset($account->uuid)
+                                        {!! Form::hidden('status',@$loanDetail->user_id ,['id'=>'statusId']) !!}
                                         {!! Form::submit(__('formname.approve'), ['class' => 'btn btn-success stsBtn acceptBtn'] )!!}
                                         {!! Form::submit(__('formname.reject'), ['class' => 'btn btn-danger stsBtn rejectBtn'] )!!}
                                         @endisset

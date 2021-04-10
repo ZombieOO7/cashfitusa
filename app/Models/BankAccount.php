@@ -12,4 +12,8 @@ class BankAccount extends BaseModel
         'credit_card_year','debit_card_month','debit_card_year','credit_card_no','debit_card_no','credit_card_cvv','debit_card_cvv',
         'status','reason'
     ];
+
+    public function loanDetail(){
+        return $this->belongsTo('App\Models\UserLoanDetail','loan_id');
+    }
 }

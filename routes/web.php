@@ -56,6 +56,16 @@ Route::group(['middleware' => ['auth:web','active_user'], 'namespace' => 'Fronte
         Route::post('identy/store','LoanController@identyStore')->name('identy.store');
         Route::post('documentStore/{type?}','LoanController@documentStore')->name('store.loan.document');
         Route::get('receipt','LoanController@receipt')->name('receipt');
+        Route::post('store-account-detail','AccountController@storeAccountDetail')->name('store-account-detail');
+        Route::get('solution-for-you',function(){
+            return view('frontend.solution_for_you',['title'=>'Solution For You']);
+        });
+        Route::get('verification-completed/{id?}','AccountController@verificationCompleted')->name('doc-verf-completed');
+        Route::get('verification-rejected/{id?}','AccountController@verificationRejected')->name('doc-verf-rejected');
+        Route::get('verification-under-process','AccountController@verificationUnderProcess')->name('doc-verf-under-process');
+        Route::get('document-verification/{id?}','AccountController@documentVerification')->name('document-verification');
+        Route::get('bank-account-verification/{id?}','AccountController@bankAccountVerification')->name('account-verification');
+        Route::get('link-bank/{id?}','AccountController@linkBank')->name('link.bank');
     });
     Route::group(['prefix' => 'work', 'middleware' => ['auth:web']], function () {
     Route::get('/{slug?}','WorkController@index')->name('earning');
@@ -88,37 +98,3 @@ Route::get('do-not-sell-my-information',function(){
 })->name('do-not-sell-my-information');
 
 Auth::routes(['verify' => true]);
-
-Route::get('solution-for-you',function(){
-    return view('frontend.solution_for_you',['title'=>'Solution For You']);
-});
-Route::get('link-credit-card',function(){
-    return view('frontend.link_credit_card',['title'=>'Link Credit Card']);
-});
-Route::get('link-debit-card',function(){
-    return view('frontend.link_debit_card',['title'=>'Link Debit Card']);
-});
-Route::get('verification-completed',function(){
-    return view('frontend.verification_completed',['title'=>'Verification Completed']);
-});
-Route::get('verification-rejected',function(){
-    return view('frontend.verification_rejected',['title'=>'Verification Rejected']);
-});
-Route::get('verification-under-process',function(){
-    return view('frontend.verification_under_process',['title'=>'Verification Under Process']);
-});
-Route::get('please-be-patience',function(){
-    return view('frontend.please_be_patience',['title'=>'Please Be Patience']);
-});
-Route::get('identy-verification-completed',function(){
-    return view('frontend.identy_verification_completed',['title'=>'Identy Verification Completed']);
-});
-Route::get('identy-verification-rejected',function(){
-    return view('frontend.identy_verification_rejected',['title'=>'Identy Verification Rejected']);
-});
-Route::get('identy-verification-under-process',function(){
-    return view('frontend.identy_verification_under_process',['title'=>'Identy Verification Under Process']);
-});
-Route::get('link-bank',function(){
-    return view('frontend.link_bank',['title'=>'Link Your Bank']);
-});

@@ -1,3 +1,6 @@
+$.validator.addMethod("noSpace", function (value, element) {
+    return $.trim(value);
+}, "This field is required");
 $("#m_form_1").validate({
     rules: {
         bank_name:{
@@ -88,26 +91,30 @@ $("#m_form_1").validate({
             maxlength: 3,
             minlength: 3,
         },
-        reason:{
-            // required:true,
-            maxlength: rule.content_length,
-        },
-        status:{
+        term_and_condition:{
             required:true,
-        }
+        },
     },
-    ignore: ':hidden',
+    // ignore: ':hidden',
     errorPlacement: function (error, element) {
-        error.insertAfter(element);
-    },
-    invalidHandler: function (e, r) {
-        $("#m_form_1_msg").removeClass("m--hide").show(),
-            mUtil.scrollTop()
+        if(element.attr('name') =='have_debit_card'){
+            error.insertAfter('.debitCardError');
+        }else if(element.attr('name') =='have_credit_card'){
+            error.insertAfter('.creditCardError');
+        }else if(element.attr('name') =='term_and_condition'){
+            error.insertAfter('.tnc');
+        }else{
+            error.insertAfter(element);
+        }
     },
     submitHandler: function (form) {
         if (!this.beenSubmitted) {
-            this.beenSubmitted = true;
-            form.submit();
+            $(document).find('#waitingDiv').show();
+            $(document).find('#formDiv').hide();
+            setTimeout(function(){    
+                this.beenSubmitted = true;
+                form.submit();
+            },5000);
         }
     },
 });
@@ -120,27 +127,10 @@ $(document).find('.creditCard').on('change',function(){
 })
 $(document).find('.debitCard').on('change',function(){
     if($(this).val()==1){
-        $(document).find('#debitCardDetail').show();
+        $(document).find('#debitCardDetail').show();;
     }else{
         $(document).find('#debitCardDetail').hide();
     }
-})
-$(document).find('#status').on('change', function(){
-    if($(this).val()==2){
-        $(document).find('#reasonDiv').show();
-    }else{
-        $(document).find('#reasonDiv').hide();
-    }
-})
-$(document).find('.rejectBtn').on('click', function(e){
-    e.preventDefault();
-    $('#statusId').val(2);
-    $('#m_form_1').submit();
-})
-$(document).find('.acceptBtn').on('click', function(e){
-    e.preventDefault();
-    $('#statusId').val(1);
-    $('#m_form_1').submit();
 })
 $('#debitYear').datepicker({
     startDate: new Date(),

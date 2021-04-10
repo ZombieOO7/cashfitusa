@@ -177,9 +177,8 @@ class LoanHelper extends BaseHelper
     }
 
     public function storeAccountDetail($request){
-        if ($request->has('id') && $request->id != '') {
-            $account = $this->account::whereUuid($request->id)->first();
-        } else {
+        $account = $this->account::whereLoanId($request->loan_id)->first();
+        if($account == null){
             $account = new BankAccount();
         }
         $account->fill($request->all())->save();

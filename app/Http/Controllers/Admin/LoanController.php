@@ -24,7 +24,7 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class LoanController extends BaseController
 {
-    private $helper, $user;
+    public $helper, $user;
     public $viewConstant = 'admin.loan.';
     public function __construct(LoanHelper $helper, User $user)
     {

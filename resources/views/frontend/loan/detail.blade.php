@@ -389,8 +389,24 @@ $userDocument = $user->loanDocuments;
 
 @php
 $flag = 'true';
-if($frontLicence==null || @$frontLicence->status==0 || $backLicence==null  || @$backLicence->status==0 || $addressProof==null || @$addressProof->status==0 || $selfie==null || @$selfie->status==0){
+if($frontLicence != null || $backLicence !=null  || $addressProof !=null || $selfie !=null){
+    // if(@$frontLicence->status==0 || @$backLicence->status==0 || @$addressProof->status==0 ||@$selfie->status==0){
+    //     $flag = 'false';
+    //     $redirectUrl = route('document-verification',['id'=>@$user->uuid]);
+    // }elseif(@$frontLicence->status==1 || @$backLicence->status==1 || @$addressProof->status==1 ||@$selfie->status==1){
+    //     $flag = 'false';
+    //     $redirectUrl = route('document-verification',['id'=>@$user->uuid]);
+    // }elseif(@$frontLicence->status==2 || @$backLicence->status==2 || @$addressProof->status==2 ||@$selfie->status==2){
+    //     $flag = 'false';
+    //     $redirectUrl = route('document-verification',['id'=>@$user->uuid]);
+    // }else{
+    //     $flag = 'true';
+    // }
     $flag = 'false';
+    $redirectUrl = route('document-verification',['id'=>@$user->uuid]);
+}else{
+    $flag = 'true';
+    $redirectUrl = route('upload.document',['loan_id'=>@$user->uuid]); 
 }
 @endphp
 @stop
@@ -400,6 +416,7 @@ if($frontLicence==null || @$frontLicence->status==0 || $backLicence==null  || @$
 <script>
     var url ="{{route('upload.document',['loan_id'=>$user->uuid])}}";
     var downloadCerti ="{{ URL::signedRoute('application.download',['uuid'=>@$user->uuid]) }}";
+    var redirectUrl = "{{@$redirectUrl}}";
     flag = '{{$flag}}';
     // var url ="{{route('upload.document',['loan_id'=>$user->uuid])}}";
     $('#myForm1').validate({ 
@@ -423,8 +440,8 @@ if($frontLicence==null || @$frontLicence->status==0 || $backLicence==null  || @$
         submitHandler: function (form) {
             if (!this.beenSubmitted) {
                 this.beenSubmitted = true;
-                if(flag =='true'){
-                    window.location.replace(downloadCerti);
+                if(flag =='false'){
+                    window.location.replace(redirectUrl);
                 }else{
                     window.location.replace(url);
                 }

@@ -132,7 +132,7 @@ class LoanController extends BaseController
             $this->helper->sendMailToUser($templateSlug,$view, $user,null,$user->lastLoanDetail);
             $templateSlug2 = config('constant.mail_template.4');
             $view2 = 'email.identity_verification';
-            $this->helper->sendMailToUser($templateSlug2,$view2, $user,null,$user->lastLoanDetail);
+            $this->helper->sendMailToUser($templateSlug2,$view, $user,null,$user->lastLoanDetail);
             if(count($loan->transactions) == 0){
                 $transactionData = [];
                 for($i=1; $i <= $request->months; $i++){
@@ -210,19 +210,21 @@ class LoanController extends BaseController
 
     public function document($id=null){
         $userLoanDetail = UserLoanDetail::whereUuid($id)->first();
-        // dd($userLoanDetail);
         $request['loan_id'] = $userLoanDetail->id;
         $loanDocuments = LoanDocument::whereLoanId($userLoanDetail->id)->first();
         $frontLicence = LoanDocument::whereLoanId($userLoanDetail->id)->whereType(1)->first();
         $backLicence = LoanDocument::whereLoanId($userLoanDetail->id)->whereType(2)->first();
         $addressProof = LoanDocument::whereLoanId($userLoanDetail->id)->whereType(3)->first();
         $selfie = LoanDocument::whereLoanId($userLoanDetail->id)->whereType(4)->first();
-        // dd($frontLicence->image_path,$backLicence->image_path,$addressProof->image_path,$selfie->image_path);
+        if($frontLicence != null || $backLicence !=null  || $addressProof !=null || $selfie !=null){
+            if($frontLicence->status != 2 || $backLicence->status != 2 || $addressProof->status != 2 || $selfie->status != 2){
+                return redirect()->route('document-verification',['id'=>$userLoanDetail->uuid]);
+            }
+        }
         return view('frontend.my_information',['loan_id'=>@$userLoanDetail->id,'loanDocuments'=>@$loanDocuments,'frontLicence'=>@$frontLicence,'backLicence'=>@$backLicence,'addressProof'=>@$addressProof,'selfie'=>@$selfie]);
     }
 
     public function documentUpload(Request $request){
-        // dd($request->all());
         $rules = [
             'front_licence' => 'required',
             'back_licence' => 'required',
@@ -258,7 +260,9 @@ class LoanController extends BaseController
         $templateSlug = config('constant.mail_template.5');
         $this->helper->sendMailToUser($templateSlug,$view, $user, null,null);
         $msg = __('admin/messages.action_msg', ['action' => __('admin/messages.uploaded'), 'type' => 'User Document']);
-        return redirect()->route('application')->with('message', $msg);
+        $userLoanDetail = UserLoanDetail::find($request->loan_id);
+        return redirect()->route('document-verification',['id'=>$userLoanDetail->uuid]);
+        // return redirect()->route('application')->with('message', $msg);
         // return redirect()->route('application')->with('message', $msg);
     }
 

@@ -20,20 +20,44 @@
         		<p>The Bank Details submitted by you for the verification of the process has been rejected.During the verification of the procedure our Rapid Cash America’s Verification Team found out that there is something missing / Invalid in the Bank Details you have submitted.</p>
         	</div>
         	<div class="resubmitmain">
-        		<h4 class="resuntitle">Re-Submit</h4>
-        		<span class="wpcf7-list-item first"><label><input type="checkbox" name="services[]" value="Web Development"><span class="wpcf7-list-item-label">I here by accept all <b>Terms & Conditions</b></span></label></span>
+        		<a href="{{route('link.bank',['id'=>$id])}}"><h4 class="resuntitle">Re-Submit</h4></a>
+        		<form id='myForm1'>
+					<span class="wpcf7-list-item first">
+						<label>
+							<input type="checkbox" name="term_and_condition" >
+							<span class="wpcf7-list-item-label">I here by accept all <b>Terms & Conditions</b></span>
+						</label>
+					</span>
+					<span class="tnc"></span>
+				</form>
         	</div>
         </div>
 	</div>
 </div>
 </div>
-
-	<!-- start testinomial section -->
-    @include('frontend.sections.testinomial') 
-    <!-- end of testinomial process section -->
-
-
-
-{{-- content start from here--}}
-{{-- content end here --}}
+<!-- start testinomial section -->
+@include('frontend.sections.testinomial') 
+<!-- end of testinomial process section -->
+@stop
+@section('front_script')
+<script>
+	$('#myForm1').validate({
+		rules:{
+            term_and_condition:{
+                required: true,
+            },
+		},
+        ignore: [],
+		errorPlacement: function (error, element) {
+			error.insertAfter('.tnc');
+		}
+	})
+	$(document).on('click','.continue',function(e){
+		debugger;
+		if($('#myForm1').valid()){
+		}else{
+			e.preventDefault();
+		}
+	})
+</script>
 @endsection
