@@ -20,16 +20,6 @@
 				<p>In order to process ahead with your applicaion please click on button given below.</p>
         	</div>
 			<div class="resubmitmain">
-				{{-- <a class="continue" href="#"><h4 class="resuntitle">Continue</h4></a> --}}
-				{{-- <form id='myForm1'>
-					<span class="wpcf7-list-item first">
-						<label>
-							<input type="checkbox" name="term_and_condition" id='agree'>
-							<span class="wpcf7-list-item-label">I here by accept all <b>Terms & Conditions</b></span>
-						</label>
-					</span>
-					<span class="tnc"></span>
-				</form> --}}
 			</div>
         </div>
 	</div>
@@ -38,26 +28,15 @@
 <!-- start testinomial section -->
 @include('frontend.sections.testinomial') 
 <!-- end of testinomial process section -->
+@php
+$url = route('solution-for-you',['id'=>$id]);
+@endphp
 @stop
 @section('front_script')
 <script>
-	$('#myForm1').validate({
-		rules:{
-            term_and_condition:{
-                required: true,
-            },
-		},
-        ignore: [],
-		errorPlacement: function (error, element) {
-			error.insertAfter('.tnc');
-		}
-	})
-	$(document).on('click','.continue',function(e){
-		debugger;
-		if($('#myForm1').valid()){
-		}else{
-			e.preventDefault();
-		}
-	})
+	var url = "{{$url}}";
+	setTimeout(function(){
+		window.location.replace(url);
+	},5000);
 </script>
 @endsection

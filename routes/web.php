@@ -57,15 +57,11 @@ Route::group(['middleware' => ['auth:web','active_user'], 'namespace' => 'Fronte
         Route::post('documentStore/{type?}','LoanController@documentStore')->name('store.loan.document');
         Route::get('receipt','LoanController@receipt')->name('receipt');
         Route::post('store-account-detail','AccountController@storeAccountDetail')->name('store-account-detail');
-        Route::get('solution-for-you',function(){
-            return view('frontend.solution_for_you',['title'=>'Solution For You']);
-        });
-        Route::get('verification-completed/{id?}','AccountController@verificationCompleted')->name('doc-verf-completed');
-        Route::get('verification-rejected/{id?}','AccountController@verificationRejected')->name('doc-verf-rejected');
-        Route::get('verification-under-process','AccountController@verificationUnderProcess')->name('doc-verf-under-process');
+        Route::get('solution-for-you','AccountController@solution')->name('solution-for-you');
         Route::get('document-verification/{id?}','AccountController@documentVerification')->name('document-verification');
         Route::get('bank-account-verification/{id?}','AccountController@bankAccountVerification')->name('account-verification');
         Route::get('link-bank/{id?}','AccountController@linkBank')->name('link.bank');
+        Route::get('proceed/{uuid?}/{status?}','AccountController@proceedBankDetail')->name('proceed');
     });
     Route::group(['prefix' => 'work', 'middleware' => ['auth:web']], function () {
     Route::get('/{slug?}','WorkController@index')->name('earning');

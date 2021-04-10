@@ -68,7 +68,7 @@ class AccountController extends BaseController
             if($bankAccountDetail->status==0){
                 return view('frontend.verification_under_process',['title'=>'Verification Under Process']);
             }elseif($bankAccountDetail->status==1){
-                return view('frontend.verification_completed',['title'=>'Identity Verification Completed']);
+                return view('frontend.verification_completed',['title'=>'Identity Verification Completed','id'=>$bankAccountDetail->uuid]);
             }else{
                 return view('frontend.verification_rejected',['title'=>'Identy Verification Rejected','id'=>$loanDetail->uuid]);
             }
@@ -94,5 +94,13 @@ class AccountController extends BaseController
                 return view('frontend.identy_verification_completed',['title'=>'Verification Completed','id'=>@$userLoanDetail->uuid]);
             }
         }
+    }
+
+    public function solution($uuid=null){
+        return view('frontend.solution_for_you',['title'=>'Solution For You','id'=>$uuid]);
+    }
+
+    public function proceedBankDetail($uuid=null,$status=null){
+
     }
 }

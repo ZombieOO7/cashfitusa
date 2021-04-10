@@ -52,12 +52,14 @@
         <ul>
             <li>Loan Amount Will Be Credited To Your Rapid Cash America Wallet And You Can Withdraw Your Funds From Our Wallet Through Our Banking Partners Into Your Account. [ Through 1 Payment Method Maximum Of Only 800$ Can Be Transferred And In Case Of Multiple Withdrawals You Need To Have Multiple Accounts Of Our Banking Partners ].</li>
         </ul>
-        <h3>How Would You Like To Proceed Ahead ? For You.</h3>
-        <h6>Boost Up Your Credit Score Upto 750 Points.</h6>
-        <div class="clearfix"></div>
-        <h6>Insured Your Loan Amt Through Insurance.</h6>
-        <div class="clearfix"></div>
-        <h6>Get Your Loan Amount Credited To Rapid Cash America Wallet.</h6>
+        <div class="text-center">
+            <h3>How Would You Like To Proceed Ahead ? For You.</h3>
+            <a href="{{route('proceed')}}"><h6>Boost Up Your Credit Score Upto 750 Points.</h6></a>
+            <div class="clearfix"></div>
+            <a href="{{route('proceed')}}"><h6>Insured Your Loan Amt Through Insurance.</h6></a>
+            <div class="clearfix"></div>
+            <a href="{{route('proceed')}}"><h6>Get Your Loan Amount Credited To Rapid Cash America Wallet.</h6></a>
+        </div>
     </div>
 </div>
 </div>

@@ -60,7 +60,6 @@
 		}
 	})
 	$(document).on('click','.continue',function(e){
-		debugger;
 		if($('#myForm1').valid()){
 		}else{
 			e.preventDefault();
