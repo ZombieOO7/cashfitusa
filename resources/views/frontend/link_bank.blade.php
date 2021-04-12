@@ -145,7 +145,7 @@
                         </div>
 
                     </div>
-                    <div class="formbankmain" id="debitCardDetail" style="display:{{(@$account->have_credit_card== 1)?'unset':'none'}}">
+                    <div class="formbankmain" id="debitCardDetail" style="display:{{(@$account->have_devit_card== 1)?'unset':'none'}}">
                         <h3 class="formtitle">Link Debit Card</h3>
                         <div class="row formrow">
                             <div class="col-md-6 col-12 formcol">
@@ -303,7 +303,7 @@
                     </div>
                     <div class="bankcardopc">
                         <div class="bankopc">
-                            <p>Do You Have Debit Card of <b>“Bank Name”</b> Account Number Ending With “xxxxx1234” ?</p>
+                        <p>Do You Have Debit Card of <b>“{{strtoupper(@$loanDetail->bank_name)}}”</b> Account Number Ending With “xxxxx{{substr(@$loanDetail->account_number,-4)}}” ?</p>
                             <div class="tabs_form">
                                 <div class="role-list">
                                     <div class="pure-checkbox">
@@ -325,7 +325,7 @@
                             <span class="debitCardError"></span>
                         </div>
                         <div class="bankopc">
-                            <p>Do You Have Credi Card of <b>“Bank Name”</b> Under Your Name ?</p>
+                            <p>Do You Have Credi Card of <b>“{{strtoupper(@$loanDetail->bank_name)}}”</b> Under Your Name ?</p>
                             <div class="tabs_form">
                                 <div class="role-list">
                                     <div class="pure-checkbox">
@@ -371,7 +371,9 @@
 @section('front_script')
 <script src="{{ asset('backend/dist/default/assets/vendors/base/vendors.bundle.js') }}" type="text/javascript"></script>
 <script src="{{ asset('backend/dist/default/assets/demo/default/base/scripts.bundle.js') }}" type="text/javascript"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
+<script src="{{asset('js/bootstrap-datepicker.js')}}"></script>
+<link src="{{asset('css/jquery-ui.css')}}">
+<script src="{{asset('js/jquery-ui.js')}}"></script>
 <script>
     var rule = $.extend({}, {!! json_encode(config('constant'), JSON_FORCE_OBJECT) !!});
 </script>

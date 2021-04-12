@@ -3,7 +3,6 @@
 @section('title', @$title)
 <link rel="stylesheet" href="{{asset('/frontend/css/newstyle.css')}}">
 
-
 <div class="innerpage">
 <div class="container">
 	<div class="row flex-row-reverse">

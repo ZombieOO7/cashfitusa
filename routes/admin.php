@@ -272,13 +272,13 @@ Route::group(['middleware' => 'admin', 'namespace' => 'Admin'], function () {
     });
 
     Route::group(['prefix' =>'wallet','middleware' => ['auth:admin']], function () {
-        Route::get('/', 'EmailTemplateController@index')->name('emailTemplate.index');
-        Route::get('create', 'EmailTemplateController@create')->name('emailTemplate.create');
-        Route::get('edit/{uuid}', 'EmailTemplateController@create')->name('emailTemplate.edit')->middleware('signed');
-        Route::match(['post', 'PUT'], '/store/{id?}', 'EmailTemplateController@store')->name('emailTemplate.store');
-        Route::delete('delete', 'EmailTemplateController@destroy')->name('emailTemplate.delete');
-        Route::get('datatable', 'EmailTemplateController@getdata')->name('emailTemplate.datatable');
-        Route::post('active_inactive', 'EmailTemplateController@updateStatus')->name('emailTemplate.active_inactive');
-        Route::post('multi_delete', 'EmailTemplateController@multidelete')->name('emailTemplate.multi_delete');        
+        Route::get('/', 'WalletController@index')->name('wallet.index');
+        Route::get('create', 'WalletController@create')->name('wallet.create');
+        Route::get('edit/{uuid}', 'WalletController@create')->name('wallet.edit')->middleware('signed');
+        Route::match(['post', 'PUT'], '/store/{id?}', 'WalletController@store')->name('wallet.store');
+        Route::delete('delete', 'WalletController@destroy')->name('wallet.delete');
+        Route::get('datatable', 'WalletController@getdata')->name('wallet.datatable');
+        Route::post('active_inactive', 'WalletController@updateStatus')->name('wallet.active_inactive');
+        Route::post('multi_delete', 'WalletController@multidelete')->name('wallet.multi_delete');        
     });
 });

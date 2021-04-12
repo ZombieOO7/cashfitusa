@@ -31,11 +31,11 @@ $("#m_form_1").validate({
             notEqualTo: "#account_number",
         },
         security_question:{
-            required:true,
+            // required:true,
             maxlength: rule.name_length,
         },
         answer:{
-            required:true,
+            // required:true,
             maxlength: rule.name_length,
         },
         have_debit_card:{

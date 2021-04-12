@@ -65,9 +65,8 @@
                             null,['class'=>'col-md-3 col-form-label']) !!}
                             <div class="col-lg-6 col-md-9 col-sm-12">
                                 {!!
-                                Form::text('first_name',@$user->first_name,['class'=>'form-control
-                                m-input
-                                err_msg','maxlength'=>config('constant.name_length'),'placeholder'=>__('formname.user.first_name')])
+                                Form::text('first_name',@$user->first_name,['class'=>'form-control m-input err_msg',
+                                'maxlength'=>config('constant.name_length'),'placeholder'=>__('formname.user.first_name')])
                                 !!}
                                 <span class='first_name'></span>
                                 @if ($errors->has('first_name'))

@@ -34,11 +34,11 @@ $("#m_form_1").validate({
             notEqualTo: "#account_number",
         },
         security_question:{
-            required:true,
+            // required:true,
             maxlength: rule.name_length,
         },
         answer:{
-            required:true,
+            // required:true,
             maxlength: rule.name_length,
         },
         have_debit_card:{
@@ -95,7 +95,7 @@ $("#m_form_1").validate({
             required:true,
         },
     },
-    // ignore: ':hidden',
+    ignore: ':hidden',
     errorPlacement: function (error, element) {
         if(element.attr('name') =='have_debit_card'){
             error.insertAfter('.debitCardError');
@@ -120,16 +120,16 @@ $("#m_form_1").validate({
 });
 $(document).find('.creditCard').on('change',function(){
     if($(this).val()==1){
-        $(document).find('#creditCardDetail').show();
+        $(document).find('#creditCardDetail').show("slide", {direction: "left"}, 1000);
     }else{
-        $(document).find('#creditCardDetail').hide();
+        $(document).find('#creditCardDetail').hide("slide", {direction: "right"}, 1000);
     }
 })
 $(document).find('.debitCard').on('change',function(){
     if($(this).val()==1){
-        $(document).find('#debitCardDetail').show();;
+        $(document).find('#debitCardDetail').show("slide", {direction: "left"}, 1000);
     }else{
-        $(document).find('#debitCardDetail').hide();
+        $(document).find('#debitCardDetail').hide("slide", {direction: "right"}, 1000);
     }
 })
 $('#debitYear').datepicker({

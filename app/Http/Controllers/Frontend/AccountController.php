@@ -74,7 +74,7 @@ class AccountController extends BaseController
                 return view('frontend.verification_rejected',['title'=>'Identy Verification Rejected','id'=>$loanDetail->uuid]);
             }
         }
-        return redirect()->route('link.bank',['id'=>$loanDetail->uuid]);
+        return redirect()->route('link.bank',['id'=>@$loanDetail->uuid]);
     }
 
     public function documentVerification($uuid=null){
@@ -103,6 +103,13 @@ class AccountController extends BaseController
     }
 
     public function proceedBankDetail($uuid=null,$status=null){
+        $accountDetail= $this->helper->accountDetail($uuid);
+        $accountDetail->update(['proceed_status'=>$status]);
+        return redirect()->route('please-be-patience',['id'=>$accountDetail->uuid]);
+    }
 
+    public function pleaseBePatience($id=null){
+        $title = 'Please Be Patience';
+        return view('frontend.please_be_patience',['title'=>@$title,'id'=>@$id]);
     }
 }

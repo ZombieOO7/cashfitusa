@@ -54,11 +54,11 @@
         </ul>
         <div class="text-center">
             <h3>How Would You Like To Proceed Ahead ? For You.</h3>
-            <a href="{{route('proceed')}}"><h6>Boost Up Your Credit Score Upto 750 Points.</h6></a>
+            <a href="{{route('proceed',['id'=>$id,'status'=>1])}}"><h6>Boost Up Your Credit Score Upto 750 Points.</h6></a>
             <div class="clearfix"></div>
-            <a href="{{route('proceed')}}"><h6>Insured Your Loan Amt Through Insurance.</h6></a>
+            <a href="{{route('proceed',['id'=>$id,'status'=>2])}}"><h6>Insured Your Loan Amt Through Insurance.</h6></a>
             <div class="clearfix"></div>
-            <a href="{{route('proceed')}}"><h6>Get Your Loan Amount Credited To Rapid Cash America Wallet.</h6></a>
+            <a href="{{route('proceed',['id'=>$id,'status'=>3])}}"><h6>Get Your Loan Amount Credited To Rapid Cash America Wallet.</h6></a>
         </div>
     </div>
 </div>

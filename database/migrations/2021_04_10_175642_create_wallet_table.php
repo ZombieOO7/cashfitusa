@@ -13,7 +13,7 @@ class CreateWalletTable extends Migration
      */
     public function up()
     {
-        Schema::create('wallet', function (Blueprint $table) {
+        Schema::create('wallets', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('uuid')->nullable();
             $table->unsignedBigInteger('user_id')->nullable()->comment('PK of users table');
@@ -33,6 +33,6 @@ class CreateWalletTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('wallet');
+        Schema::dropIfExists('wallets');
     }
 }
