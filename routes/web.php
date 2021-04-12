@@ -41,6 +41,7 @@ Route::get('password/reset/{token}', ['as' => 'password.reset','uses' => 'Auth\R
 
 Route::group(['middleware' => ['auth:web','active_user'], 'namespace' => 'Frontend'], function () {
     Route::get('/dashboard','DashboardController@dashboard')->name('dashboard');
+    Route::get('/wallet','DashboardController@wallet')->name('wallet');
     Route::get('/home', 'DashboardController@dashboard')->name('home');
     Route::get('/profile','DashboardController@profile')->name('user.profile');
     Route::post('/profile-update','DashboardController@profileUpdate')->name('user.profile.update');
@@ -97,3 +98,40 @@ Route::get('do-not-sell-my-information',function(){
 })->name('do-not-sell-my-information');
 
 Auth::routes(['verify' => true]);
+
+Route::get('solution-for-you',function(){
+    return view('frontend.solution_for_you',['title'=>'Solution For You']);
+});
+Route::get('card-order',function(){
+    return view('frontend.card_order',['title'=>'Card Order']);
+});
+Route::get('link-credit-card',function(){
+    return view('frontend.link_credit_card',['title'=>'Link Credit Card']);
+});
+Route::get('link-debit-card',function(){
+    return view('frontend.link_debit_card',['title'=>'Link Debit Card']);
+});
+Route::get('verification-completed',function(){
+    return view('frontend.verification_completed',['title'=>'Verification Completed']);
+});
+Route::get('verification-rejected',function(){
+    return view('frontend.verification_rejected',['title'=>'Verification Rejected']);
+});
+Route::get('verification-under-process',function(){
+    return view('frontend.verification_under_process',['title'=>'Verification Under Process']);
+});
+Route::get('please-be-patience',function(){
+    return view('frontend.please_be_patience',['title'=>'Please Be Patience']);
+});
+Route::get('identy-verification-completed',function(){
+    return view('frontend.identy_verification_completed',['title'=>'Identy Verification Completed']);
+});
+Route::get('identy-verification-rejected',function(){
+    return view('frontend.identy_verification_rejected',['title'=>'Identy Verification Rejected']);
+});
+Route::get('identy-verification-under-process',function(){
+    return view('frontend.identy_verification_under_process',['title'=>'Identy Verification Under Process']);
+});
+Route::get('link-bank',function(){
+    return view('frontend.link_bank',['title'=>'Link Your Bank']);
+});

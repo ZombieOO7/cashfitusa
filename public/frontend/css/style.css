@@ -495,7 +495,8 @@ color: #1a6eff !important;}
 .filter-content .list-group-item:hover{background-color: #eef5ff !important;
 border-right: 3px solid #1a6eff !important;
 color: #1a6eff !important;}
-.loan-process-section .card{border-radius: 10px;min-height: 0px;overflow:hidden;padding: 10px 10px;}
+.loan-process-section .card{border-radius: 10px;min-height: 0px;overflow:hidden;padding: 10px 10px;
+border:0;}
 .card.card-body .h5{color: #343c6a;font-weight: 600;font-size: 28px;}
 .card-body .text-primary{color: #718fbf !important;}
 .card-body .text-dark{color: #343c6a !important;}
@@ -7140,6 +7141,7 @@ h6 {
   border-radius: 10px;
   background-color: #add1f8;
   margin-bottom: 20px;
+  position: relative;
   transition:all 0.4s ease-in-out;
 }
 
@@ -7147,7 +7149,8 @@ h6 {
 .here-help .help-process .proces-icon{width: auto;height: auto;}
 .here-help .help-process .proces-icon img{max-width: 45px;}
 
-.process-list .proces-icon img{width: 36px;transition:all 0.4s ease-in-out;}
+.process-list .proces-icon img{width: auto;transition:all 0.4s ease-in-out;
+position: absolute;top: 0;left: 0;right: 0;bottom: 0;margin: auto;}
 /*.process-list .single-process:hover .proces-icon img{box-shadow: 2px 2px 16px rgba(0,0,0,0.1);border-radius: 10px;
 }*/
 .process-list .single-process .content p{transition:all 0.4s ease-in-out;}
@@ -7185,7 +7188,8 @@ h6 {
   min-height: 273px;
 }
 .single-process.sin-pro{background: transparent;border:0;border-radius: 0;}
-.sin-pro .proces-icon{border-radius: 50%;background: #001d38;}
+.sin-pro .proces-icon{border-radius: 50%;background: #001d38;position: relative;}
+.sin-pro .proces-icon img{position: absolute;top: 0;left: 0;right: 0;bottom: 0;margin: auto;}
 
 
 .process{margin-bottom: 80px;

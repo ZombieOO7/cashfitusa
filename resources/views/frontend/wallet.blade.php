@@ -70,11 +70,11 @@
                     <div class="mb-35">
                         <ul class="nav nav-pills nav-fill" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active" data-toggle="tab" href="#m_tabs_1_1">Loan</a>
+                                <a class="nav-link active" data-toggle="tab" href="#m_tabs_1_1">Wallet</a>
                             </li>
-                            <li class="nav-item">
+                            <!-- <li class="nav-item">
                                 <a class="nav-link" data-toggle="tab" href="#m_tabs_1_2">Earning</a>
-                            </li>
+                            </li> -->
                         </ul>
                     </div>
                 </div>
@@ -87,15 +87,15 @@
                             <div class="col-12 col-sm-3 col-md-3 col-lg-3 coldashmenu">
 
 
-                                <div class="">
+                                <div class="sidebardasbord">
                                     <div class="card">
                                         <div class="filter-content rounded">
                                             <div class="list-group " id="list-tab" role="tablist">
                                                 <div class="mt-3"></div>
-                                                <a class="border-0 list-group-item list-group-item-action text-dark active"  data-toggle="tab" href="#m_tabs_2_1">
+                                                <a class="border-0 list-group-item list-group-item-action text-dark"  data-toggle="tab" href="#m_tabs_2_1">
                                                     <span class="fas fa-pie-chart mr-2"></span> Dashboard
                                                 </a>
-                                                <a class="border-0 list-group-item list-group-item-action text-dark"  href="{{route('wallet')}}">
+                                                <a class="border-0 list-group-item list-group-item-action text-dark active"  href="{{route('wallet')}}">
                                                     <span class="fas fa-wallet mr-2"></span> Wallet
                                                 </a>
                                                 <a class="border-0 list-group-item list-group-item-action text-dark" href="{{route('loan.detail')}}">
@@ -121,7 +121,7 @@
                                                 <div class="card card-body">
                                                     <div class="row">
                                                         <div class="col-md-9 col-9">
-                                                            <label for="" class="text-black text-bold">Total Loan Amount</label>
+                                                            <label for="" class="text-black text-bold">Wallet Balance</label>
                                                             <div class="h5 count">
                                                             {{config('constant.currency_symbol').@$totalLoanAmount}}
                                                             </div>
@@ -136,7 +136,7 @@
                                                 <div class="card card-body">
                                                     <div class="row">
                                                         <div class="col-md-9 col-9">
-                                                            <label for="" class="text-black text-bold">Paid Amount</label>
+                                                            <label for="" class="text-black text-bold">Transfered Amount</label>
                                                             <div class="h5 count">
                                                                 {{config('constant.currency_symbol').@$paidAmount}}
                                                             </div>
@@ -151,7 +151,7 @@
                                                 <div class="card card-body">
                                                     <div class="row">
                                                         <div class="col-md-9 col-9">
-                                                            <label for="" class="text-black text-bold">Remaining Repayment</label>
+                                                            <label for="" class="text-black text-bold">Withdrawl Amount</label>
                                                             <div class="h5 count">
                                                                 {{config('constant.currency_symbol').@$leftToPay}}
                                                             </div>
@@ -168,11 +168,11 @@
                                                 <img src="{{asset('images/dashboardimage.svg')}}" alt="dashboardimage">
                                             </div>
 
-                                            <div class="col-lg-4 col-md-6 grphcol">
+                                            <!-- <div class="col-lg-4 col-md-6 grphcol">
                                                 <div class="card card-body h-100 grphbox">
                                                     <div class="col-md-12">
                                                         {{-- <div id="containercircle" class="col-md-12 p-3"></div> --}}
-                                                        <label for="" class="form-lable text-bold text-black">Reimbursement Percentage.</label>
+                                                        <label for="" class="form-lable text-bold text-black">Transaction History...</label>
                                                         <div class="datacontainer justify-content-md-center col-md-12 p-3">
                                                             <div class="box">
                                                                 <div class="chart" data-percent="{{@$loanRatio}}" data-scale-color="#ffb400">{{@$loanRatio ?? 0}}%</div>
@@ -204,22 +204,24 @@
                                                         </div> --}}
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-lg-3 col-md-6 histcol">
-                                                <div class="card card-body  h-100 histbox">
-                                                    <label for="" class="form-lable text-bold text-black">Transaction History</label>
+                                            </div> -->
+                                            <div class="col-lg-7 col-md-6 histcol">
+                                                <div class="card card-body  h-100 histbox wallethisbox">
+                                                    <label for="" class="form-lable border-title text-bold text-black">Transaction History...</label>
                                                     <table class="w-100 tranhismain">
                                                         <thead class="border-0">
-                                                            <tr class="headdastitle font-sizezero font-sizezero">
+                                                            <tr class="headdastitle walletdast font-sizezero font-sizezero">
                                                                 <th class="text-black">Date</th>
+                                                                <th class="text-black">Description</th>
                                                                 <th class="text-black">Amount</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
                                                             @forelse(@$loanTransactions as $transaction)
-                                                                <tr class="font-sizezero">
+                                                                <tr class="font-sizezero walletdastr">
                                                                     <td class='form-label text-dark'>{{$transaction->proper_date}}</td>
-                                                                    <td class='form-label text-dark text-right'> {{$transaction->proper_amount}}</td>
+                                                                    <td class='form-label text-dark'>{{$transaction->proper_date}}</td>
+                                                                    <td class='form-label text-dark'> {{$transaction->proper_amount}}</td>
                                                                 </tr>
                                                             @empty
                                                             <tr>
@@ -231,7 +233,17 @@
                                                 </div>
                                             </div>
                                             <div class="col-lg-5 col-md-5 col-12 imgdashcol">
-                                                <img src="{{asset('images/dashboardimage.svg')}}" alt="dashboardimage">
+                                                <div class="mb-35">
+                        <ul class="nav nav-pills nav-fill" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" data-toggle="tab" href="#m_tabs_1_1">Transfer</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#m_tabs_1_2">Withdraw</a>
+                            </li>
+                        </ul>
+                    </div>
+                                                <img src="{{asset('frontend/img/dashboardwalletimg.png')}}" alt="dashboardwalletimg">
                                             </div>
 
 
@@ -615,6 +627,191 @@
         </div>
     </div>
 </section>
+
+
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog dasbordform" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       <form class="formlinkbank formmodelbank">
+    <div class="row formrow">
+        <div class="col-md-12 col-12 formcol">
+            <div class="form-group">
+                <label>Withdraw Amount</label>
+                <input type="text" name="withdramo" class="form-control">
+            </div>
+        </div>
+        <div class="col-md-12 col-12 formcol">
+            <div class="form-group">
+                <label>Debit Card No.</label>
+                <input type="text" name="debitcardno" class="form-control">
+            </div>
+        </div>
+        <div class="col-md-6 col-12 formcol">
+            <div class="form-group">
+                <label>Expiry Date</label>
+                <span>MM</span>
+                <input type="text" name="name" class="form-control input-textmon">
+                <span>YY</span>
+                <input type="text" name="name" class="form-control input-textyear">
+            </div>
+        </div>
+        
+        <div class="col-md-6 col-12 formcol">
+            <div class="form-group">
+                <label>CVV</label>
+                <input type="text" name="cvv" class="form-control inupt-textcvv">
+            </div>
+        </div>
+        <div class="col-md-12 col-12 formcol">
+            <div class="form-group">
+                <label>Name On Card</label>
+                <input type="text" name="manecredno" class="form-control">
+            </div>
+        </div>
+        <div class="col-md-12 col-12 formcol">
+            <div class="form-group">
+                <label>Bank Name</label>
+                <input type="text" name="bankname" class="form-control">
+            </div>
+        </div>
+
+    </div>
+    <div class="subbtn">
+            <button class="btn btn-green">Submit</button>
+        </div>
+    </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal1">
+  Launch demo modal1
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+  <div class="modal-dialog dasbordform dasbordformerror" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <div class="errormain">
+            <div class="errorimg">
+                <img src="{{asset('frontend/img/errorimg.png')}}" alt="">
+            </div>
+            <h5 class="errortitle">Sorry!! an ERROR occured while processing the transfer. Please Contact Rapid Cash America for further assistance</h5>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal2">
+  Launch demo modal2
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+  <div class="modal-dialog dasbordform dasbordformerror" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <div class="errormain">
+            <div class="errorimg">
+                <img src="{{asset('frontend/img/errorimg.png')}}" alt="">
+            </div>
+            <h5 class="errortitle">Sorry!! an ERROR occured while processing the withdrawl. Please Contact Rapid Cash America for further assistance</h5>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal3">
+  Launch demo modal3
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel3" aria-hidden="true">
+  <div class="modal-dialog dasbordform dasbordformerror formassmain" role="document">
+    <div class="modal-content">
+      <div class="modal-header formasshead">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <div class="formassheadmain">
+            <h4 class="formasstitle">Your Bank Information is Sucessfully Submited</h4>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal4">
+  Launch demo modal4
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel4" aria-hidden="true">
+  <div class="modal-dialog dasbordform dasbordformerror formassmain" role="document">
+    <div class="modal-content">
+      <div class="modal-header formasshead">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <div class="formassheadmain">
+            <h4 class="formasstitle">Your Documents are Submitted Sucessfully</h4>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
 @stop
 @section('front_script')
 <script src="{{ asset('backend/dist/default/assets/vendors/base/vendors.bundle.js') }}" type="text/javascript"></script>
@@ -688,6 +885,11 @@ $(document).ready(function(){
                 input.attr('disabled',true);
     });
     $("#textArea").attr('disabled',false);
+})
+</script>
+<script type="text/javascript">
+    $('#myModal').on('shown.bs.modal', function () {
+  $('#myInput').trigger('focus')
 })
 </script>
 @stop

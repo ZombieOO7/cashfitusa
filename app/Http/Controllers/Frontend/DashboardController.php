@@ -176,4 +176,82 @@ class DashboardController extends Controller
         $cms = CMS::where('page_slug',$routeName)->first();
         return view('frontend.about_us',['cms'=>@$cms]);
     }
+
+        public function wallet(){
+        $user = Auth::guard('web')->user();
+
+        // user earning data
+        $query =    UserEarning::whereHas('earningUser',function($query) use($user){
+                        $query->whereUserId($user->id);
+                    });
+        $earnings = $query->whereStatus(1)->limit(5)->get();
+        $totalEarnings = count($query->get());
+        $transactionDate = $query->orderBy('id','desc')->first();
+        $lastTransactionDate = isset($transactionDate->created_at)?date('d M, Y',strtotime($transactionDate->created_at)):'---';
+        $appEarning = $query->select('id','app_id',DB::raw('sum(amount) amount'),'status')
+                        ->groupBy('app_id')
+                        ->get();
+        // dd($earnings);
+        $month = date('m');
+        $year = date('Y');
+        $monthLyEarning = $query->whereMonth('created_at',$month)->whereYear('created_at',$year)->sum('amount');
+        $totalPaidAmount = UserEarning::whereHas('earningUser',function($query) use($user){
+                                $query->whereUserId($user->id);
+                            })
+                            ->whereStatus(1)
+                            ->sum('amount');
+        $totalUnPaidAmount =    UserEarning::whereHas('earningUser',function($query) use($user){
+                                    $query->whereUserId($user->id);
+                                })
+                                ->whereStatus(0)
+                                ->sum('amount');
+
+        $totalEarning = $totalPaidAmount + $totalUnPaidAmount;
+        // loan data
+        $totalLoanAmount = UserLoanDetail::whereUserId($user->id)->sum('loan_amount');
+        $totalLoan = UserLoanDetail::whereUserId($user->id)->count();
+        $paidAmount = LoanTransaction::whereUserId($user->id)->sum('amount');
+        $loanTransactions = LoanTransaction::whereUserId($user->id)->whereNotNull('amount')->orderBy('id','desc')->limit(5)->get();
+        $totalLoanTransaction = UserEarning::whereHas('earningUser',function($query) use($user){
+                                    $query->whereUserId($user->id);
+                                })->whereStatus(1)->count();
+        $leftToPay = $totalLoanAmount - $paidAmount;
+        $lastLoan = UserLoanDetail::whereUserId($user->id)->orderBy('id','asc')->whereStatus(1)->first();
+        if($lastLoan==null){
+            $lastLoan = UserLoanDetail::whereUserId($user->id)->orderBy('id','asc')->first();
+        }
+        if($leftToPay < 0 ){
+            $leftToPay = 0;
+            $loanRatio = 100;
+        }else{
+            $paidInstallment = $user->userLoans->where('date','!=',null)->where('amount', '!=',null)->count();
+            $totalInstallment = $user->userLoans->count();
+            $dueInstallment = $user->dueInstallments->count();
+            if($totalLoanAmount != 0 && $paidInstallment != 0 && $dueInstallment != 0){
+                // $loanRatio = ($paidAmount * 100)/$totalLoanAmount;$totalLoanAmount
+
+                $loanRatio = ( $paidInstallment * 100) / $totalInstallment;
+
+                $loanRatio = number_format($loanRatio,1);
+            }
+        }
+        $earningRatio = 0;
+        if($totalEarning > 0){
+            $earningRatio = ($totalEarning * 100) / 10000;
+        }
+        $earningMethod= UserEarning::whereHas('earningUser',function($query) use($user){
+                            $query->whereUserId($user->id);
+                        })->orderBy('id','asc')->first();
+        $earningMethodName = @$earningMethod->app->title;
+        $activeLoan = UserLoanDetail::whereUserId($user->id)->whereStatus(1)->count();
+        $lastEarning = $query->orderBy('id','desc')->first();
+        return view('frontend.wallet',['lastTransactionDate'=>@$lastTransactionDate,'totalLoan'=>@$totalLoan,'leftToPay'=>@$leftToPay,
+        'paidAmount'=>@$paidAmount,'user'=>@$user,'earnings'=>@$earnings,'monthLyEarning'=>@$monthLyEarning,
+        'totalPaidAmount'=>@$totalPaidAmount,'totalUnPaidAmount'=>@$totalUnPaidAmount,
+        'totalLoanAmount'=>@$totalLoanAmount,'activeLoan'=>@$activeLoan,'appEarning'=>@$appEarning,
+        'loanTransactions' =>@$loanTransactions,'loanRatio'=>@$loanRatio,'totalEarning'=>@$totalEarning,
+        'totalEarnings' => @$totalEarnings, 'earningRatio' => @$earningRatio,'lastLoan' => @$lastLoan, 'lastEarning'
+        => @$lastEarning, 'totalLoanTransaction' =>@$totalLoanTransaction,'earningMethodName'=>@$earningMethodName,
+        ]);
+    }
 }
