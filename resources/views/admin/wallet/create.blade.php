@@ -37,16 +37,6 @@
                         {{ Form::open(['route' => 'wallet.store','method'=>'post','class'=>'m-form m-form--fit m-form--label-align-right','id'=>'m_form_1','files' => true,'autocomplete' => "off"]) }}
                         @endif
                             <div class="form-group m-form__group row">
-                                {!! Form::label(__('formname.user.email').'*', null,['class'=>'col-form-label col-lg-3
-                                col-sm-12']) !!}
-                                <div class="col-lg-6 col-md-9 col-sm-12">
-                                    {!! Form::select('user_id', @$userList, @$user->user_id,['class' => 'form-control' ]) !!}
-                                    @if ($errors->has('user_id'))
-                                        <p style="color:red;">{{ $errors->first('title') }}</p> 
-                                    @endif
-                                </div>
-                            </div>
-                            <div class="form-group m-form__group row">
                                 {!! Form::label(__('formname.wallet_balance').'*', null,['class'=>'col-form-label
                                 col-lg-3 col-sm-12']) !!}
                                 <div class="col-lg-6 col-md-9 col-sm-12">
@@ -86,6 +76,7 @@
                                 </div>
                             </div>
                             {!! Form::hidden('id',@$app->uuid ,['id'=>'id']) !!}
+                            {!! Form::hidden('user_id',@$user->id ,['id'=>'user_id']) !!}
                             <div class="m-portlet__foot m-portlet__foot--fit">
                                 <div class="m-form__actions m-form__actions">
                                     <br>

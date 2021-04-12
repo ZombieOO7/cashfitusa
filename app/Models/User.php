@@ -282,4 +282,8 @@ class User extends Authenticatable implements MustVerifyEmail
     public function lastLoanDetail(){
         return $this->hasOne('App\Models\UserLoanDetail','user_id')->orderBy('id','desc');
     }
+
+    public function wallet(){
+        return $this->hasOne('App\Models\Wallet','user_id');
+    }
 }

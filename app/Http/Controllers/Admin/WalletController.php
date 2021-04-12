@@ -88,11 +88,14 @@ class WalletController extends BaseController
     {
         try {
             if (isset($uuid)) {
-                $app = $this->helper->detail($uuid);
+                $user = $this->helper->userDetail($uuid);
+                if(isset($user->wallet) && $user->wallet != null){
+                    $app = $user->wallet;
+                }
             }
             $userList = $this->userList();
             $title = isset($uuid) ? trans('formname.wallet.update') : trans('formname.wallet.create');
-            return view($this->viewConstant . 'create', ['app' => @$app, 'title' => @$title,'userList' => @$userList]);
+            return view($this->viewConstant . 'create', ['app' => @$app, 'title' => @$title,'user' => @$user]);
         } catch (Exception $e) {
             abort(404);
             return Redirect::back()->with('error', $e->getMessage());
@@ -118,7 +121,7 @@ class WalletController extends BaseController
             } else {
                 $msg = __('admin/messages.action_msg', ['action' => __('admin/messages.created'), 'type' => 'Wallet']);
             }
-            return redirect()->route('wallet.index')->with('message', $msg);
+            return redirect()->route('user.index')->with('message', $msg);
         } catch (Exception $e) {
             $this->helper->dbRollBack();
             return Redirect::back()->with('error', $e->getMessage());

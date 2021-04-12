@@ -7,6 +7,9 @@
     <a class="delete" href="javascript:;" id="{{@$user->uuid}}" data-table_name="user_table" data-url="{{route('user.delete')}}" title="Delete">
         <i class="fas fa-trash-alt"></i>
     </a>
+    <a class="edit" href="{{route('wallet.index',['uuid'=>@$user->uuid])}}" id="{{@$user->uuid}}" data-table_name="user_table" data-url="{{route('user.delete')}}" title="Delete">
+        <i class="fas fa-wallet"></i>
+    </a>
 {{-- @endif --}}
 {{-- @if((\Auth::guard('admin')->user()->hasRole('superadmin')||\Auth::guard('admin')->user()->can('product category active inactive'))) --}}
     @if(@$user->status=='1')

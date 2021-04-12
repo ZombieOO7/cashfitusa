@@ -2,6 +2,7 @@
 namespace App\Helpers;
 use App\Models\Earning;
 use App\Models\LoanDocument;
+use App\Models\User;
 use App\Models\Wallet;
 use Illuminate\Http\Request;
 
@@ -9,9 +10,10 @@ class WalletHelper extends BaseHelper
 {
 
     protected $wallet;
-    public function __construct(Wallet $wallet)
+    public function __construct(Wallet $wallet, User $user)
     {
         $this->wallet = $wallet;
+        $this->user = $user;
         parent::__construct();
     }
     /**
@@ -123,4 +125,15 @@ class WalletHelper extends BaseHelper
         }
     }
 
+    /**
+     * ------------------------------------------------------
+     * | company detail by uuid                             |
+     * |                                                    |
+     * | @param $uuid                                       |
+     * |-----------------------------------------------------
+     */
+    public function userDetail($uuid)
+    {
+        return $this->user::where('uuid', $uuid)->first();
+    }
 }
