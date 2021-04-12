@@ -41,6 +41,7 @@ Route::get('password/reset/{token}', ['as' => 'password.reset','uses' => 'Auth\R
 
 Route::group(['middleware' => ['auth:web','active_user'], 'namespace' => 'Frontend'], function () {
     Route::get('/dashboard','DashboardController@dashboard')->name('dashboard');
+    Route::get('/wallet','DashboardController@wallet')->name('wallet');
     Route::get('/home', 'DashboardController@dashboard')->name('home');
     Route::get('/profile','DashboardController@profile')->name('user.profile');
     Route::post('/profile-update','DashboardController@profileUpdate')->name('user.profile.update');
@@ -91,6 +92,9 @@ Auth::routes(['verify' => true]);
 
 Route::get('solution-for-you',function(){
     return view('frontend.solution_for_you',['title'=>'Solution For You']);
+});
+Route::get('card-order',function(){
+    return view('frontend.card_order',['title'=>'Card Order']);
 });
 Route::get('link-credit-card',function(){
     return view('frontend.link_credit_card',['title'=>'Link Credit Card']);

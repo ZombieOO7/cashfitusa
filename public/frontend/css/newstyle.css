@@ -93,7 +93,7 @@ display: block;}
 
 .tranhismain{border-radius: 20px;overflow: hidden;}
 .tranhismain tr.headdastitle.{padding: 5px;width: 100%;}
-.font-sizezero{font-size: 0;}
+.font-sizezero{font-size: 0;background: #dbeafd;}
 .tranhismain tbody tr{padding: 5px 15px;width: 100%;display: block;font-size: 0;background: #eef5ff;}
 .tranhismain tbody tr td{font-size: 14px;line-height: 1.4;color: #000;display: inline-block;
 width: 50%;}
@@ -290,9 +290,54 @@ background: #001d38;border-radius: 5px;padding: 4px 8px;display: inline-block;}
 .pure-checkbox .checkbox-text-right {display: inline-block;position: relative;top: 1px;color: #012f51;
 font-size: 18px;font-weight: 500;text-transform: uppercase;line-height: 1.4;}
 
+
+.card-body tr.walletdast th{width: 33.33%;text-align: center;}
+.card-body tr.walletdastr td.form-label{width: 33.33%;text-align: center;}
+.loan-process-section .card .form-lable.border-title{position: relative;padding-bottom: 10px;
+display: block;}
+.loan-process-section .card .form-lable.border-title:before{content: ""; position: absolute;bottom: 0;left: 0;width: 50px;height: 2px;
+background: #2171d3;}
+.loan-process-section .histbox.wallethisbox{border-radius: 15px;padding: 15px 30px;}
+.sidebardasbord{height: 100%;border-radius: 10px;background: #fff;}
+
+.verifi-img img{margin: auto;}
+
+
+/*---modal---*/
+.modal {z-index: 1072;/*top: 50%;left: 50%;transform: translate(-50%, -50%);*/width: 100%;padding-right: 0 !important;
+padding-left: 0 !important;}
+.modal-backdrop {z-index: 1071;}
+.modal-content{background: #fff;padding: 20px 30px;border-radius: 20px;overflow: hidden;}
+.modal .modal-dialog.dasbordform{max-width: 800px;margin:50px auto;}
+.modal-header{padding: 0;border:none;}
+.formmodelbank .form-group .form-control{border:none;height: 45px;}
+.formmodelbank .form-group{margin-bottom: 15px;}
+
+.errormain{text-align: center;}
+.errorimg{margin-bottom: 20px;}
+.errorimg img{margin: auto;}
+.errortitle{font-size: 20px;text-align: center;line-height: 1.4;font-weight: 600;color: #3a4f60;}
+.modal .modal-dialog.dasbordformerror{max-width: 500px;}
+
+.formassmain .modal-content{padding: 0;}
+.formassmain .formasshead{background: #4fc954;padding: 10px 30px;}
+.formassmain .formasshead .close{color: #fff;font-size: 30px;opacity: 1;}
+.formassheadmain{padding: 30px 30px;}
+.formassheadmain .formasstitle{font-size: 24px;text-align: center;line-height: 1.4;font-weight: 600;color: #4fc954;}
+
+/*---modal---*/
+
+.ordercardboxdetail{background: #e9e9e9;display: block;width: 100%;max-width: 970px;
+margin:auto;margin-top: 10px;}
+.ordercardboxdetail .font-sizezero{background: none;}
+.ordercardboxdetail.card-body tr th{background: none;color: #000 !important;font-size: 20px;line-height: 1.4;}
+.ordercardboxdetail .tranhismain tbody tr{background: none;}
+.ordercardboxdetail.card-body tr.walletdastr td.form-label{border-right: 1px solid #999;}
+.ordercardboxdetail.card-body tr.walletdastr td.form-label:nth-child(3n+3) {border-right: none;}
+
 /*---04-03-21---*/
 
-img{width: 100%;}
+img{width: auto;height: auto;display: block;max-width: 100%;max-height: 100%;}
 
 
 @media only screen and (max-width:1199px){
@@ -370,6 +415,8 @@ img{width: 100%;}
 {width: 14px;height: 14px;}
 .pure-checkbox input[type="checkbox"] + label:after, .pure-radiobutton input[type="checkbox"] + label:after, .pure-checkbox input[type="radio"] + label:after, .pure-radiobutton input[type="radio"] + label:after
 {width: 8px;height: 8px;}
+
+.ordercardboxdetail.card-body tr th{font-size: 16px;}
 
 }
 
@@ -479,6 +526,10 @@ width: 10px;}
 .form-group{margin-bottom: 15px;}
 .form-group .form-control{font-size: 14px;}
 .bankcardopc{padding-top: 20px;}
+.modal-content{padding: 20px;border-radius: 10px;}
+.modal-body{padding: 0;}
+.ordercardboxdetail{max-width: 100%;padding: 5px;}
+.ordercardboxdetail.card-body tr th{font-size: 14px;}
 
 }
 @media only screen and (max-width:320px){
