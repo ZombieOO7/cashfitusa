@@ -109,8 +109,7 @@ $("#m_form_1").validate({
     },
     submitHandler: function (form) {
         if (!this.beenSubmitted) {
-            $(document).find('#waitingDiv').show();
-            $(document).find('#formDiv').hide();
+            $('#exampleModal4').modal('show');
             setTimeout(function(){    
                 this.beenSubmitted = true;
                 form.submit();

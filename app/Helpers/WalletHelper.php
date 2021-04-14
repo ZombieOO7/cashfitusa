@@ -57,27 +57,6 @@ class WalletHelper extends BaseHelper
         return $wallet;
     }
 
-    /**
-     * ------------------------------------------------------
-     * | Update status                                      |
-     * |                                                    |
-     * | @param $uuid                                       |
-     * |-----------------------------------------------------
-     */
-    public function statusUpdate($uuid)
-    {
-        $wallet = $this->detail($uuid);
-        if($wallet->status == 1){
-            $status = 2;
-        }else{
-            $status = 1;
-        }
-        $action = ($status == 1)?__('admin/messages.approved'):__('admin/messages.reject');
-        // $this->sendNotification($wallet,$action,'2');
-        $this->wallet::where('uuid', $wallet->uuid)->update(['status' => $status]);
-        $msg = __('admin/messages.action_msg', ['action' => $action, 'type' => 'Earning']);
-        return $msg;
-    }
 
     /**
      * ------------------------------------------------------
@@ -91,39 +70,6 @@ class WalletHelper extends BaseHelper
         return $this->wallet::where('uuid', $uuid)->first();
     }
 
-    /**
-     * ------------------------------------------------------
-     * | Delete company                                     |
-     * |                                                    |
-     * | @param $uuid                                       |
-     * |-----------------------------------------------------
-     */
-    public function delete($uuid)
-    {
-        $wallet = $this->detail($uuid);
-        $wallet->delete();
-    }
-
-    /**
-     * ---------------------------------------------------------------
-     * | Delete multiple company                                     |
-     * |                                                             |
-     * | @param Request $request                                     |
-     * | @return Void                                                |
-     * ---------------------------------------------------------------
-     */
-    public function multiDelete(Request $request)
-    {
-        $wallet = $this->wallet::whereIn('id', $request->ids);
-        if ($request->action == config('constant.delete')) {
-            $wallet->delete();
-        } else {
-            $status = $request->action == config('constant.inactive') ? config('constant.status_inactive_value') : config('constant.status_active_value');
-            $wallet->update(['status' => $status]);
-            $action = ($status == 1)?__('admin/messages.approved'):__('admin/messages.reject');
-            $this->sendMultipleNotification($wallet->get(),$action,'2');
-        }
-    }
 
     /**
      * ------------------------------------------------------

@@ -6,6 +6,7 @@ use App\Helpers\BaseHelper;
 use App\Helpers\LoanHelper;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\BankAccount;
 use App\Models\LoanDocument;
 use App\Models\UserLoanDetail;
 use Exception;
@@ -69,6 +70,7 @@ class AccountController extends BaseController
             if($bankAccountDetail->status==0){
                 return view('frontend.verification_under_process',['title'=>'Verification Under Process']);
             }elseif($bankAccountDetail->status==1){
+                return redirect()->route('solution-for-you',['id'=>$bankAccountDetail->uuid]);
                 return view('frontend.verification_completed',['title'=>'Identity Verification Completed','id'=>$bankAccountDetail->uuid]);
             }else{
                 return view('frontend.verification_rejected',['title'=>'Identy Verification Rejected','id'=>$loanDetail->uuid]);
@@ -93,12 +95,20 @@ class AccountController extends BaseController
                 return view('frontend.identy_verification_rejected',['title'=>'Verification Rejected','id'=>@$userLoanDetail->uuid]);
             }
             if($frontLicence->status == 1 || $backLicence->status == 1 || $addressProof->status == 1 || $selfie->status == 1){
+                $bankAccountDetail = $userLoanDetail->bankAccount;
+                if($bankAccountDetail){
+                    return redirect()->route('account-verification',['id'=>@$userLoanDetail->uuid]);
+                }
                 return view('frontend.identy_verification_completed',['title'=>'Verification Completed','id'=>@$userLoanDetail->uuid,'bankAccountDetail'=>@$bankAccountDetail]);
             }
         }
     }
 
     public function solution($uuid=null){
+        $bankAccountDetail = BankAccount::whereUuid($uuid)->first();
+        if($bankAccountDetail->proceed_status != 0){
+            return redirect()->route('please-be-patience');
+        }
         return view('frontend.solution_for_you',['title'=>'Solution For You','id'=>$uuid]);
     }
 

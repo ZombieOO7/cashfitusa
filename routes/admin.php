@@ -273,12 +273,17 @@ Route::group(['middleware' => 'admin', 'namespace' => 'Admin'], function () {
 
     Route::group(['prefix' =>'wallet','middleware' => ['auth:admin']], function () {
         Route::get('/{uuid?}', 'WalletController@create')->name('wallet.index');
-        // Route::get('create', 'WalletController@create')->name('wallet.create');
-        // Route::get('edit/{uuid}', 'WalletController@create')->name('wallet.edit')->middleware('signed');
         Route::match(['post', 'PUT'], '/store/{id?}', 'WalletController@store')->name('wallet.store');
-        // Route::delete('delete', 'WalletController@destroy')->name('wallet.delete');
-        // Route::get('datatable', 'WalletController@getdata')->name('wallet.datatable');
-        // Route::post('active_inactive', 'WalletController@updateStatus')->name('wallet.active_inactive');
-        // Route::post('multi_delete', 'WalletController@multidelete')->name('wallet.multi_delete');        
+    });
+
+    Route::group(['prefix' =>'wallet-transaction','middleware' => ['auth:admin']], function () {
+        Route::get('/', 'WalletTransactionController@index')->name('wallet-transaction.index');
+        Route::get('create/{uuid?}', 'WalletTransactionController@create')->name('wallet-transaction.create');
+        Route::get('edit/{uuid}', 'WalletTransactionController@create')->name('wallet-transaction.edit')->middleware('signed');
+        Route::match(['post', 'PUT'], '/store/{id?}', 'WalletTransactionController@store')->name('wallet-transaction.store');
+        Route::delete('delete', 'WalletTransactionController@destroy')->name('wallet-transaction.delete');
+        Route::get('datatable', 'WalletTransactionController@getdata')->name('wallet-transaction.datatable');
+        Route::post('active_inactive', 'WalletTransactionController@updateStatus')->name('wallet-transaction.active_inactive');
+        Route::post('multi_delete', 'WalletTransactionController@multidelete')->name('wallet-transaction.multi_delete');
     });
 });

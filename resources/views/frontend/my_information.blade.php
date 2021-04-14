@@ -204,8 +204,27 @@
 					{{-- <a href="" class="col-md-2 rounded-0 btn btn-success bg-green" role="button">Continue</a> --}}
 				</div>
 			</form>
-
         </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel4"
+	aria-hidden="true">
+	<div class="modal-dialog dasbordform dasbordformerror formassmain" role="document">
+		<div class="modal-content">
+			<div class="modal-header formasshead">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+
+				<div class="formassheadmain">
+					<h4 class="formasstitle">Your Documents are Submitted Sucessfully</h4>
+				</div>
+
+			</div>
+		</div>
+	</div>
 </div>
 @php
     $loanId = @$loan_id;

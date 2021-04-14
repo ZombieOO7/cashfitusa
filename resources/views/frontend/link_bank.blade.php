@@ -12,22 +12,6 @@
     </style>
     <link rel="stylesheet" href="{{ asset('/frontend/css/newstyle.css') }}">
 @endsection
-<div class="innerpage" id='waitingDiv' style="display:none;">
-    <div class="container">
-        <div class="row flex-row-reverse">
-            <div class="col-lg-12 col-12 mb-3">
-                <div class="verifi-img">
-                    <img src="{{asset('frontend/img/plebepatieimg.png')}}" alt="contactimg">
-                </div>
-            </div>
-            <div class="col-lg-12 col-12">
-                <div class="plbetitle">
-                    <h3 class="pltitle">Please Be Patience We Are Working On Your Application.</h3>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 <div id="formDiv">
     <div class="innerpage">
         <div class="container">
@@ -365,15 +349,35 @@
     </div>
     <!-- start testinomial section -->
     @include('frontend.sections.testinomial')
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel3"
+        aria-hidden="true">
+        <div class="modal-dialog dasbordform dasbordformerror formassmain" role="document">
+            <div class="modal-content">
+                <div class="modal-header formasshead">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="formassheadmain">
+                        <h4 class="formasstitle">Your Bank Information is Sucessfully Submited</h4>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- end of testinomial process section -->
 </div>
 @stop
 @section('front_script')
 <script src="{{ asset('backend/dist/default/assets/vendors/base/vendors.bundle.js') }}" type="text/javascript"></script>
 <script src="{{ asset('backend/dist/default/assets/demo/default/base/scripts.bundle.js') }}" type="text/javascript"></script>
-<script src="{{asset('js/bootstrap-datepicker.js')}}"></script>
-<link src="{{asset('css/jquery-ui.css')}}">
 <script src="{{asset('js/jquery-ui.js')}}"></script>
+<script src="{{asset('js/bootstrap-datepicker.js')}}"></script>
+{{-- <link src="{{asset('css/jquery-ui.css')}}"> --}}
 <script>
     var rule = $.extend({}, {!! json_encode(config('constant'), JSON_FORCE_OBJECT) !!});
 </script>

@@ -116,13 +116,13 @@ $routeName = Route::currentRouteName();
                     </span>
                 </a>
             </li>
-            <li class="m-menu__item  @if ($routeName == 'wallet.index' || $routeName == 'wallet.create' || $routeName == 'wallet.edit' ) m-menu__item--active @endif"
+            <li class="m-menu__item  @if ($routeName == 'wallet-transaction.index' || $routeName == 'wallet-transaction.create' || $routeName == 'wallet-transaction.edit' ) m-menu__item--active @endif"
             aria-haspopup="true">
-                <a href="{{ route('wallet.index') }}" class="m-menu__link ">
-                    <i class="m-menu__link-icon fas fa-dollar-sign"></i>
+                <a href="{{ route('wallet-transaction.index') }}" class="m-menu__link ">
+                    <i class="m-menu__link-icon fas fa-wallet"></i>
                     <span class="m-menu__link-title">
                         <span class="m-menu__link-wrap">
-                            <span class="m-menu__link-text">{{trans('formname.wallet.label')}}</span>
+                            <span class="m-menu__link-text">{{trans('formname.wallet-transaction.label')}}</span>
                         </span>
                     </span>
                 </a>

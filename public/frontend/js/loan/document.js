@@ -61,7 +61,6 @@ $(document).ready(function () {
         },
         ignore: [],
         errorPlacement: function (error, element) {
-            debugger;
             console.log(element);
             if(element.attr("name") == 'front_licence')
                 error.insertAfter('.frontLicenceError');
@@ -82,12 +81,11 @@ $(document).ready(function () {
                 mUtil.scrollTop()
         },
         submitHandler: function (form) {
-            if (!this.beenSubmitted) {
+            $('#exampleModal4').modal('show');
+            setTimeout(function(){    
                 this.beenSubmitted = true;
                 form.submit();
-                // Simulate an HTTP redirect:
-                // window.location.replace(url);
-            }
+            },5000);
         },
     })
 });
