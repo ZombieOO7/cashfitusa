@@ -235,4 +235,13 @@ class BaseController extends Controller
         // return $this->mergeSelectOption($typeList,'Account Type');
     }
 
+    public function proceedStatusList(){
+        $typeList = config('constant.proceed_status');
+        return ['' =>'Proceed Type' ]+$typeList;
+    }
+
+    public function properStatusList2(){
+        $typeList = config('constant.proper_status');
+        return ['' =>'Status' ]+$typeList;
+    }
 }

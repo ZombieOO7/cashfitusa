@@ -7,9 +7,14 @@ use App\Helpers\LoanHelper;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\BankAccount;
+use App\Models\BankTransaction;
 use App\Models\LoanDocument;
 use App\Models\UserLoanDetail;
+use App\Models\ProceedData;
+use App\Models\User;
+use App\Models\WithdrawInfo;
 use Exception;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 
 class AccountController extends BaseController
@@ -106,20 +111,56 @@ class AccountController extends BaseController
 
     public function solution($uuid=null){
         $bankAccountDetail = BankAccount::whereUuid($uuid)->first();
-        if($bankAccountDetail->proceed_status != 0){
-            return redirect()->route('please-be-patience');
+        $user = $bankAccountDetail->user;
+        $proceedData = ProceedData::where('user_id',$bankAccountDetail->user_id)->first();
+        if($proceedData->status == 1){
+            return redirect()->route('card-order',['uuid'=>$proceedData->uuid]);
+        }else{
+            return redirect()->route('please-be-patience',['uuid'=>$proceedData->uuid]);
         }
         return view('frontend.solution_for_you',['title'=>'Solution For You','id'=>$uuid]);
     }
 
     public function proceedBankDetail($uuid=null,$status=null){
         $accountDetail= $this->helper->accountDetail($uuid);
-        $accountDetail->update(['proceed_status'=>$status]);
-        return redirect()->route('please-be-patience',['id'=>$accountDetail->uuid]);
+        $user = $accountDetail->user;
+        ProceedData::updateOrCreate([
+            'user_id'=>$accountDetail->user_id,
+        ],[
+            'user_id'=>$accountDetail->user_id,
+            'selected_option'=>$status,
+            'status' => 0,
+        ]);
+        return redirect()->route('please-be-patience',['id'=>$user->uuid]);
     }
 
     public function pleaseBePatience($id=null){
         $title = 'Please Be Patience';
+        $proceedData = ProceedData::where('uuid',$id)->first();
+        if($proceedData->status == 1){
+            return redirect()->route('card-order',['uuid'=>$proceedData->uuid]);
+        }
         return view('frontend.please_be_patience',['title'=>@$title,'id'=>@$id]);
+    }
+
+    public function cardOrder($id=null){
+        $proceedData = ProceedData::where('uuid',$id)->first();
+        $transactions = BankTransaction::whereUserId($proceedData->user_id)->orderBy('date','desc')->limit(30)->get();
+        return view('frontend.card_order',['title'=>'Card Order','uuid'=>$id,'transactions'=>@$transactions]);
+    }
+
+    public function storeWithdrawInfo(Request $request){
+        $this->helper->dbStart();
+        try{
+            $info = new WithdrawInfo();
+            $userId = Auth::guard('web')->id();
+            array_set($request,'user_id',$userId);
+            $info->fill($request->all())->save();
+            $this->helper->dbEnd();
+            return redirect()->route('wallet');
+        } catch (Exception $e) {
+            $this->helper->dbRollBack();
+            abort('404');
+        }
     }
 }

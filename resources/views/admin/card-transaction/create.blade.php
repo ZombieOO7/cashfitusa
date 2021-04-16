@@ -20,7 +20,7 @@
                                 </div>
                             </div>
                             <div class="m-portlet__head-tools">
-                                <a href="{{route('user.index')}}"
+                                <a href="{{route('card-transaction.index')}}"
                                     class="btn btn-secondary m-btn m-btn--air m-btn--custom">
                                     <span>
                                         <i class="la la-arrow-left"></i>
@@ -32,51 +32,58 @@
                     </div>
                     <div class="m-portlet__body">
                         @if(isset($app) || !empty($app))
-                        {{ Form::model($app, ['route' => ['wallet.store', @$app->uuid], 'method' => 'PUT','id'=>'m_form_1','class'=>'m-form m-form--fit m-form--label-align-right','files' => true,'autocomplete' => "off"]) }}
+                        {{ Form::model($app, ['route' => ['card-transaction.store', @$app->uuid], 'method' => 'PUT','id'=>'m_form_1','class'=>'m-form m-form--fit m-form--label-align-right','files' => true,'autocomplete' => "off"]) }}
                         @else
-                        {{ Form::open(['route' => 'wallet.store','method'=>'post','class'=>'m-form m-form--fit m-form--label-align-right','id'=>'m_form_1','files' => true,'autocomplete' => "off"]) }}
+                        {{ Form::open(['route' => 'card-transaction.store','method'=>'post','class'=>'m-form m-form--fit m-form--label-align-right','id'=>'m_form_1','files' => true,'autocomplete' => "off"]) }}
                         @endif
+                            <div class="form-group m-form__group row mt-3">
+                                {!! Form::label(__('formname.earning.user_id').'*', null,['class'=>'col-form-label col-lg-3
+                                col-sm-12']) !!}
+                                <div class="col-lg-6 col-md-9 col-sm-12">
+                                    {!! Form::select('user_id', @$userList, @$earning->earnin_user_id,
+                                    ['class' => 'form-control', 'id'=>'user_id' ]) !!}
+                                </div>
+                            </div>
                             <div class="form-group m-form__group row">
-                                {!! Form::label(__('formname.wallet_balance').'*', null,['class'=>'col-form-label
+                                {!! Form::label(__('formname.date').'*', null,['class'=>'col-form-label
                                 col-lg-3 col-sm-12']) !!}
                                 <div class="col-lg-6 col-md-9 col-sm-12">
                                     {!!
-                                        Form::text('wallet_balance',@$app->wallet_balance,['class'=>'form-control m-input err_msg',
-                                        'maxlength'=>config('constant.amount_length'),'placeholder'=>__('formname.wallet_balance')])
+                                        Form::text('date',@$app->proper_date_text,['class'=>'form-control m-input err_msg','id'=>'date',
+                                        'placeholder'=>__('formname.date'),'readonly'=>true])
                                     !!}
-                                    @if ($errors->has('wallet_balance'))
+                                    @if ($errors->has('date'))
+                                        <p style="color:red;">{{ $errors->first('date') }}</p> 
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="form-group m-form__group row">
+                                {!! Form::label(__('formname.amount').'*', null,['class'=>'col-form-label
+                                col-lg-3 col-sm-12']) !!}
+                                <div class="col-lg-6 col-md-9 col-sm-12">
+                                    {!!
+                                        Form::text('amount',@$app->amount,['class'=>'form-control m-input err_msg',
+                                        'maxlength'=>config('constant.amount_length'),'placeholder'=>__('formname.amount')])
+                                    !!}
+                                    @if ($errors->has('amount'))
                                         <p style="color:red;">{{ $errors->first('description') }}</p> 
                                     @endif
                                 </div>
                             </div>
                             <div class="form-group m-form__group row">
-                                {!! Form::label(__('formname.transfer_amount').'*', null,['class'=>'col-form-label
+                                {!! Form::label(__('formname.description').'*', null,['class'=>'col-form-label
                                 col-lg-3 col-sm-12']) !!}
                                 <div class="col-lg-6 col-md-9 col-sm-12">
                                     {!!
-                                        Form::text('transfer_amount',@$app->transfer_amount,['class'=>'form-control m-input err_msg',
-                                        'maxlength'=>config('constant.amount_length'),'placeholder'=>__('formname.transfer_amount')])
+                                        Form::textarea('description',@$app->description,['class'=>'form-control m-input err_msg',
+                                        'maxlength'=>config('constant.content_length'),'placeholder'=>__('formname.description')])
                                     !!}
-                                    @if ($errors->has('transfer_amount'))
-                                        <p style="color:red;">{{ $errors->first('description') }}</p> 
-                                    @endif
-                                </div>
-                            </div>
-                            <div class="form-group m-form__group row">
-                                {!! Form::label(__('formname.withdrawal_amount').'*', null,['class'=>'col-form-label
-                                col-lg-3 col-sm-12']) !!}
-                                <div class="col-lg-6 col-md-9 col-sm-12">
-                                    {!!
-                                        Form::text('withdrawal_amount',@$app->withdrawal_amount,['class'=>'form-control m-input err_msg',
-                                        'maxlength'=>config('constant.amount_length'),'placeholder'=>__('formname.withdrawal_amount')])
-                                    !!}
-                                    @if ($errors->has('withdrawal_amount'))
+                                    @if ($errors->has('description'))
                                         <p style="color:red;">{{ $errors->first('description') }}</p> 
                                     @endif
                                 </div>
                             </div>
                             {!! Form::hidden('id',@$app->uuid ,['id'=>'id']) !!}
-                            {!! Form::hidden('user_id',@$user->id ,['id'=>'user_id']) !!}
                             <div class="m-portlet__foot m-portlet__foot--fit">
                                 <div class="m-form__actions m-form__actions">
                                     <br>
@@ -84,7 +91,7 @@
                                         <div class="col-lg-9 ml-lg-auto">
                                             {!! Form::submit(__('formname.submit'), ['class' => 'btn btn-success'] )
                                             !!}
-                                            <a href="{{Route('user.index')}}"
+                                            <a href="{{Route('card-transaction.index')}}"
                                                 class="btn btn-secondary">{{__('formname.cancel')}}</a>
                                         </div>
                                     </div>
@@ -111,5 +118,5 @@ var rule = $.extend({}, {!!json_encode(config('constant'), JSON_FORCE_OBJECT) !!
 var formname = $.extend({}, {!!json_encode(__('formname'), JSON_FORCE_OBJECT) !!});
 var id = '{{@$app->id}}';
 </script>
-<script src="{{ asset('backend/js/wallet/create.js') }}" type="text/javascript"></script>
+<script src="{{ asset('backend/js/card-transaction/create.js') }}" type="text/javascript"></script>
 @stop

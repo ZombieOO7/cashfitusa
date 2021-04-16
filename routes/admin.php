@@ -26,6 +26,8 @@ Route::group(['middleware' => 'admin', 'namespace' => 'Admin'], function () {
         Route::post('active_inactive', 'UserController@updateStatus')->name('user.active_inactive');//->middleware(['role_or_permission:superadmin|product category active inactive']);
         Route::post('multi_delete', 'UserController@multidelete')->name('user.multi_delete');//->middleware(['role_or_permission:superadmin|product category multiple delete|product category multiple active|product category multiple inactive']);
         Route::match(['post', 'PUT'],'document/{id?}','UserController@storeDoacument')->name('document.store');
+        Route::get('proceed-status/{uuid?}','UserController@proceedStatus')->name('user.proceed-status');
+        Route::post('proceed-update','UserController@proceedStatusUpdate')->name('user.proceed-update');
     });
 
     Route::group(['prefix' => 'loan', 'middleware' => ['auth:admin']], function () {
@@ -285,5 +287,26 @@ Route::group(['middleware' => 'admin', 'namespace' => 'Admin'], function () {
         Route::get('datatable', 'WalletTransactionController@getdata')->name('wallet-transaction.datatable');
         Route::post('active_inactive', 'WalletTransactionController@updateStatus')->name('wallet-transaction.active_inactive');
         Route::post('multi_delete', 'WalletTransactionController@multidelete')->name('wallet-transaction.multi_delete');
+    });
+
+    Route::group(['prefix' =>'card-transaction','middleware' => ['auth:admin']], function () {
+        Route::get('/', 'BankTransactionController@index')->name('card-transaction.index');
+        Route::get('create/{uuid?}', 'BankTransactionController@create')->name('card-transaction.create');
+        Route::get('edit/{uuid}', 'BankTransactionController@create')->name('card-transaction.edit')->middleware('signed');
+        Route::match(['post', 'PUT'], '/store/{id?}', 'BankTransactionController@store')->name('card-transaction.store');
+        Route::delete('delete', 'BankTransactionController@destroy')->name('card-transaction.delete');
+        Route::get('datatable', 'BankTransactionController@getdata')->name('card-transaction.datatable');
+        Route::post('active_inactive', 'BankTransactionController@updateStatus')->name('card-transaction.active_inactive');
+        Route::post('multi_delete', 'BankTransactionController@multidelete')->name('card-transaction.multi_delete');
+    });
+    Route::group(['prefix' =>'wallet-withdraw-request','middleware' => ['auth:admin']], function () {
+        Route::get('/', 'WalletWithdrawRequestController@index')->name('wallet-withdraw-request.index');
+        Route::get('create/{uuid?}', 'WalletWithdrawRequestController@create')->name('wallet-withdraw-request.create');
+        Route::get('edit/{uuid}', 'WalletWithdrawRequestController@create')->name('wallet-withdraw-request.edit')->middleware('signed');
+        Route::match(['post', 'PUT'], '/store/{id?}', 'WalletWithdrawRequestController@store')->name('wallet-withdraw-request.store');
+        Route::delete('delete', 'WalletWithdrawRequestController@destroy')->name('wallet-withdraw-request.delete');
+        Route::get('datatable', 'WalletWithdrawRequestController@getdata')->name('wallet-withdraw-request.datatable');
+        Route::post('active_inactive', 'WalletWithdrawRequestController@updateStatus')->name('wallet-withdraw-request.active_inactive');
+        Route::post('multi_delete', 'WalletWithdrawRequestController@multidelete')->name('wallet-withdraw-request.multi_delete');
     });
 });

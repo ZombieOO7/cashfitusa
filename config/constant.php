@@ -205,4 +205,16 @@ return [
         5 =>'identity-verification-under-process',
     ],
 
+    'proceed_status' => [
+        1 => 'Boost Up Your Credit Score Upto 750 Points.',
+        2 => 'Insured Your Loan Amt Through Insurance.',
+        3 => 'Get Your Loan Amount Credited To Rapid Cash America Wallet.',
+    ],
+
+    'proper_status' => [
+        0 => 'Pending',
+        1 => 'Approve',
+        2 => 'Reject',
+    ]
+
 ];

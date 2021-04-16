@@ -10,6 +10,7 @@ use App\Http\Requests\Admin\UserFormRequest;
 use App\Models\User;
 use App\Models\UserDocument;
 use App\Models\UserLoanDetail;
+use App\Models\ProceedData;
 use Exception;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -281,5 +282,40 @@ class UserController extends BaseController
         $folderName = 'user-'.$user->id;
         $imageFunction = $this->uploadImage($request, $folderName,240,320);
         return @$imageFunction;
+    }
+
+    /**
+     * ------------------------------------------------------
+     * | Store image                                        |
+     * |                                                    |
+     * | @param $request,$user                              |
+     * |-----------------------------------------------------
+     */
+    public function proceedStatus($uuid=null)
+    {
+        $user = $this->helper->detail($uuid);
+        $proceedData = ProceedData::where('user_id',$user->id)->first();
+        $proceedStatusList = $this->proceedStatusList();
+        $statusList = $this->properStatusList2();
+        return view($this->viewConstant .'proceed_status', ['user'=>@$user,'title'=>'Proceed Status','proceedData' => @$proceedData,'proceedStatusList'=>@$proceedStatusList,'statusList'=>@$statusList]);
+    }
+
+    /**
+     * ------------------------------------------------------
+     * | Store image                                        |
+     * |                                                    |
+     * | @param $request,$user                              |
+     * |-----------------------------------------------------
+     */
+    public function proceedStatusUpdate(Request $request)
+    {
+        ProceedData::updateOrCreate([
+            'user_id'=>$request->user_id,
+        ],[
+            'user_id'=>$request->user_id,
+            'selected_option'=>$request->selected_option,
+            'status' => $request->status,
+        ]);
+        return redirect()->route('user.index');
     }
 }

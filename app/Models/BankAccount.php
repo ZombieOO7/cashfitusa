@@ -16,4 +16,8 @@ class BankAccount extends BaseModel
     public function loanDetail(){
         return $this->belongsTo('App\Models\UserLoanDetail','loan_id');
     }
+
+    public function user(){
+        return $this->belongsTo('App\Models\User','user_id');
+    }
 }

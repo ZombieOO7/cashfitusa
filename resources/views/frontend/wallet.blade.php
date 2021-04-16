@@ -223,12 +223,10 @@
                                                     <div class="mb-35">
                                                         <ul class="nav nav-pills nav-fill" role="tablist">
                                                             <li class="nav-item">
-                                                                <a class="nav-link active" data-toggle="tab"
-                                                                    href="#m_tabs_1_1">Transfer</a>
+                                                                <a class="nav-link active" data-toggle="modal" data-target="#exampleModal">Transfer</a>
                                                             </li>
                                                             <li class="nav-item">
-                                                                <a class="nav-link" data-toggle="tab"
-                                                                    href="#m_tabs_1_2">Withdraw</a>
+                                                                <a class="nav-link" data-toggle="modal" data-target="#exampleModal">Withdraw</a>
                                                             </li>
                                                         </ul>
                                                     </div>
@@ -247,11 +245,7 @@
         </div>
     </section>
     <!-- Button trigger modal -->
-    {{-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-        Launch demo modal
-    </button>
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal1">
+    {{-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal1">
         Launch demo modal1
     </button>
     <!-- Button trigger modal -->
@@ -269,27 +263,52 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form class="formlinkbank formmodelbank">
+                    <form method="POST" action="{{route('store-withdraw-info')}}" class="formlinkbank formmodelbank" id='m_form_1'>
+                        @csrf
                         <div class="row formrow">
                             <div class="col-md-12 col-12 formcol">
                                 <div class="form-group">
                                     <label>Withdraw Amount</label>
-                                    <input type="text" name="withdramo" class="form-control">
+                                    <input type="text" name="amount" class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-12 col-12 formcol">
                                 <div class="form-group">
                                     <label>Debit Card No.</label>
-                                    <input type="text" name="debitcardno" class="form-control">
+                                    <input type="text" name="debit_card_no" class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-6 col-12 formcol">
                                 <div class="form-group">
-                                    <label>Expiry Date</label>
-                                    <span>MM</span>
-                                    <input type="text" name="name" class="form-control input-textmon">
-                                    <span>YY</span>
-                                    <input type="text" name="name" class="form-control input-textyear">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Date of Expiry</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <span>Month</span>
+                                            {!!
+                                                Form::text('month',null,['class'=>'form-control  input-textmon',
+                                                'maxlength'=>config('constant.name_length'),'placeholder'=>'Month','id'=>'debitMonth','readonly'=>true])
+                                            !!}
+                                            @if ($errors->has('month'))
+                                            <p style="color:red;">
+                                                {{ $errors->first('month') }}</p>
+                                            @endif
+                                        </div>
+                                        <div class="col-md-6">
+                                            <span>Year</span>
+                                            {!!
+                                                Form::text('year',null,['class'=>'form-control input-textyear',
+                                                'maxlength'=>config('constant.name_length'),'placeholder'=>'Year','id'=>'debitYear','readonly'=>true])
+                                            !!}
+                                            @if ($errors->has('year'))
+                                            <p style="color:red;">
+                                                {{ $errors->first('year') }}</p>
+                                            @endif
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
@@ -302,19 +321,19 @@
                             <div class="col-md-12 col-12 formcol">
                                 <div class="form-group">
                                     <label>Name On Card</label>
-                                    <input type="text" name="manecredno" class="form-control">
+                                    <input type="text" name="name_on_card" class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-12 col-12 formcol">
                                 <div class="form-group">
                                     <label>Bank Name</label>
-                                    <input type="text" name="bankname" class="form-control">
+                                    <input type="text" name="bank_name" class="form-control">
                                 </div>
                             </div>
 
                         </div>
                         <div class="subbtn">
-                            <button class="btn btn-green">Submit</button>
+                            <button class="btn btn-green" type="submit">Submit</button>
                         </div>
                     </form>
                 </div>
@@ -377,28 +396,9 @@
     </script>
     <script>
         var rule = $.extend({}, {!! json_encode(config('constant'), JSON_FORCE_OBJECT) !!});
-
     </script>
-    <script src="{{ asset('frontend/js/user/profile.js') }}"></script>
-    <script src="{{ asset('frontend/js/jquery.easypiechart.min.js') }}"></script>
+    <script src="{{ asset('frontend/js/wallet.js') }}"></script>
     <script>
-        $('.chart').easyPieChart({
-            size: 160,
-            barColor: function(percent) {
-                var ctx = this.renderer.getCtx();
-                var canvas = this.renderer.getCanvas();
-                // var gradient = ctx.createLinearGradient(150,60,canvas.width,0);
-                var gradient = ctx.createLinearGradient(140, -80, canvas.width, 10);
-                gradient.addColorStop(1, "#3D46DC");
-                gradient.addColorStop(0, "#FA0B7E");
-                return gradient;
-            },
-            scaleLength: 0,
-            lineWidth: 15,
-            trackColor: "#E1E5EB",
-            lineCap: "circle",
-            animate: 2000,
-        });
         $('.count').each(function() {
             var $this = $(this);
             textC = $this.text();
@@ -430,36 +430,27 @@
                 }
             });
         });
-        $('#editProfile').on('click', function() {
-            $("form#m_form_1 :input").each(function() {
-                var input = $(this); // This is the jquery object of the input, do what you will
-                if (input.attr('name') != 'email')
-                    input.attr('disabled', false);
-            });
-            $("#textArea").attr('disabled', false);
-        })
-        $('.editCancel').on('click', function() {
-            $("form#m_form_1 :input").each(function() {
-                var input = $(this); // This is the jquery object of the input, do what you will
-                if (input.attr('type') != 'button')
-                    input.attr('disabled', true);
-            });
-            $("#textArea").attr('disabled', false);
-        });
-        $(document).ready(function() {
-            $("form#m_form_1 :input").each(function() {
-                var input = $(this); // This is the jquery object of the input, do what you will
-                if (input.attr('type') != 'button')
-                    input.attr('disabled', true);
-            });
-            $("#textArea").attr('disabled', false);
-        })
 
     </script>
     <script type="text/javascript">
         $('#myModal').on('shown.bs.modal', function() {
             $('#myInput').trigger('focus')
         })
-
+$('#debitYear').datepicker({
+    startDate: new Date(),
+    autoclose: true, 
+    todayHighlight: true,
+    format:'yyyy',
+    viewMode: "years",
+    minViewMode: "years",
+});
+$('#debitMonth').datepicker({
+    startDate: new Date(),
+    autoclose: true, 
+    todayHighlight: true,
+    format:'mm',
+    viewMode: "months",
+    minViewMode: "months",
+});
     </script>
 @stop

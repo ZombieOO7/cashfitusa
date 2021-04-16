@@ -2,16 +2,24 @@
 
 namespace App\Models;
 
+use App\Models\BaseModel;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Schema;
 
-class WithdrawInfo extends BaseModel
+class ProceedData extends BaseModel
 {
-    protected $fillable =[
-        'user_id','amount','debit_card_no','month','year','cvv','name_on_card','bank_name',
+    use SoftDeletes;
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'uuid','user_id','selected_option','status'
     ];
 
-        /*
+    /*
      * Auto-sets values on creation
      */
     protected static function boot()
@@ -22,9 +30,5 @@ class WithdrawInfo extends BaseModel
                 $query->uuid = (string) \Str::uuid();
             }
         });
-    }
-
-    public function user(){
-        return $this->belongsTo('App\Models\User','user_id');
     }
 }

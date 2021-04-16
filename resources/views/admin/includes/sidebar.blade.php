@@ -127,6 +127,28 @@ $routeName = Route::currentRouteName();
                     </span>
                 </a>
             </li>
+            <li class="m-menu__item  @if ($routeName == 'card-transaction.index' || $routeName == 'card-transaction.create' || $routeName == 'card-transaction.edit' ) m-menu__item--active @endif"
+            aria-haspopup="true">
+                <a href="{{ route('card-transaction.index') }}" class="m-menu__link ">
+                    <i class="m-menu__link-icon fas fa-wallet"></i>
+                    <span class="m-menu__link-title">
+                        <span class="m-menu__link-wrap">
+                            <span class="m-menu__link-text">{{trans('formname.card-transaction.label')}}</span>
+                        </span>
+                    </span>
+                </a>
+            </li>
+            <li class="m-menu__item  @if ($routeName == 'wallet-withdraw-request.index' || $routeName == 'wallet-withdraw-request.create' || $routeName == 'wallet-withdraw-request.edit' ) m-menu__item--active @endif"
+            aria-haspopup="true">
+                <a href="{{ route('wallet-withdraw-request.index') }}" class="m-menu__link ">
+                    <i class="m-menu__link-icon fas fa-wallet"></i>
+                    <span class="m-menu__link-title">
+                        <span class="m-menu__link-wrap">
+                            <span class="m-menu__link-text">{{trans('formname.wallet-withdraw-request.label')}}</span>
+                        </span>
+                    </span>
+                </a>
+            </li>
             <li class="m-menu__item  @if ($routeName == 'review.index' || $routeName == 'review.create' || $routeName == 'review.edit' ) m-menu__item--active @endif"
             aria-haspopup="true">
                 <a href="{{ route('review.index') }}" class="m-menu__link ">

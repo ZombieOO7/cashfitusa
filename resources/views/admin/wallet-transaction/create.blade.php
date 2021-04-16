@@ -20,7 +20,7 @@
                                 </div>
                             </div>
                             <div class="m-portlet__head-tools">
-                                <a href="{{route('app.index')}}"
+                                <a href="{{route('wallet-transaction.index')}}"
                                     class="btn btn-secondary m-btn m-btn--air m-btn--custom">
                                     <span>
                                         <i class="la la-arrow-left"></i>
@@ -91,7 +91,7 @@
                                         <div class="col-lg-9 ml-lg-auto">
                                             {!! Form::submit(__('formname.submit'), ['class' => 'btn btn-success'] )
                                             !!}
-                                            <a href="{{Route('app.index')}}"
+                                            <a href="{{Route('wallet-transaction.index')}}"
                                                 class="btn btn-secondary">{{__('formname.cancel')}}</a>
                                         </div>
                                     </div>

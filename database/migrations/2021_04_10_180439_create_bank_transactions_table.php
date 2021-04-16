@@ -22,6 +22,7 @@ class CreateBankTransactionsTable extends Migration
             $table->text('description');
             $table->double('amount');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -26,11 +26,14 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="font-sizezero walletdastr">
-                        <td class="form-label text-dark">01/30/2021</td>
-                        <td class="form-label text-dark">01/30/2021</td>
-                        <td class="form-label text-dark"> $145</td>
-                        </tr>
+                        @forelse($transactions as $transaction)
+                            <tr class="font-sizezero walletdastr">
+                                <td class="form-label text-dark">{{@$transaction->proper_date_text}}</td>
+                                <td class="form-label text-dark">{{@$transaction->description}}</td>
+                                <td class="form-label text-dark"> ${{@$transaction->amount}}</td>
+                            </tr>
+                        @empty
+                        @endforelse
                     </tbody>
                 </table>
             </div>
@@ -47,12 +50,12 @@
                     </div>
 
                     <ul>
-                        <li><img src="http://localhost/cashfitusa/public/frontend/img/verificationimg1.jpg" alt=""></li>
-                        <li><img src="http://localhost/cashfitusa/public/frontend/img/verificationimg2.jpg" alt=""></li>
-                        <li><img src="http://localhost/cashfitusa/public/frontend/img/verificationimg3.jpg" alt=""></li>
-                        <li><img src="http://localhost/cashfitusa/public/frontend/img/verificationimg4.jpg" alt=""></li>
-                        <li><img src="http://localhost/cashfitusa/public/frontend/img/verificationimg5.jpg" alt=""></li>
-                        <li><img src="http://localhost/cashfitusa/public/frontend/img/verificationimg6.jpg" alt=""></li>
+                        <li><img src="{{asset('frontend/img/verificationimg1.jpg')}}" alt=""></li>
+                        <li><img src="{{asset('frontend/img/verificationimg2.jpg')}}" alt=""></li>
+                        <li><img src="{{asset('frontend/img/verificationimg3.jpg')}}" alt=""></li>
+                        <li><img src="{{asset('frontend/img/verificationimg4.jpg')}}" alt=""></li>
+                        <li><img src="{{asset('frontend/img/verificationimg5.jpg')}}" alt=""></li>
+                        <li><img src="{{asset('frontend/img/verificationimg6.jpg')}}" alt=""></li>
                     </ul>
                 </div>
             </div>
