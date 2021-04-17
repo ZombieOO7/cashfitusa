@@ -138,7 +138,7 @@
                                         target="_blank">
                                         <img alt="Linkdin" src="{{asset('email/webhostimg.png')}}"
                                             style="height:auto;margin:5px;width: auto; display: inline-block;vertical-align: middle;"
-                                            border="0"> {{route('loan')}}
+                                            border="0">https://www.rapidcashamerica.com/
                                     </a>
                                     <a href="mailto:support@RapidcashAmerica.com"
                                         style="display:block;color:#000;font-family:'Arial';font-size:18px;font-weight:500;line-height:24px;text-decoration:none;text-align:left; padding-bottom: 5px;"
