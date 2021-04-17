@@ -111,6 +111,19 @@ class LoanHelper extends BaseHelper
         }
         $action = ($status == 1)?__('admin/messages.approved'):__('admin/messages.reject');
         $this->loan::where('uuid', $loan->uuid)->update(['status' => $status]);
+        $loan = $this->detail($uuid);
+        $user = $loan->user;
+        if($loan->status == 1){
+            $view = 'email.loan_confirmed';
+            $templateSlug = config('constant.mail_template.11');
+            $this->sendMailToUser($templateSlug,$view, $user,null,$loan);
+        }
+        if($loan->status == 2){
+            $view = 'email.loan_declined';
+            $templateSlug = config('constant.mail_template.12');
+            $this->sendMailToUser($templateSlug,$view, $user,null,$loan);
+        }
+        
         $msg = __('admin/messages.action_msg', ['action' => $action, 'type' => 'Loan']);
         $this->sendNotification($loan,$action,'1');
         return $msg;

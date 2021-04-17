@@ -75,10 +75,14 @@ class UserLoanDetail extends BaseModel
     }
 
     public function lastTransaction(){
-        return $this->hasOne('App\Models\LoanTransaction','loan_id');
+        return $this->hasOne('App\Models\LoanTransaction','loan_id')->orderBy('date','desc');
     }
 
     public function bankAccount(){
         return $this->hasOne('App\Models\BankAccount','loan_id');
+    }
+
+    public function getTransactionAmountAttribute(){
+        return $this->transactions->sum('amount');
     }
 }

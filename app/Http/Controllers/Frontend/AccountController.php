@@ -53,6 +53,10 @@ class AccountController extends BaseController
         try {
             array_set($request,'status',0);
             $account = $this->helper->storeAccountDetail($request);
+            $user = @$account->user;
+            $view = 'email.bank_verification_under_process';
+            $templateSlug = config('constant.mail_template.8');
+            $this->helper->sendMailToUser($templateSlug,$view, $user,null,null);
             $loanDetail = $account->loanDetail;
             if ($request->has('id') && !empty($request->id)) {
                 $msg = __('admin/messages.action_msg', ['action' => __('admin/messages.updated'), 'type' => 'Loan Account Detail']);

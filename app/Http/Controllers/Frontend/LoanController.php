@@ -132,7 +132,7 @@ class LoanController extends BaseController
             $this->helper->sendMailToUser($templateSlug,$view, $user,null,$user->lastLoanDetail);
             $templateSlug2 = config('constant.mail_template.4');
             $view2 = 'email.identity_verification';
-            $this->helper->sendMailToUser($templateSlug2,$view, $user,null,$user->lastLoanDetail);
+            $this->helper->sendMailToUser($templateSlug2,$view2, $user,null,$user->lastLoanDetail);
             if(count($loan->transactions) == 0){
                 $transactionData = [];
                 for($i=1; $i <= $request->months; $i++){

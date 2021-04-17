@@ -14,6 +14,10 @@ class LoanTransaction extends BaseModel
         return $this->belongsTo('App\Models\UserLoanDetail','loan_id');
     }
 
+    public function user(){
+        return $this->belongsTo('App\Models\User','user_id');
+    }
+
     /**
      * This function is used for getting created date in d/m/y
      *

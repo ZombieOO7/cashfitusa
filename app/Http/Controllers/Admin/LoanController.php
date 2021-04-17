@@ -235,13 +235,20 @@ class LoanController extends BaseController
 
     public function update($uuid){
         $loan = $this->helper->detail($uuid);
+        $user = $loan->user;
         $routeName = Route::currentRouteName();
         if($routeName == 'loan.approve'){
             $loan->update(['status'=>1]);
             $status = 1;
+            $view = 'email.loan_confirmed';
+            $templateSlug = config('constant.mail_template.11');
+            $this->helper->sendMailToUser($templateSlug,$view, $user,null,$loan);
         }else{
             $status = 2;
             $loan->update(['status'=>2]);
+            $view = 'email.loan_declined';
+            $templateSlug = config('constant.mail_template.12');
+            $this->helper->sendMailToUser($templateSlug,$view, $user,null,$loan);
         }
         $action = ($status == 1)?__('admin/messages.approved'):__('admin/messages.reject');
         $this->sendNotification($loan,$action,'1');
@@ -256,6 +263,23 @@ class LoanController extends BaseController
             $docType =config('constant.docType')[$data->type];
             $action = ($request->status==1)?__('admin/messages.approved'):__('admin/messages.reject');
             $this->sendNotification($data,$action,'1',$docType);
+            $user = $data->loan->user;
+            $frontLicence = LoanDocument::whereLoanId($data->loan_id)->whereType(1)->first();
+            $backLicence = LoanDocument::whereLoanId($data->loan_id)->whereType(2)->first();
+            $addressProof = LoanDocument::whereLoanId($data->loan_id)->whereType(3)->first();
+            $selfie = LoanDocument::whereLoanId($data->loan_id)->whereType(4)->first();
+            if($frontLicence != null || $backLicence !=null  || $addressProof !=null || $selfie !=null){
+                if($frontLicence->status == 1 && $backLicence->status == 1 && $addressProof->status == 1 && $selfie->status == 1){
+                    $view = 'email.identity_verification_completed';
+                    $templateSlug = config('constant.mail_template.6');
+                    $this->helper->sendMailToUser($templateSlug,$view, $user,null,$data->loan);
+                }
+                if($frontLicence->status == 2 && $backLicence->status == 2 && $addressProof->status == 2 && $selfie->status == 2){
+                    $view = 'email.identity_verification_rejected';
+                    $templateSlug = config('constant.mail_template.7');
+                    $this->helper->sendMailToUser($templateSlug,$view, $user,null,$data->loan);
+                }
+            }
             $msg = __('admin/messages.action_msg', ['action' => ($request->status==1)?__('admin/messages.approved'):__('admin/messages.reject'), 'type' => 'Document']);
             return response()->json(['msg' => $msg, 'icon' => 'success']);
         } catch (Exception $e) {
@@ -322,6 +346,12 @@ class LoanController extends BaseController
         }
         if($transaction){
             $transaction->update([$request->column=>$request->value]);
+            $transaction = LoanTransaction::find($request->id);
+            if($transaction->date != null && $transaction->amount != null){
+                $view = 'email.loan_credited';
+                $templateSlug = config('constant.mail_template.13');
+                $this->helper->sendMailToUser($templateSlug,$view, @$transaction->user,null,@$transaction->loanDetail);
+            }
             return response()->json(['icon'=>'success','msg'=>'record updated successfully']);
         }
         return response()->json(['icon'=>'info','msg'=>'record not found']);
@@ -343,7 +373,23 @@ class LoanController extends BaseController
     public function storeAccountDetail(BankAccountFormRequest $request){
         $this->helper->dbStart();
         try {
-            $this->helper->storeAccountDetail($request);
+            $account = $this->helper->storeAccountDetail($request);
+            $user = @$account->user;
+            if($account->status == 0){
+                $view = 'email.bank_verification_under_process';
+                $templateSlug = config('constant.mail_template.8');
+                $this->helper->sendMailToUser($templateSlug,$view, $user,null,null);
+            }
+            if($account->status == 1){
+                $view = 'email.bank_verification_completed';
+                $templateSlug = config('constant.mail_template.9');
+                $this->helper->sendMailToUser($templateSlug,$view, $user,null,null);
+            }
+            if($account->status == 2){
+                $view = 'email.bank_verification_rejected';
+                $templateSlug = config('constant.mail_template.10');
+                $this->helper->sendMailToUser($templateSlug,$view, $user,null,@$account->loanDetail);
+            }
             if ($request->has('id') && !empty($request->id)) {
                 $msg = __('admin/messages.action_msg', ['action' => __('admin/messages.updated'), 'type' => 'Loan Account Detail']);
             } else {
@@ -360,13 +406,20 @@ class LoanController extends BaseController
 
     public function updateAccountStatus($uuid){
         $account = $this->helper->accountDetail($uuid);
+        $user = @$account->user;
         $routeName = Route::currentRouteName();
         if($routeName == 'account.approve'){
             $account->update(['status'=>1]);
             $status = 1;
+            $view = 'email.bank_verification_completed';
+            $templateSlug = config('constant.mail_template.9');
+            $this->helper->sendMailToUser($templateSlug,$view, $user,null,null);
         }else{
             $status = 2;
             $account->update(['status'=>2]);
+            $view = 'email.bank_verification_rejected';
+            $templateSlug = config('constant.mail_template.10');
+            $this->helper->sendMailToUser($templateSlug,$view, $user,null,@$account->loanDetail);
         }
         $action = ($status == 1)?__('admin/messages.approved'):__('admin/messages.reject');
         // $this->sendNotification($account,$action,'1');

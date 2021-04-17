@@ -203,6 +203,14 @@ return [
         3 =>'loan-application',
         4 =>'identity-verification',
         5 =>'identity-verification-under-process',
+        6 =>'identity-verification-completed',
+        7 =>'identity-verification-rejected',
+        8 =>'bank-verification-under-process',
+        9 =>'bank-verification-completed',
+        10=>'bank-verification-rejected',
+        11=>'loan-confirmed',
+        12=>'loan-declined',
+        13=>'loan-credited',
     ],
 
     'proceed_status' => [
