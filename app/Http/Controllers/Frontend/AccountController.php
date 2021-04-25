@@ -117,10 +117,12 @@ class AccountController extends BaseController
         $bankAccountDetail = BankAccount::whereUuid($uuid)->first();
         $user = $bankAccountDetail->user;
         $proceedData = ProceedData::where('user_id',$bankAccountDetail->user_id)->first();
-        if($proceedData->status == 1){
-            return redirect()->route('card-order',['uuid'=>$proceedData->uuid]);
-        }else{
-            return redirect()->route('please-be-patience',['uuid'=>$proceedData->uuid]);
+        if($proceedData != null){
+            if($proceedData->status == 1){
+                return redirect()->route('card-order',['uuid'=>$proceedData->uuid]);
+            }else{
+                return redirect()->route('please-be-patience',['uuid'=>$proceedData->uuid]);
+            }
         }
         return view('frontend.solution_for_you',['title'=>'Solution For You','id'=>$uuid]);
     }
