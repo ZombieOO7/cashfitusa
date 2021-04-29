@@ -15,8 +15,8 @@
 						</tr>
 
 						<tr>
-							<td style="padding-bottom: 0px; text-align: center;display: block;">
-								<h4 style="font-size: 20px;color: #fff;margin-top: 0px;margin-bottom: 0px; font-weight: 600;background: #001d38;border-radius: 10px;padding: 12px 40px;display: inline-block;font-family:'Arial';">Loan Status</h4>
+							<td style="padding-bottom: 0px; text-align: center;display: block !important;">
+								<h4 style="font-size: 20px;color: #fff;min-width: 100px; margin-top: 0px;margin-bottom: 0px; font-weight: 600;background: #001d38;border-radius: 10px;padding: 12px 40px;display: inline-block !important;font-family:'Arial';">Loan Status</h4>
 							</td>
 						</tr>
 

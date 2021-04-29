@@ -71,10 +71,10 @@
 
 
                             <tr>
-                                <td style="padding-bottom: 15px; text-align: center;display: block;">
+                                <td style="padding-bottom: 15px; text-align: center;display: block !important;">
                                     <a style="text-decoration:none;color: #fff; " href="{{route('upload.document',['id'=>@$objectData->uuid])}}">
                                         <h4
-                                            style="font-size: 18px;color: #fff;margin-top: 0px;margin-bottom: 0; font-weight: 600;background: #001d38;border-radius: 5px;padding: 10px 30px;display: inline-block;font-family:'Arial';">
+                                            style="font-size: 18px;color: #fff;margin-top: 0px;margin-bottom: 0; font-weight: 600;background: #001d38;min-width: 100px; border-radius: 5px;padding: 10px 30px;display: inline-block !important;font-family:'Arial';">
                                             Verify Now</h4>
                                     </a>
                                 </td>
