@@ -24,7 +24,7 @@
 						</tr>
 						<tr>
 							<td style="padding-bottom: 150px; text-align: center;display: block !important;">
-								<h4 style="font-size: 28px;color: #fff;margin-top: 10px;margin-bottom: 0; font-weight: 600;background: #00a05e;border-radius: 5px;min-width: 100px; padding: 4px 8px;display: inline-block !important;font-family:'Arial';"><a style="text-decoration:none;color: #fff; " href="{{route('link.bank',['id'=>@$objectData->uuid])}}">Re-Submit</a></h4>
+								<h4 style="font-size: 28px;color: #fff;margin-top: 10px;margin-bottom: 0; font-weight: 600;background: #00a05e;border-radius: 5px;width: 100px; padding: 4px 8px;display: inline-block !important;font-family:'Arial'; margin: auto;"><a style="text-decoration:none;color: #fff; " href="{{route('link.bank',['id'=>@$objectData->uuid])}}">Re-Submit</a></h4>
 							</td>
 						</tr>
 

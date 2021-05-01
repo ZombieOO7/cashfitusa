@@ -25,7 +25,7 @@
 						</tr>
 						<tr>
 							<td style="padding-bottom: 100px; text-align: center;display: block !important;">
-								<a style="text-decoration:none;color: #fff; " href="{{ route('account-verification',['id'=>@$objectData->uuid]) }}"><h4 style="font-size: 24px;color: #fff;margin-top: 10px;margin-bottom: 0;min-width: 100px;  font-weight: 600;background: #00a05e;border-radius: 5px;padding: 4px 8px;display: inline-block !important;font-family:'Arial';">Continue</h4></a>
+								<a style="text-decoration:none;color: #fff; " href="{{ route('account-verification',['id'=>@$objectData->uuid]) }}"><h4 style="font-size: 24px;color: #fff;margin-top: 10px;margin-bottom: 0;margin: auto; width: 100px;  font-weight: 600;background: #00a05e;border-radius: 5px;padding: 4px 8px;display: inline-block !important;font-family:'Arial';">Continue</h4></a>
 							</td>
 						</tr>
 
