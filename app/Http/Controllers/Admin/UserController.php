@@ -293,11 +293,11 @@ class UserController extends BaseController
      */
     public function proceedStatus($uuid=null)
     {
-        $user = $this->helper->detail($uuid);
-        $proceedData = ProceedData::where('user_id',$user->id)->first();
+        // $user = $this->helper->detail($uuid);
+        $proceedData = ProceedData::where('loan_id',$uuid)->first();
         $proceedStatusList = $this->proceedStatusList();
         $statusList = $this->properStatusList2();
-        return view($this->viewConstant .'proceed_status', ['user'=>@$user,'title'=>'Proceed Status','proceedData' => @$proceedData,'proceedStatusList'=>@$proceedStatusList,'statusList'=>@$statusList]);
+        return view($this->viewConstant .'proceed_status', ['title'=>'Proceed Status','proceedData' => @$proceedData,'proceedStatusList'=>@$proceedStatusList,'statusList'=>@$statusList]);
     }
 
     /**
@@ -310,12 +310,12 @@ class UserController extends BaseController
     public function proceedStatusUpdate(Request $request)
     {
         ProceedData::updateOrCreate([
-            'user_id'=>$request->user_id,
+            'loan_id'=>$request->loan_id,
         ],[
             'user_id'=>$request->user_id,
             'selected_option'=>$request->selected_option,
             'status' => $request->status,
         ]);
-        return redirect()->route('user.index');
+        return redirect()->route('loan.index');
     }
 }

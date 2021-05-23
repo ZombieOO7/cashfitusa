@@ -223,7 +223,7 @@
                                                     <div class="mb-35">
                                                         <ul class="nav nav-pills nav-fill" role="tablist">
                                                             <li class="nav-item">
-                                                                <a class="nav-link active" data-toggle="modal" data-target="#exampleModal">Transfer</a>
+                                                                <a class="nav-link active" data-toggle="modal" data-target="#exampleModal1">Transfer</a>
                                                             </li>
                                                             <li class="nav-item">
                                                                 <a class="nav-link" data-toggle="modal" data-target="#exampleModal">Withdraw</a>

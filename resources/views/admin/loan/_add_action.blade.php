@@ -7,6 +7,9 @@
 <a href="{{route('account.index',['uuid'=>@$user->uuid])}}" title="Link Bank Detail">
     <i class="flaticon-interface-9"></i>
 </a>
+<a class="edit" href="{{route('loan.proceed-status',['uuid'=>@$user->id])}}" id="{{@$user->id}}" data-table_name="user_table" title="Proceed Status">
+    <i class="fa fa-bullseye"></i>
+</a>
 <a class="" href="{{route('loan.transaction',['uuid'=>@$user->uuid])}}" id="{{@$user->uuid}}" data-table_name="loan_table" title="Transactions">
     <i class="flaticon-list-3"></i>
 </a>

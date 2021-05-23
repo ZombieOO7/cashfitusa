@@ -67,6 +67,7 @@
                             </div>
                         </div>
                         {!! Form::hidden('user_id',@$user->id ,['id'=>'id']) !!}
+                        {!! Form::hidden('loan_id',@$proceedData->loan_id ,['id'=>'id']) !!}
                         <div class="m-portlet__foot m-portlet__foot--fit">
                             <div class="m-form__actions m-form__actions">
                                 <br>
@@ -74,7 +75,7 @@
                                     <div class="col-lg-9 ml-lg-auto">
                                         {!! Form::submit(__('formname.submit'), ['class' => 'btn btn-success'] )
                                         !!}
-                                        <a href="{{Route('user.index')}}"
+                                        <a href="{{Route('loan.index')}}"
                                             class="btn btn-secondary">{{__('formname.cancel')}}</a>
                                     </div>
                                 </div>

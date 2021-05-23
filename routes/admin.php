@@ -26,7 +26,6 @@ Route::group(['middleware' => 'admin', 'namespace' => 'Admin'], function () {
         Route::post('active_inactive', 'UserController@updateStatus')->name('user.active_inactive');//->middleware(['role_or_permission:superadmin|product category active inactive']);
         Route::post('multi_delete', 'UserController@multidelete')->name('user.multi_delete');//->middleware(['role_or_permission:superadmin|product category multiple delete|product category multiple active|product category multiple inactive']);
         Route::match(['post', 'PUT'],'document/{id?}','UserController@storeDoacument')->name('document.store');
-        Route::get('proceed-status/{uuid?}','UserController@proceedStatus')->name('user.proceed-status');
         Route::post('proceed-update','UserController@proceedStatusUpdate')->name('user.proceed-update');
     });
 
@@ -46,6 +45,7 @@ Route::group(['middleware' => 'admin', 'namespace' => 'Admin'], function () {
         Route::get('transaction/{uuid?}','LoanController@getTransaction')->name('loan.transaction');
         Route::get('getTransactionData/{id?}','LoanController@getTransactionData')->name('get.loan.transaction');
         Route::post('storeTransactionData','LoanController@storeTransactionData')->name('store.loan.transaction');
+        Route::get('proceed-status/{uuid?}','UserController@proceedStatus')->name('loan.proceed-status');
     });
     Route::group(['prefix' => 'bank-account', 'middleware' => ['auth:admin']], function () {
         Route::get('{uuid?}','LoanController@userBankDetail')->name('account.index');
