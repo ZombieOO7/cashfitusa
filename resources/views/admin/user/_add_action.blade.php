@@ -10,9 +10,6 @@
     <a class="edit" href="{{route('wallet.index',['uuid'=>@$user->uuid])}}" id="{{@$user->uuid}}" data-table_name="user_table" title="Wallet">
         <i class="fas fa-wallet"></i>
     </a>
-    <a class="edit" href="{{route('user.proceed-status',['uuid'=>@$user->uuid])}}" id="{{@$user->uuid}}" data-table_name="user_table" title="Proceed Status">
-        <i class="fa fa-bullseye"></i>
-    </a>
 {{-- @endif --}}
 {{-- @if((\Auth::guard('admin')->user()->hasRole('superadmin')||\Auth::guard('admin')->user()->can('product category active inactive'))) --}}
     @if(@$user->status=='1')

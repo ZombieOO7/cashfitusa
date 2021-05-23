@@ -1,4 +1,4 @@
-<link rel="shortcut icon" type="image/x-icon" href="{{asset('frontend/img/favicon.png')}}">
+<link rel="shortcut icon" type="image/x-icon" href="{{asset('images/favicon.ico')}}">
 <!-- Place favicon.ico in the root directory -->
 <link rel="stylesheet" href="{{asset('frontend/css/bootstrap.min.css')}}">
 <link rel="stylesheet" href="{{asset('frontend/css/owl.carousel.min.css')}}">

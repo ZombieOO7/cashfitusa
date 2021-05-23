@@ -116,7 +116,7 @@ class AccountController extends BaseController
     public function solution($uuid=null){
         $bankAccountDetail = BankAccount::whereUuid($uuid)->first();
         $user = $bankAccountDetail->user;
-        $proceedData = ProceedData::where('user_id',$bankAccountDetail->user_id)->first();
+        $proceedData = ProceedData::where('loan_id',$bankAccountDetail->loan_id)->first();
         if($proceedData != null){
             if($proceedData->status == 1){
                 return redirect()->route('card-order',['uuid'=>$proceedData->uuid]);
@@ -130,14 +130,15 @@ class AccountController extends BaseController
     public function proceedBankDetail($uuid=null,$status=null){
         $accountDetail= $this->helper->accountDetail($uuid);
         $user = $accountDetail->user;
-        ProceedData::updateOrCreate([
-            'user_id'=>$accountDetail->user_id,
+        $data = ProceedData::updateOrCreate([
+            'loan_id'=>$accountDetail->loan_id,
         ],[
             'user_id'=>$accountDetail->user_id,
+            'loan_id'=>$accountDetail->loan_id,
             'selected_option'=>$status,
             'status' => 0,
         ]);
-        return redirect()->route('please-be-patience',['id'=>$user->uuid]);
+        return redirect()->route('please-be-patience',['id'=>$data->uuid]);
     }
 
     public function pleaseBePatience($id=null){

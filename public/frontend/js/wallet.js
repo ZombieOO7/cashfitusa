@@ -38,13 +38,13 @@ $("#m_form_1").validate({
     submitHandler: function (form) {
         if (!this.beenSubmitted) {
             $('#exampleModal').modal('hide');
-            setTimeout(function(){
-                $('#exampleModal1').modal('show');
-            },3000);
-            setTimeout(function(){    
+            // setTimeout(function(){
+            //     $('#exampleModal1').modal('show');
+            // },3000);
+            // setTimeout(function(){    
                 this.beenSubmitted = true;
                 form.submit();
-            },5000);
+            // },5000);
         }
     },
 });

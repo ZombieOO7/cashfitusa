@@ -16,7 +16,7 @@ class ProceedData extends BaseModel
      * @var array
      */
     protected $fillable = [
-        'uuid','user_id','selected_option','status'
+        'uuid','user_id','selected_option','status','loan_id'
     ];
 
     /*
