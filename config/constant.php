@@ -223,6 +223,14 @@ return [
         0 => 'Pending',
         1 => 'Approve',
         2 => 'Reject',
-    ]
+    ],
+    'securityQuestion' =>[
+        '' => 'Security Question',
+        1 => 'What was the house number and street name you lived in as a child?',
+        2 => 'What were the last four digits of your childhood telephone number?',
+        3 => 'What primary school did you attend?',
+        4 => 'In what town or city was your first full time job?',
+        5 => 'In what town or city did you meet your spouse or partner?',
+    ],
 
 ];

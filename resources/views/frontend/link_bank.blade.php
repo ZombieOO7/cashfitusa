@@ -105,8 +105,7 @@
                             <div class="form-group">
                                 <label>Security Questions</label>
                                 {!!
-                                    Form::text('security_question',@$account->security_question,['class'=>'form-control',
-                                    'maxlength'=>config('constant.name_length'),'placeholder'=>'Security Question'])
+                                    Form::select('security_question',@config('constant.securityQuestion'),@$account->security_question,['class'=>'form-control'])
                                 !!}
                                 @if ($errors->has('security_question'))
                                 <p style="color:red;">
